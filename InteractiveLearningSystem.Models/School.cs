@@ -48,6 +48,12 @@
         [ForeignKey("ModeratorId")]
         public virtual User Moderator { get; set; }
 
+        [Required]
+        public string ConsultantId { get; set; }
+
+        [ForeignKey("ConsultantId")]
+        public virtual User Consultant { get; set; }
+
         public virtual ICollection<Group> Groups { get { return this.groups; } set { this.groups = value; }  }
     }
 }
