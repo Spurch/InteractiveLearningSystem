@@ -9,9 +9,25 @@
     {
 
         public InteractiveLearningSystemDbContext()
-            :base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public IDbSet<Answer> Answers { get; set; }
+
+        public IDbSet<Group> Groups { get; set; }
+
+        public IDbSet<Image> Images { get; set; }
+
+        public IDbSet<Log> Logs { get; set; }
+
+        public IDbSet<Message> Messages { get; set; }
+
+        public IDbSet<School> Schools { get; set; }
+
+        public IDbSet<Task> Tasks { get; set; }
+
+        public IDbSet<TaskStat> TaskStats { get; set; }
 
         public static InteractiveLearningSystemDbContext Create()
         {
