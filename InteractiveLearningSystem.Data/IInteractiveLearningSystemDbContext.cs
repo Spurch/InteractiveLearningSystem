@@ -17,7 +17,7 @@
 
         IDbSet<Answer> Answers { get; set; }
 
-        IDbSet<Task> Tasks { get; set; }
+        IDbSet<Problem> Tasks { get; set; }
 
         IDbSet<Image> Images { get; set; }
 
@@ -25,7 +25,7 @@
 
         IDbSet<Message> Messages { get; set; }
 
-        IDbSet<TaskStat> TaskStats { get; set; }
+        IDbSet<ProblemStat> TaskStats { get; set; }
 
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 

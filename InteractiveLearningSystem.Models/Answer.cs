@@ -21,11 +21,11 @@
 
         public string Notes { get; set; }
 
-        [Required]
+        //[Required]
         public int QuestionId { get; set; }
 
         [ForeignKey("QuestionId")]
-        public virtual Task Question { get; set; }
+        public virtual Problem Question { get; set; }
 
         public ICollection<Image> Images { get { return this.images; } set { this.images = value; } }
     }

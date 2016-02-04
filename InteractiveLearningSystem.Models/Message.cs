@@ -19,13 +19,11 @@
 
         public string Notes { get; set; }
 
-        [Required]
         public string SenderId { get; set; }
 
         [ForeignKey("SenderId")]
         public virtual User Sender { get; set; }
 
-        [Required]
         public string ReceiverId { get; set; }
 
         [ForeignKey("ReceiverId")]

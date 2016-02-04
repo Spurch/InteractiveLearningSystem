@@ -4,7 +4,7 @@
     using System.Data.Entity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using InteractiveLearningSystem.Models;
-
+    using System.Data.Entity.ModelConfiguration.Conventions;
     public class InteractiveLearningSystemDbContext : IdentityDbContext<User>, IInteractiveLearningSystemDbContext
     {
 
@@ -25,13 +25,21 @@
 
         public IDbSet<School> Schools { get; set; }
 
-        public IDbSet<Task> Tasks { get; set; }
+        public IDbSet<Problem> Tasks { get; set; }
 
-        public IDbSet<TaskStat> TaskStats { get; set; }
+        public IDbSet<ProblemStat> TaskStats { get; set; }
 
         public static InteractiveLearningSystemDbContext Create()
         {
             return new InteractiveLearningSystemDbContext();
         }
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+
+        //    modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
+        //}
     }
 }

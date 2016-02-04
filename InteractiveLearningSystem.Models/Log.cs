@@ -15,7 +15,7 @@
 
         public string Action { get; set; }
 
-        [Required]
+        //[Required]
         public string AuthorId { get; set; }
 
         [ForeignKey("AuthorId")]

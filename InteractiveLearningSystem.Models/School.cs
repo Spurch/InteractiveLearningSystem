@@ -15,13 +15,13 @@
 
         public int Id { get; set; }
 
-        [Required]
+        //[Required]
         public string Name { get; set; }
 
-        [Required]
+        //[Required]
         public string Address { get; set; }
 
-        [Required]
+        //[Required]
         public string Affinity { get; set; }
 
         public string Mobile { get; set; }
@@ -42,13 +42,11 @@
 
         public string Notes { get; set; }
 
-        [Required]
         public string ModeratorId { get; set; }
 
         [ForeignKey("ModeratorId")]
         public virtual User Moderator { get; set; }
 
-        [Required]
         public string ConsultantId { get; set; }
 
         [ForeignKey("ConsultantId")]

@@ -4,15 +4,17 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Task
+    public class Problem
     {
         private ICollection<Image> images;
         private ICollection<Answer> answers;
+        private ICollection<ProblemStat> problemStats;
 
-        public Task()
+        public Problem()
         {
             this.images = new HashSet<Image>();
             this.answers = new HashSet<Answer>();
+            this.problemStats = new HashSet<ProblemStat>();
         }
 
         public int Id { get; set; }
@@ -27,7 +29,7 @@
 
         public int Difficulty { get; set; }
 
-        [Required]
+        //[Required]
         public string AuthorId { get; set; }
 
         [ForeignKey("AuthorId")]
@@ -36,5 +38,7 @@
         public virtual ICollection<Image> Images { get { return this.images; } set { this.images = value; } }
 
         public virtual ICollection<Answer> Answers { get { return this.answers; } set { this.answers = value; } }
+
+        public virtual ICollection<ProblemStat> ProblemStats { get { return this.problemStats; } set { this.problemStats = value; } }
     }
 }

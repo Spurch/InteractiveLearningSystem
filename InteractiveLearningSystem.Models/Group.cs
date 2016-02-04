@@ -28,11 +28,17 @@
 
         public string AvatarUrl { get; set; }
 
-        [Required]
+        //[Required]
         public string TeacherId { get; set;}
 
         [ForeignKey("TeacherId")]
         public virtual User Teacher { get; set; }
+
+        //[Required]
+        public int SchoolId { get; set; }
+
+        [ForeignKey("SchoolId")]
+        public virtual School School { get; set; }
 
         public virtual ICollection<User> Students { get { return this.students; } set { this.students = value; } }
     }
