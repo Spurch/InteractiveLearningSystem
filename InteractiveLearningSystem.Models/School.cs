@@ -34,6 +34,12 @@
 
         public string AvatarUrl { get; set; }
 
+        public double Points { get; set; }
+
+        public double Experience { get; set; }
+
+        public int Level { get; set; }
+
         public string Notes { get; set; }
 
         [Required]
