@@ -14,7 +14,7 @@
 
         public DateTime DateCreated { get; set; }
 
-        //[Required]
+        [Required]
         public string AuthorId { get; set; }
 
         [ForeignKey("AuthorId")]

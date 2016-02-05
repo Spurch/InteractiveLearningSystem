@@ -12,13 +12,13 @@
 
         public int Fail { get; set; }
 
-        //[Required]
+        [Required]
         public string StudentId { get; set; }
 
         [ForeignKey("StudentId")]
         public virtual User Student { get; set; }
 
-        //[Required]
+        [Required]
         public int ProblemId { get; set; }
 
         [ForeignKey("ProblemId")]

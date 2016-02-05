@@ -21,7 +21,7 @@
 
         public string Notes { get; set; }
 
-        //[Required]
+        [Required]
         public int QuestionId { get; set; }
 
         [ForeignKey("QuestionId")]

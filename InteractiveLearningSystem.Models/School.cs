@@ -42,11 +42,13 @@
 
         public string Notes { get; set; }
 
+        [Required]
         public string ModeratorId { get; set; }
 
         [ForeignKey("ModeratorId")]
         public virtual User Moderator { get; set; }
 
+        [Required]
         public string ConsultantId { get; set; }
 
         [ForeignKey("ConsultantId")]
