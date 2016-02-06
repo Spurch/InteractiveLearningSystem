@@ -89,6 +89,14 @@
                     {
                         return RedirectToAction("Index", "Moderator", new { area = "Moderator" });
                     }
+                    else if (roles.Contains("Adviser"))
+                    {
+                        return RedirectToAction("Index", "Adviser", new { area = "Adviser" });
+                    }
+                    else if (roles.Contains("Teacher"))
+                    {
+                        return RedirectToAction("Index", "Teacher", new { area = "Teacher" });
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
