@@ -19,14 +19,23 @@
 
         public int Id { get; set; }
 
+        [MinLength(10)]
+        [MaxLength(100)]
         public string Name { get; set; }
-
+        
+        [MinLength(50)]
+        [MaxLength(1000)]
         public string Description { get; set; }
 
+        [MinLength(50)]
+        [MaxLength(1000)]
         public string Notes { get; set; }
 
         public double Experience { get; set;}
+        
+        public bool HasContext { get; set; }
 
+        [Range(1, 10)]
         public int Difficulty { get; set; }
 
         [Required]

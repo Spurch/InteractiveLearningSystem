@@ -27,9 +27,13 @@
         }
 
         //[Required]
+        [MinLength(3)]
+        [MaxLength(50)]
         public string FirstName { get; set; }
 
         //[Required]
+        [MinLength(3)]
+        [MaxLength(50)]
         public string LastName { get; set; }
 
         public string FaceBookUrl { get; set; }
@@ -38,12 +42,15 @@
 
         public string AvatarUrl { get; set; }
 
+        [MinLength(50)]
+        [MaxLength(1000)]
         public string Notes { get; set; }
 
         public double Points { get; set; }
 
         public double Experience { get; set; }
 
+        [Range(0,100)]
         public int Level { get; set; }
 
         public int SchoolId { get; set; }

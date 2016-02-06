@@ -10,6 +10,8 @@
 
         public string ImageUrl { get; set; }
 
+        [MinLength(10)]
+        [MaxLength(100)]
         public string Title { get; set; }
 
         public DateTime DateCreated { get; set; }

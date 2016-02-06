@@ -20,10 +20,15 @@
         
         public double Experience { get; set; }
 
+        [Range(0,100)]
         public int Level { get; set; }
 
+        [MinLength(10)]
+        [MaxLength(100)]
         public string Name { get; set; }
 
+        [MinLength(10)]
+        [MaxLength(1000)]
         public string Notes { get; set; }
 
         public string AvatarUrl { get; set; }

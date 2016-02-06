@@ -16,9 +16,13 @@
         public int Id { get; set; }
 
         //[Required]
+        [MinLength(10)]
+        [MaxLength(100)]
         public string Name { get; set; }
 
         //[Required]
+        [MinLength(10)]
+        [MaxLength(100)]
         public string Address { get; set; }
 
         //[Required]
@@ -38,8 +42,11 @@
 
         public double Experience { get; set; }
 
+        [Range(0,100)]
         public int Level { get; set; }
 
+        [MinLength(50)]
+        [MaxLength(1000)]
         public string Notes { get; set; }
 
         [Required]

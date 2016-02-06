@@ -9,14 +9,20 @@
 
         public int Id { get; set; }
 
+        [MinLength(10)]
+        [MaxLength(100)]
         public string Title { get; set; }
 
+        [MinLength(10)]
+        [MaxLength(1000)]
         public string Content { get; set; }
 
         public DateTime DateCreated { get; set; }
 
         public string Flag { get; set; }
 
+        [MinLength(10)]
+        [MaxLength(100)]
         public string Notes { get; set; }
 
         [Required]

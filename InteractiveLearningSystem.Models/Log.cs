@@ -11,6 +11,8 @@
 
         public DateTime DateCreated { get; set; }
 
+        [MinLength(10)]
+        [MaxLength(1000)]
         public string Description { get; set; }
 
         public string Action { get; set; }

@@ -15,11 +15,21 @@
 
         public int Id { get; set; }
 
+        [MinLength(10)]
+        [MaxLength(100)]
         public string Name { get; set; }
 
+        [MinLength(50)]
+        [MaxLength(1000)]
         public string Content { get; set; }
 
+        [MinLength(50)]
+        [MaxLength(1000)]
         public string Notes { get; set; }
+
+        [MinLength(10)]
+        [MaxLength(100)]
+        public string Context { get; set; }
 
         [Required]
         public int QuestionId { get; set; }
