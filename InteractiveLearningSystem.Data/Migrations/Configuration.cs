@@ -25,57 +25,12 @@ namespace InteractiveLearningSystem.Data.Migrations
             }
 
             string[] Roles = { "Administrator", "Moderator", "Adviser", "Teacher", "Student" };
-            //context.Configuration.LazyLoadingEnabled = true;
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            context.Configuration.LazyLoadingEnabled = true;
 
-            foreach (var role in Roles)
-            {
-                if (!roleManager.RoleExists(role))
-                {
-                    roleManager.Create(new IdentityRole(role));
-                }
-            }
+            RolesSeed.SeedDbRoles(context, Roles);
 
-            var userManager = new UserManager<User>(new UserStore<User>(context));
-
-            var admin = new User()
-            {
-                UserName = "admin@site.com",
-                PasswordHash = new PasswordHasher().HashPassword("admin"),
-                FirstName = "Admin",
-                LastName = "Adminski",
-                Email = "admin@site.com",
-                AvatarUrl = "http://cdn.meme.am/instances/56124731.jpg"
-            };
-
-            if (userManager.FindByName("admin@site.com") == null)
-            {
-                context.Users.Add(admin);
-                userManager.Create(admin);
-                context.SaveChanges();
-
-                userManager.AddToRole(admin.Id, "Administrator");
-            }
-
-            var moderator = new User()
-            {
-                UserName = "moderator@site.com",
-                PasswordHash = new PasswordHasher().HashPassword("moderator"),
-                FirstName = "Moderator",
-                LastName = "Moderatorski",
-                Email = "moderator@site.com",
-                AvatarUrl = "http://cdn.meme.am/instances/56124731.jpg"
-            };
-
-            if (userManager.FindByName("moderator@site.com") == null)
-            {
-                context.Users.Add(moderator);
-                userManager.Create(moderator);
-                context.SaveChanges();
-
-                userManager.AddToRole(moderator.Id, "Moderator");
-            }
+            UsersSeed.SeedDbUsers(context);  
         }
     }
 }
