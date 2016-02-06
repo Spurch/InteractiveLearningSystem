@@ -4,23 +4,32 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
     public class User : IdentityUser
     {
-        private ICollection<Message> messages;
         private ICollection<Log> logs;
-        private ICollection<Group> groups;
         private ICollection<Image> images;
         private ICollection<Problem> problems;
         private ICollection<ProblemStat> problemStats;
 
+        private ICollection<Group> groups;
+        private ICollection<School> moderators;
+        private ICollection<School> consultants;
+        private ICollection<Message> sender;
+        private ICollection<Message> receiver;
+
         public User()
         {
-            this.messages = new HashSet<Message>();
-            this.logs = new HashSet<Log>();
+            this.moderators = new HashSet<School>();
+            this.consultants = new HashSet<School>();
             this.groups = new HashSet<Group>();
+
+            this.sender = new HashSet<Message>();
+            this.receiver = new HashSet<Message>();
+            this.logs = new HashSet<Log>();
             this.images = new HashSet<Image>();
             this.problems = new HashSet<Problem>();
             this.problemStats = new HashSet<ProblemStat>();
@@ -42,7 +51,7 @@
 
         public string AvatarUrl { get; set; }
 
-        [MinLength(50)]
+        [MinLength(10)]
         [MaxLength(1000)]
         public string Notes { get; set; }
 
@@ -53,12 +62,18 @@
         [Range(0,100)]
         public int Level { get; set; }
 
-        public int SchoolId { get; set; }
+        [ForeignKey("Group")]
+        public int? GroupId { get; set; }
 
-        public virtual ICollection<School> School { get; set; }
-        public virtual ICollection<Message> Messages { get { return this.messages; } set { this.messages = value; } }
+        public virtual Group Group { get; set; }
+
+        public ICollection<School> Moderator { get { return this.moderators; } set { this.moderators = value; } }
+        public ICollection<School> Consultant { get { return this.consultants; } set { this.consultants = value; } }
+        public ICollection<Group> Groups { get { return this.groups; } set { this.groups = value; } }
+        public virtual ICollection<Message> Sender { get { return this.sender; } set { this.sender = value; } }
+        public virtual ICollection<Message> Receiver { get { return this.receiver; } set { this.receiver = value; } }
+
         public virtual ICollection<Log> Logs { get { return this.logs; } set { this.logs = value; } }
-        public virtual ICollection<Group> Groups { get { return this.groups; } set { this.groups = value; } }
         public virtual ICollection<Image> Images { get { return this.images; } set { this.images = value; } }
         public virtual ICollection<Problem> Problems { get { return this.problems; } set { this.problems = value; } }
         public virtual ICollection<ProblemStat> ProblemStats { get { return this.problemStats; } set { this.problemStats = value; } }

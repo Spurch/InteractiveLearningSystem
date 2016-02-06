@@ -25,16 +25,14 @@
         [MaxLength(100)]
         public string Notes { get; set; }
 
-        [Required]
+        [ForeignKey("Sender")]
         public string SenderId { get; set; }
 
-        [ForeignKey("SenderId")]
         public virtual User Sender { get; set; }
 
-        [Required]
+        [ForeignKey("Receiver")]
         public string ReceiverId { get; set; }
 
-        [ForeignKey("ReceiverId")]
         public virtual User Receiver { get; set; }
     }
 }

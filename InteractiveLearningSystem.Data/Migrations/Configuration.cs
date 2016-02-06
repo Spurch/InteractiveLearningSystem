@@ -30,7 +30,24 @@ namespace InteractiveLearningSystem.Data.Migrations
 
             RolesSeed.SeedDbRoles(context, Roles);
 
-            UsersSeed.SeedDbUsers(context);  
+            UsersSeed.SeedDbUsers(context);
+
+            DbInitialDataSeed.SeedDbSchools(context);
+
+            DbInitialDataSeed.SeedDbGroups(context, UsersSeed.Teachers, DbInitialDataSeed.Schools, UsersSeed.Students);
+
+            for (int i = 0; i < UsersSeed.Moderators.Count; i++)
+            {
+                UsersSeed.Moderators[i].Moderator.Add(DbInitialDataSeed.Schools[i]);
+            }
+            context.SaveChanges();
+
+            for (int i = 0; i < UsersSeed.Advisers.Count; i++)
+            {
+                UsersSeed.Advisers[i].Consultant.Add(DbInitialDataSeed.Schools[i]);
+            }
+            context.SaveChanges();
+
         }
     }
 }

@@ -23,7 +23,7 @@
         [Range(0,100)]
         public int Level { get; set; }
 
-        [MinLength(10)]
+        [MinLength(1)]
         [MaxLength(100)]
         public string Name { get; set; }
 
@@ -33,16 +33,14 @@
 
         public string AvatarUrl { get; set; }
 
-        [Required]
+        [ForeignKey("Teacher")]
         public string TeacherId { get; set;}
 
-        [ForeignKey("TeacherId")]
         public virtual User Teacher { get; set; }
 
-        [Required]
-        public int SchoolId { get; set; }
-
-        [ForeignKey("SchoolId")]
+        [ForeignKey("School")]
+        public int? SchoolId { get; set; }
+   
         public virtual School School { get; set; }
 
         public virtual ICollection<User> Students { get { return this.students; } set { this.students = value; } }

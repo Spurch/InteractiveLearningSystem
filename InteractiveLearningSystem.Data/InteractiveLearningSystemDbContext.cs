@@ -37,6 +37,14 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<School>().HasOptional(b => b.Consultant).WithMany(a => a.Consultant).HasForeignKey(b => b.ConsultantId);
+            modelBuilder.Entity<School>().HasOptional(b => b.Moderator).WithMany(a => a.Moderator).HasForeignKey(b => b.ModeratorId);
+
+            modelBuilder.Entity<Message>().HasOptional(b => b.Sender).WithMany(a => a.Sender).HasForeignKey(b => b.SenderId);
+            modelBuilder.Entity<Message>().HasOptional(b => b.Receiver).WithMany(a => a.Receiver).HasForeignKey(b => b.ReceiverId);
+
+            modelBuilder.Entity<Group>().HasOptional(b => b.Teacher).WithMany(a => a.Groups).HasForeignKey(b => b.TeacherId);
+            modelBuilder.Entity<User>().HasOptional(b => b.Group).WithMany(a => a.Students).HasForeignKey(b => b.GroupId);
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 

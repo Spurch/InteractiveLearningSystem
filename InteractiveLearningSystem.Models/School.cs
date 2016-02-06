@@ -16,12 +16,12 @@
         public int Id { get; set; }
 
         //[Required]
-        [MinLength(10)]
+        [MinLength(1)]
         [MaxLength(100)]
         public string Name { get; set; }
 
         //[Required]
-        [MinLength(10)]
+        [MinLength(1)]
         [MaxLength(100)]
         public string Address { get; set; }
 
@@ -49,16 +49,14 @@
         [MaxLength(1000)]
         public string Notes { get; set; }
 
-        [Required]
+        [ForeignKey("Moderator")]
         public string ModeratorId { get; set; }
 
-        [ForeignKey("ModeratorId")]
         public virtual User Moderator { get; set; }
 
-        [Required]
+        [ForeignKey("Consultant")]
         public string ConsultantId { get; set; }
 
-        [ForeignKey("ConsultantId")]
         public virtual User Consultant { get; set; }
 
         public virtual ICollection<Group> Groups { get { return this.groups; } set { this.groups = value; }  }
