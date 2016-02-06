@@ -79,6 +79,16 @@
             switch (result)
             {
                 case SignInStatus.Success:
+                    var user = await UserManager.FindAsync(model.Email, model.Password);
+                    var roles = await UserManager.GetRolesAsync(user.Id);
+                    if (roles.Contains("Administrator"))
+                    {
+                        return RedirectToAction("Index", "Admin", new { area = "Admin" });
+                    }
+                    else if (roles.Contains("Moderator"))
+                    {
+                        return RedirectToAction("Index", "Moderator", new { area = "Moderator" });
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

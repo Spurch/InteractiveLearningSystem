@@ -57,6 +57,25 @@ namespace InteractiveLearningSystem.Data.Migrations
 
                 userManager.AddToRole(admin.Id, "Administrator");
             }
+
+            var moderator = new User()
+            {
+                UserName = "moderator@site.com",
+                PasswordHash = new PasswordHasher().HashPassword("moderator"),
+                FirstName = "Moderator",
+                LastName = "Moderatorski",
+                Email = "moderator@site.com",
+                AvatarUrl = "http://cdn.meme.am/instances/56124731.jpg"
+            };
+
+            if (userManager.FindByName("moderator@site.com") == null)
+            {
+                context.Users.Add(moderator);
+                userManager.Create(moderator);
+                context.SaveChanges();
+
+                userManager.AddToRole(moderator.Id, "Moderator");
+            }
         }
     }
 }
