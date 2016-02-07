@@ -6,3 +6,19 @@
 
 <h2>Admin index page!</h2>
 
+<table>
+	<tr>
+		<th>User name</th>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>E-mail</th>
+	</tr>
+	@foreach (var currUser in Model){
+		<tr>
+			<td>@currUser.UserName</td>
+			<td>@currUser.FirstName</td>
+			<td>@currUser.LastName</td>
+			<td>@currUser.Email</td>
+		</tr>
+	}
+</table>
