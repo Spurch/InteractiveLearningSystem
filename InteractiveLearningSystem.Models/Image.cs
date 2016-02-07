@@ -22,11 +22,6 @@
         [ForeignKey("AuthorId")]
         public virtual User Author { get; set; }
 
-        //public int ProblemId { get; set; }
-
-        //[ForeignKey("ProblemId")]
-        //public virtual Problem Problem { get; set; }
-
         public int AnswerId { get; set; }
 
         [ForeignKey("AnswerId")]

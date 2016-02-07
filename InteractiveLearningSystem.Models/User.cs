@@ -26,9 +26,9 @@
             this.moderators = new HashSet<School>();
             this.consultants = new HashSet<School>();
             this.groups = new HashSet<Group>();
-
             this.sender = new HashSet<Message>();
             this.receiver = new HashSet<Message>();
+
             this.logs = new HashSet<Log>();
             this.images = new HashSet<Image>();
             this.problems = new HashSet<Problem>();
@@ -70,8 +70,8 @@
         public ICollection<School> Moderator { get { return this.moderators; } set { this.moderators = value; } }
         public ICollection<School> Consultant { get { return this.consultants; } set { this.consultants = value; } }
         public ICollection<Group> Groups { get { return this.groups; } set { this.groups = value; } }
-        public virtual ICollection<Message> Sender { get { return this.sender; } set { this.sender = value; } }
-        public virtual ICollection<Message> Receiver { get { return this.receiver; } set { this.receiver = value; } }
+        public ICollection<Message> Sender { get { return this.sender; } set { this.sender = value; } }
+        public ICollection<Message> Receiver { get { return this.receiver; } set { this.receiver = value; } }
 
         public virtual ICollection<Log> Logs { get { return this.logs; } set { this.logs = value; } }
         public virtual ICollection<Image> Images { get { return this.images; } set { this.images = value; } }
