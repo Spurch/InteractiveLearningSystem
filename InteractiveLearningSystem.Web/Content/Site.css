@@ -67,3 +67,7 @@ h1, h2{
 	padding: 50px;
 	background-color: lightgreen;
 }
+
+.boxsizingBorder {
+ max-width: 100%;
+}

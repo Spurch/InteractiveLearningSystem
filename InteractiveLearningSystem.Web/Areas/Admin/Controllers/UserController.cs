@@ -23,9 +23,10 @@
         }
 
         // GET: Admin/User/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            var user = context.Users.Where(x => x.Id == id).First();
+            return View(user);
         }
 
         // GET: Admin/User/Create

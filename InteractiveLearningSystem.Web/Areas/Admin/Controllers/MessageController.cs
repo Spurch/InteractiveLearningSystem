@@ -17,7 +17,9 @@
         {
             lastStatus = status;
             var id = User.Identity.GetUserId();
-            var messages = context.Messages.Where(x => x.isViewed == status).ToList();
+            var messages = from n in context.Messages
+                           where n.Receiver.Id == id && n.isViewed == status
+                           select n;
             return View(messages);
         }
 

@@ -1,67 +1,57 @@
 ﻿@model InteractiveLearningSystem.Models.Message
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Details";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <div class="well">
-	<h2>Message Details</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Message Details</h2>
+		</div>
+		<div class="col-md-6">
+			<p class="pull-right">
+				<a href="@Url.Action("Index", "Message",new { status = ViewData["Status"]})" class="btn btn-primary">Back</a>
+				<a href="@Url.Action("Respond", "Index", new { id= Model.Id })" class="btn btn-success">Respond</a>
+			</p>
+		</div>
+	</div>
 </div>
 
 <div class="well">
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Sender.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sender.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateCreated)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateCreated)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Flag)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Flag)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
-
-    </dl>
+	<hr />
+	<div class="row">
+		<div class="col-md-4">
+			<label for="title">@Html.DisplayNameFor(model => model.Title)</label>
+			<p id="title">@Html.DisplayFor(model => model.Title)</p>
+		</div>
+		<div class="col-md-4">
+			<label for="sender">Sender</label>
+			<p id="sender">@Html.DisplayFor(model => model.Sender.FirstName)</p>
+		</div>
+		<div class="col-md-4">
+			<label for="date">@Html.DisplayNameFor(model => model.DateCreated)</label>
+			<p id="date">@Html.DisplayFor(model => model.DateCreated)</p>
+		</div>
+	</div>
+	<hr />
+	<div class="row col-md-12">
+		<div class="col-md-12">
+			<textarea id="content" class="boxsizingBorder" rows="10" style="resize:none; width:100%;">
+				@Html.DisplayFor(model => model.Content)
+			</textarea>
+		</div>
+	</div>
+	<hr />
+	<div class="row" style="display:block;">
+		<div class="col-md-4">
+			<label for="flags">@Html.DisplayNameFor(model => model.Flag)</label>
+			<p id="flags">@Html.DisplayFor(model => model.Flag)</p>
+		</div>
+		<div class="col-md-4">
+			<label for="flags">@Html.DisplayNameFor(model => model.Notes)</label>
+			<p id="flags">@Html.DisplayFor(model => model.Notes)</p>
+		</div>
+	</div>
 </div>
-<p>
-	<a href="@Url.Action("Index", "Message",new { status = ViewData["Status"]})" class="btn btn-primary">Back</a>
-	<a href="@Url.Action("Respond", "Index", new { id= Model.Id })" class="btn btn-success">Respond</a>
-</p>

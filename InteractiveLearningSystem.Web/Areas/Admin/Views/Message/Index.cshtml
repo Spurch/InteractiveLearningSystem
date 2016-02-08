@@ -28,7 +28,7 @@
 		{
 			<tr>
 				<td>
-					@Html.ActionLink(@Html.DisplayFor(modelItem => item.Sender.FirstName).ToString(), "Details", new { id = item.Id })
+					@Html.ActionLink(@Html.DisplayFor(modelItem => item.Sender.FirstName).ToString(), "Details", "User" , new { id = item.SenderId }, "")
 				</td>
 				<td>
 					@Html.ActionLink(@Html.DisplayFor(modelItem => item.Title).ToString(), "Details", new { id = item.Id })
