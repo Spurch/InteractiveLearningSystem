@@ -23,6 +23,47 @@ textarea {
     max-width: 280px;
 }
 
-.test{
-	float:left;
+fieldset.recent-events {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
+legend.recent-legend {
+    font-size: 12px !important;
+    font-weight: bold !important;
+    text-align: left !important;
+	width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+
+}
+
+.login-body{
+	padding: 0;
+	margin: 0;
+	background-color: #72c5f7;
+}
+
+h1, h2{
+	font-family: 'Comic Sans MS';
+}
+
+.login{
+	font-family: 'Comic Sans MS';
+	background-color: palevioletred;
+	max-width: 50%;
+	max-height: 50%;
+	align-items: center;
+}
+
+#loginWrapper{
+	background-color: lightgreen;
+}
+
+#loginForm{
+	padding: 50px;
+	background-color: lightgreen;
 }

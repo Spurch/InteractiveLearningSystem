@@ -1,0 +1,48 @@
+﻿@model IEnumerable<InteractiveLearningSystem.Models.Message>
+
+@{
+	ViewBag.Title = "Messages";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="well text-center">
+	<h2>Messages</h2>
+</div>
+
+<div class="well">
+	<table class="table table-responsive">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Sender)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Title)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DateCreated)
+			</th>
+			<th class="pull-right">Action</th>
+		</tr>
+
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.ActionLink(@Html.DisplayFor(modelItem => item.Sender.FirstName).ToString(), "Details", new { id = item.Id })
+				</td>
+				<td>
+					@Html.ActionLink(@Html.DisplayFor(modelItem => item.Title).ToString(), "Details", new { id = item.Id })
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DateCreated)
+				</td>
+				<td class="pull-right">
+					<a href="@Url.Action("Respond", "Index", new { id=item.Id })" class="btn btn-success">Respond</a>
+					<a href="@Url.Action("Delete", "Index", new { id=item.Id })" class="btn btn-danger">Delete</a>
+				</td>
+			</tr>
+		}
+
+	</table>
+</div>
+

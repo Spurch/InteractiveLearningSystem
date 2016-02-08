@@ -1,0 +1,67 @@
+﻿@model InteractiveLearningSystem.Models.Message
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="well">
+	<h2>Message Details</h2>
+</div>
+
+<div class="well">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sender.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sender.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flag)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+	<a href="@Url.Action("Index", "Message",new { status = ViewData["Status"]})" class="btn btn-primary">Back</a>
+	<a href="@Url.Action("Respond", "Index", new { id= Model.Id })" class="btn btn-success">Respond</a>
+</p>

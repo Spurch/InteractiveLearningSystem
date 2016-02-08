@@ -1,7 +1,5 @@
 namespace InteractiveLearningSystem.Data.Migrations
 {
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
     using System;
     using System.Data.Entity;
@@ -24,11 +22,9 @@ namespace InteractiveLearningSystem.Data.Migrations
                 return;
             }
 
-            string[] Roles = { "Administrator", "Moderator", "Adviser", "Teacher", "Student" };
-
             context.Configuration.LazyLoadingEnabled = true;
 
-            RolesSeed.SeedDbRoles(context, Roles);
+            RolesSeed.SeedDbRoles(context);
 
             UsersSeed.SeedDbUsers(context);
 
@@ -48,6 +44,31 @@ namespace InteractiveLearningSystem.Data.Migrations
             }
             context.SaveChanges();
 
+            var msg = new Message()
+            {
+                Sender = UsersSeed.Teachers[1],
+                Receiver = UsersSeed.Admin,
+                DateCreated = DateTime.Now,
+                Content = "Test message content",
+                Flag = "test flag",
+                Title = "test title",
+                isViewed = false
+            };
+            context.Messages.Add(msg);
+            context.SaveChanges();
+
+            msg = new Message()
+            {
+                Sender = UsersSeed.Teachers[1],
+                Receiver = UsersSeed.Admin,
+                DateCreated = DateTime.Now,
+                Content = "Test message content is viewed",
+                Flag = "test flag",
+                Title = "viewed test title",
+                isViewed = true
+            };
+            context.Messages.Add(msg);
+            context.SaveChanges();
         }
     }
 }

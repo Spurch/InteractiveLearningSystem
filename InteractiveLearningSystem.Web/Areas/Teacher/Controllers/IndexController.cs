@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    public class TeacherController : TeacherBaseController
+    public class IndexController : TeacherBaseController
     {
         // GET: Teacher/Teacher
         public ActionResult Index()

@@ -1,21 +1,24 @@
 ﻿namespace InteractiveLearningSystem.Data.Migrations
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using InteractiveLearningSystem.Models;
     using InteractiveLearningSystem.Data;
+    using Common;
 
     public class DbInitialDataSeed
     {
         public static List<School> Schools;
         public static List<Group> Groups;
 
+        /// <summary>
+        /// Method that seeds the initial amount of schools based on a given constant.
+        /// </summary>
+        /// <param name="context"></param>
         public static void SeedDbSchools(InteractiveLearningSystemDbContext context)
         {
             Schools = new List<School>();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < DataSeedConstants.SCHOOL_COUNT; i++)
             {
                 var school = new School()
                 {
@@ -42,7 +45,7 @@
             int j = -1;
             int k = 0;
             Groups = new List<Group>();
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < DataSeedConstants.GROUP_COUNT; i++)
             {
                 if(i%4 == 0)
                 {

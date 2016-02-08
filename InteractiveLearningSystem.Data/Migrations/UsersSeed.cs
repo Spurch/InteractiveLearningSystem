@@ -1,13 +1,10 @@
 ﻿namespace InteractiveLearningSystem.Data.Migrations
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
     using Microsoft.AspNet.Identity;
+    using Common;
 
     public class UsersSeed
     {
@@ -15,6 +12,7 @@
         public static List<User> Advisers;
         public static List<User> Teachers;
         public static List<User> Students;
+        public static User Admin;
 
         public static void SeedDbUsers(InteractiveLearningSystemDbContext context)
         {
@@ -31,12 +29,12 @@
             */
             var admin = new User()
             {
-                UserName = "admin",
+                UserName = "admin@ils.edu",
                 PasswordHash = new PasswordHasher().HashPassword("admin"),
                 FirstName = "Admin",
                 LastName = "Adminski",
                 Email = "admin@ils.edu",
-                AvatarUrl = "http://cdn.meme.am/instances/56124731.jpg",
+                AvatarUrl = DataSeedConstants.DEFAULT_ADMIN_AVATAR,
                 Level = 0,
                 Experience = 0,
                 Points = 0,
@@ -47,20 +45,20 @@
             context.SaveChanges();
 
             userManager.AddToRole(admin.Id, "Administrator");
-
+            Admin = admin;
             /*
             Creating 10 moderators for the Interactive Learning System.
             */
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < DataSeedConstants.MODERATOR_COUNT; i++)
             {
                 var moderator = new User()
                 {
-                    UserName = "moderator" + i,
+                    UserName = "moderator" + i + "@ils.edu",
                     PasswordHash = new PasswordHasher().HashPassword("moderator" + i),
                     FirstName = "Moderator" + i,
                     LastName = "Moderatorski" + i,
                     Email = "moderator" + i + "@ils.edu",
-                    AvatarUrl = "http://cdn.meme.am/instances/56124731.jpg",
+                    AvatarUrl = DataSeedConstants.DEFAULT_MODERATOR_AVATAR,
                     Level = 0,
                     Experience = 0,
                     Points = 0
@@ -75,16 +73,16 @@
             /*
             Creating 40 teachers for the Interactive Learning System.
             */
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < DataSeedConstants.TEACHER_COUNT; i++)
             {
                 var teacher = new User()
                 {
-                    UserName = "teacher" + i,
+                    UserName = "teacher" + i + "@ils.edu",
                     PasswordHash = new PasswordHasher().HashPassword("teacher" + i),
                     FirstName = "Daskal" + i,
                     LastName = "Shkolski" + i,
                     Email = "teacher" + i + "@ils.edu",
-                    AvatarUrl = "http://cdn.meme.am/instances/56124731.jpg",
+                    AvatarUrl = DataSeedConstants.DEFAULT_TEACHER_AVATAR,
                     Level = 0,
                     Experience = 0,
                     Points = 0
@@ -99,16 +97,16 @@
             /*
            Creating 10 advisers for the Interactive Learning System.
            */
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < DataSeedConstants.ADVISER_COUNT; i++)
             {
                 var adviser = new User()
                 {
-                    UserName = "adviser" + i,
+                    UserName = "adviser" + i + "@ils.edu",
                     PasswordHash = new PasswordHasher().HashPassword("adviser" + i),
                     FirstName = "Rezil" + i,
                     LastName = "Psiharski" + i,
                     Email = "adviser" + i + "@ils.edu",
-                    AvatarUrl = "http://cdn.meme.am/instances/56124731.jpg",
+                    AvatarUrl = DataSeedConstants.DEFAULT_ADVISER_AVATAR,
                     Level = 0,
                     Experience = 0,
                     Points = 0
@@ -123,7 +121,7 @@
             /*
           Creating 200 students for the Interactive Learning System.
           */
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < DataSeedConstants.STUDENT_COUNT; i++)
             {
                 var student = new User()
                 {
@@ -132,7 +130,7 @@
                     FirstName = "Murzel" + i,
                     LastName = "Obitashki" + i,
                     Email = "student" + i + "@ils.edu",
-                    AvatarUrl = "http://cdn.meme.am/instances/56124731.jpg",
+                    AvatarUrl = DataSeedConstants.DEFAULT_STUDENT_AVATAR,
                     Level = 0,
                     Experience = 0,
                     Points = 0

@@ -22,7 +22,7 @@
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +34,9 @@
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -57,6 +57,29 @@
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Administrator"))
+                {
+                    return RedirectToAction("Index", "Index", new { area = "Admin" });
+                }
+                if (User.IsInRole("Moderator"))
+                {
+                    return RedirectToAction("Index", "Index", new { area = "Moderator" });
+                }
+                if (User.IsInRole("Adviser"))
+                {
+                    return RedirectToAction("Index", "Index", new { area = "Adviser" });
+                }
+                if (User.IsInRole("Teacher"))
+                {
+                    return RedirectToAction("Index", "Index", new { area = "Teacher" });
+                }
+                if (User.IsInRole("Student"))
+                {
+                    return RedirectToAction("Index", "Index", new { area = "Student" });
+                }
+            }
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -72,7 +95,6 @@
             {
                 return View(model);
             }
-
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
@@ -83,19 +105,19 @@
                     var roles = await UserManager.GetRolesAsync(user.Id);
                     if (roles.Contains("Administrator"))
                     {
-                        return RedirectToAction("Index", "Admin", new { area = "Admin" });
+                        return RedirectToAction("Index", "Index", new { area = "Admin" });
                     }
                     else if (roles.Contains("Moderator"))
                     {
-                        return RedirectToAction("Index", "Moderator", new { area = "Moderator" });
+                        return RedirectToAction("Index", "Index", new { area = "Moderator" });
                     }
                     else if (roles.Contains("Adviser"))
                     {
-                        return RedirectToAction("Index", "Adviser", new { area = "Adviser" });
+                        return RedirectToAction("Index", "Index", new { area = "Adviser" });
                     }
                     else if (roles.Contains("Teacher"))
                     {
-                        return RedirectToAction("Index", "Teacher", new { area = "Teacher" });
+                        return RedirectToAction("Index", "Index", new { area = "Teacher" });
                     }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
@@ -138,7 +160,7 @@
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -173,8 +195,8 @@
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -410,7 +432,7 @@
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //

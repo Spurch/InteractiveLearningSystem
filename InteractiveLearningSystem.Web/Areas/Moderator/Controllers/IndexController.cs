@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    public class ModeratorController : ModeratorBaseController
+    public class IndexController : ModeratorBaseController
     {
         // GET: Moderator/Moderator
         public ActionResult Index()

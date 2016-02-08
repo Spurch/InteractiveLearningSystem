@@ -38,17 +38,22 @@
         //[Required]
         [MinLength(3)]
         [MaxLength(50)]
+        [Display(Name = "First name")]
         public string FirstName { get; set; }
 
         //[Required]
         [MinLength(3)]
         [MaxLength(50)]
+        [Display(Name = "Last name")]
         public string LastName { get; set; }
 
+        [Display(Name = "Facebook")]
         public string FaceBookUrl { get; set; }
 
+        [Display(Name = "Google+")]
         public string GooglePlusUrl { get; set; }
 
+        [Display(Name = "Avatar")]
         public string AvatarUrl { get; set; }
 
         [MinLength(10)]
@@ -70,7 +75,10 @@
         public ICollection<School> Moderator { get { return this.moderators; } set { this.moderators = value; } }
         public ICollection<School> Consultant { get { return this.consultants; } set { this.consultants = value; } }
         public ICollection<Group> Groups { get { return this.groups; } set { this.groups = value; } }
+  
+        [Display(Name = "Sender")]
         public ICollection<Message> Sender { get { return this.sender; } set { this.sender = value; } }
+        [Display(Name = "Receiver")]
         public ICollection<Message> Receiver { get { return this.receiver; } set { this.receiver = value; } }
 
         public virtual ICollection<Log> Logs { get { return this.logs; } set { this.logs = value; } }
