@@ -15,24 +15,46 @@
             this.messages = messages;
         }
 
-        public Message Create()
+        public Message Create(string title, string content, string flag, string notes)
         {
-            throw new NotImplementedException();
+            var message = new Message()
+            {
+                Title = title,
+                Content = content,
+                Flag = flag,
+                Notes = notes,
+                isDeleted = false,
+                isViewed = false,
+                DateCreated = DateTime.Now
+            };
+
+            messages.Add(message);
+
+            messages.SaveChanges();
+
+            return message;
         }
 
         public void DeleteId(int id)
         {
-            throw new NotImplementedException();
+            messages.GetById(id).isDeleted = true;
+            messages.SaveChanges();
         }
 
         public IQueryable<Message> GetAll()
         {
+            return messages.All();
+        }
+
+        public void Update(int id)
+        {
             throw new NotImplementedException();
         }
 
-        public void Update()
+        public void UpdateViewedState(int id, bool state)
         {
-            throw new NotImplementedException();
+            messages.GetById(id).isViewed = state;
+            messages.SaveChanges();
         }
     }
 }

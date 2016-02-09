@@ -11,9 +11,11 @@
     {
         IQueryable<Message> GetAll();
 
-        Message Create();
+        Message Create(string title, string content, string flag, string notes);
 
-        void Update();
+        void Update(int id);
+
+        void UpdateViewedState(int id, bool state);
 
         void DeleteId(int id);
     }
