@@ -1,5 +1,6 @@
 ﻿namespace InteractiveLearningSystem.Services.Constracts
 {
+    using Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -8,5 +9,12 @@
 
     public interface IGroupServices
     {
+        IQueryable<Group> GetAll();
+
+        Group Create();
+
+        void Update();
+
+        void DeleteId(int id);
     }
 }

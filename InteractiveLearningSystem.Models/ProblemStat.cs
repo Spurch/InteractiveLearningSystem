@@ -12,6 +12,8 @@
 
         public int Fail { get; set; }
 
+        public bool isDeleted { get; set; }
+
         [Required]
         public string StudentId { get; set; }
 

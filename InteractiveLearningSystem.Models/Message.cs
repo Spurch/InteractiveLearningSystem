@@ -25,6 +25,8 @@
 
         public bool isViewed { get; set; }
 
+        public bool isDeleted { get; set; }
+
         [MinLength(10)]
         [MaxLength(100)]
         [Display(Name = "Notes")]

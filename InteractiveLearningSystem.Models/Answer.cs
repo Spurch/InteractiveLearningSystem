@@ -15,6 +15,8 @@
 
         public int Id { get; set; }
 
+        public bool isDeleted { get; set; }
+
         [MinLength(10)]
         [MaxLength(100)]
         public string Name { get; set; }

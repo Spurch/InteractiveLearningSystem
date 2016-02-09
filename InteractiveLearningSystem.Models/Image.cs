@@ -14,6 +14,8 @@
         [MaxLength(100)]
         public string Title { get; set; }
 
+        public bool isDeleted { get; set; }
+
         public DateTime DateCreated { get; set; }
 
         [Required]

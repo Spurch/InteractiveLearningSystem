@@ -37,6 +37,8 @@
         
         public bool HasContext { get; set; }
 
+        public bool isDeleted { get; set; }
+
         [Range(1, 10)]
         public int Difficulty { get; set; }
 

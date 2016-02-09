@@ -17,6 +17,8 @@
 
         public string Action { get; set; }
 
+        public bool isDeleted { get; set; }
+
         [Required]
         public string AuthorId { get; set; }
 

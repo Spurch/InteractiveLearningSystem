@@ -45,6 +45,8 @@
         [Range(0,100)]
         public int Level { get; set; }
 
+        public bool isDeleted { get; set; }
+
         [MinLength(50)]
         [MaxLength(1000)]
         public string Notes { get; set; }

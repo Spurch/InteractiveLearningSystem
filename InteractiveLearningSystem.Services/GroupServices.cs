@@ -17,5 +17,25 @@
         {
             this.groups = groups;
         }
+
+        public Group Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<Group> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

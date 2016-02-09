@@ -9,6 +9,12 @@
 
     public interface IUserServices
     {
+        IQueryable<User> GetAll();
 
+        User Create(string name);
+
+        void Update();
+
+        void DeleteId(int id);
     }
 }

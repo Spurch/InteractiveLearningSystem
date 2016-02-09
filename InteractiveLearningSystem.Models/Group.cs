@@ -20,6 +20,8 @@
         
         public double Experience { get; set; }
 
+        public bool isDeleted { get; set; }
+
         [Range(0,100)]
         public int Level { get; set; }
 
