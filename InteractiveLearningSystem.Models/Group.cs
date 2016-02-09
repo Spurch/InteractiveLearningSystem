@@ -31,6 +31,8 @@
         [MaxLength(1000)]
         public string Notes { get; set; }
 
+        public string Affinity { get; set; }
+
         public string AvatarUrl { get; set; }
 
         [ForeignKey("Teacher")]

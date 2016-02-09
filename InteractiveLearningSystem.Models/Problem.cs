@@ -31,6 +31,8 @@
         [MaxLength(1000)]
         public string Notes { get; set; }
 
+        public string Affinity { get; set; }
+
         public double Experience { get; set;}
         
         public bool HasContext { get; set; }

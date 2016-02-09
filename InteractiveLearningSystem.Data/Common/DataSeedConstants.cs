@@ -14,6 +14,6 @@
         public static string DEFAULT_MODERATOR_AVATAR = "../../Content/DefaultUserImages/moderator.png";
         public static string DEFAULT_ADVISER_AVATAR = "../../Content/DefaultUserImages/adviser.png";
         public static string DEFAULT_TEACHER_AVATAR = "../../Content/DefaultUserImages/teacher.png";
-        public static string DEFAULT_STUDENT_AVATAR = "../../Content/DefaultUserImages/student00.png";
+        public static string DEFAULT_STUDENT_AVATAR = "../../Content/DefaultUserImages/student";
     }
 }

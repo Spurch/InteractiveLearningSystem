@@ -1,5 +1,6 @@
 ﻿namespace InteractiveLearningSystem.Data.Migrations
 {
+    using System;
     using System.Collections.Generic;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
@@ -121,6 +122,7 @@
             /*
           Creating 200 students for the Interactive Learning System.
           */
+            var rand = new Random();
             for (int i = 0; i < DataSeedConstants.STUDENT_COUNT; i++)
             {
                 var student = new User()
@@ -130,7 +132,7 @@
                     FirstName = "Murzel" + i,
                     LastName = "Obitashki" + i,
                     Email = "student" + i + "@ils.edu",
-                    AvatarUrl = DataSeedConstants.DEFAULT_STUDENT_AVATAR,
+                    AvatarUrl = DataSeedConstants.DEFAULT_STUDENT_AVATAR +"0"+rand.Next(0,3)+".png",
                     Level = 0,
                     Experience = 0,
                     Points = 0
