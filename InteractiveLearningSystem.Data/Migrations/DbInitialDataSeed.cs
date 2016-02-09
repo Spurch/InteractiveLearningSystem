@@ -61,11 +61,13 @@
                     Teacher = teachers[i],
                     School = schools[j]
                 };
-                for (int z = 0; z < 4; z++)
+                for (int z = 0; z <= 4; z++)
                 {
                     group.Students.Add(students[k]);
                     k++;
                 }
+                
+                teachers[i].Group = group;
                 context.Groups.Add(group);
                 context.SaveChanges();
                 Groups.Add(group);              

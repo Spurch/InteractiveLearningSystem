@@ -35,15 +35,18 @@ namespace InteractiveLearningSystem.Data.Migrations
             for (int i = 0; i < UsersSeed.Moderators.Count; i++)
             {
                 UsersSeed.Moderators[i].Moderator.Add(DbInitialDataSeed.Schools[i]);
+                DbInitialDataSeed.Schools[i].Moderator = UsersSeed.Moderators[i];
+                context.SaveChanges();
             }
-            context.SaveChanges();
+            
 
             for (int i = 0; i < UsersSeed.Advisers.Count; i++)
             {
                 UsersSeed.Advisers[i].Consultant.Add(DbInitialDataSeed.Schools[i]);
+                DbInitialDataSeed.Schools[i].Consultant = UsersSeed.Advisers[i];
+                context.SaveChanges();
             }
-            context.SaveChanges();
-
+            
             var msg = new Message()
             {
                 Sender = UsersSeed.Teachers[1],

@@ -11,7 +11,7 @@
     public class MessageController : Controller
     {
         private InteractiveLearningSystemDbContext context = InteractiveLearningSystemDbContext.Create();
-        private bool lastStatus = true;
+        private static bool lastStatus;
         // GET: Admin/Message
         public ActionResult Index(bool status)
         {

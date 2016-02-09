@@ -17,11 +17,14 @@
             return View();
         }
 
-        public ActionResult Messages(bool status)
+        public ActionResult InboxPartial()
         {
             var id = User.Identity.GetUserId();
-            var messages = context.Messages.Where(x => x.isViewed == status).ToList();
-            return View(messages);
+            var messageCount = (from n in context.Messages
+                           where n.Receiver.Id == id && n.isViewed == false
+                           select n).Count();
+            ViewData["NewMessages"] = messageCount;
+            return PartialView("_InboxPartial");
         }
 
         // GET: Admin/Index/Details/5

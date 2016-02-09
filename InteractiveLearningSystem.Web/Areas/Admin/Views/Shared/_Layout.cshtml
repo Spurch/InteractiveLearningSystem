@@ -44,7 +44,7 @@
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="@Url.Action("Index", "Message", new { status=false })">Inbox</a></li>
+							<li><a href="@Url.Action("Index", "Message", new { status=false })">Inbox (@Html.Action("InboxPartial", "Index"))</a></li>
 							<li><a href="@Url.Action("Index", "Message", new { status=true })">Read</a></li>
 							<li class="divider" role="separator"></li>
 							<li><a href="#"><span class="glyphicon glyphicon-pencil"></span> New Message</a></li>

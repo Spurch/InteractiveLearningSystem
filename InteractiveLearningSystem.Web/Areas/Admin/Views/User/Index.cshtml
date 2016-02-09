@@ -18,9 +18,12 @@
 			<th>
 				Username
 			</th>
-			<th>
-				Clan
-			</th>
+			@if (ViewBag.RoleName != "Moderator" && ViewBag.RoleName != "Adviser")
+			{
+				<th>
+					Clan
+				</th>
+			}
 			<th>
 				Guild
 			</th>
@@ -33,7 +36,6 @@
 			<th>
 				Level
 			</th>
-			<th></th>
 		</tr>
 
 		@foreach (var item in Model)
@@ -43,13 +45,27 @@
 					<img src="@Html.DisplayFor(modelItem => item.AvatarUrl)" style="width: 3.4em; height: 3.4em;" />
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.UserName)
+					<a href="@Url.Action("Details", "User", new { id = item.Id })">@Html.DisplayFor(modelItem => item.UserName)</a>
 				</td>
+				@if (ViewBag.RoleName != "Moderator" && ViewBag.RoleName != "Adviser")
+				{
+					<td>
+						@Html.DisplayFor(modelItem => item.Group.Name)
+					</td>
+				}
 				<td>
-					@Html.DisplayFor(modelItem => item.Group.Name)
-				</td>
-				<td>
-
+					@if (ViewBag.RoleName == "Moderator")
+					{
+						@Html.DisplayFor(modelItem => item.Moderator.First().Name)
+					}
+					else if (ViewBag.RoleName == "Adviser")
+					{
+						@Html.DisplayFor(modelItem => item.Consultant.First().Name)
+					}
+					else
+					{
+						@Html.DisplayFor(modelItem => item.Group.School.Name)
+					}
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.Points)
@@ -59,11 +75,6 @@
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.Level)
-				</td>
-				<td>
-					@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-					@Html.ActionLink("Details", "Details", new { id = item.Id }) |
-					@Html.ActionLink("Delete", "Delete", new { id = item.Id })
 				</td>
 			</tr>
 		}

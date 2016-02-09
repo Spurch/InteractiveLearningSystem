@@ -72,14 +72,14 @@
 
         public virtual Group Group { get; set; }
 
-        public ICollection<School> Moderator { get { return this.moderators; } set { this.moderators = value; } }
-        public ICollection<School> Consultant { get { return this.consultants; } set { this.consultants = value; } }
+        public virtual ICollection<School> Moderator { get { return this.moderators; } set { this.moderators = value; } }
+        public virtual ICollection<School> Consultant { get { return this.consultants; } set { this.consultants = value; } }
         public ICollection<Group> Groups { get { return this.groups; } set { this.groups = value; } }
   
         [Display(Name = "Sender")]
-        public ICollection<Message> Sender { get { return this.sender; } set { this.sender = value; } }
+        public virtual ICollection<Message> Sender { get { return this.sender; } set { this.sender = value; } }
         [Display(Name = "Receiver")]
-        public ICollection<Message> Receiver { get { return this.receiver; } set { this.receiver = value; } }
+        public virtual ICollection<Message> Receiver { get { return this.receiver; } set { this.receiver = value; } }
 
         public virtual ICollection<Log> Logs { get { return this.logs; } set { this.logs = value; } }
         public virtual ICollection<Image> Images { get { return this.images; } set { this.images = value; } }
