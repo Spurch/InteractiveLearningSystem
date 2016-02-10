@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+
+<ul class="dropdown-menu">
+	@foreach (var item in Model)
+	{
+		<li><a href="@Url.Action("Index", "User", new { role=item.Name })">@item.Name</a></li>
+	}
+	<li class="divider" role="separator"></li>
+	<li><a href="#"><span class="glyphicon glyphicon-plus"></span> Add User</a></li>
+</ul>

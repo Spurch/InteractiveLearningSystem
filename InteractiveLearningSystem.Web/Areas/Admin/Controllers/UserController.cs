@@ -1,16 +1,12 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
 {
-    using InteractiveLearningSystem.Data;
+    using System.Linq;
+    using System.Web.Mvc;
     using Ninject;
     using Services;
     using Services.Contracts;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
 
-    public class UserController : Controller
+    public class UserController : BaseController
     {
 
         [Inject]
@@ -18,7 +14,6 @@
 
         [Inject]
         IRoleServices roleServices;
-        //private InteractiveLearningSystemDbContext context = InteractiveLearningSystemDbContext.Create();
 
         public UserController(UserServices userServices, RoleServices roleServices)
         {

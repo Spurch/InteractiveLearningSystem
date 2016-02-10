@@ -234,6 +234,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\IndexController.cs" />
     <Compile Include="Areas\Admin\Controllers\MessageController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
@@ -297,6 +298,7 @@
     <Content Include="Areas\Admin\Views\Message\Details.cshtml" />
     <Content Include="Areas\Admin\Views\User\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_InboxPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Index\_UsersPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -350,6 +352,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Areas\Adviser\Models\" />
     <Folder Include="Areas\Adviser\Views\AdviserBase\" />
     <Folder Include="Areas\Moderator\Models\" />

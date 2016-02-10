@@ -1,17 +1,13 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
 {
-    using Data;
+    using System.Linq;
+    using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Ninject;
     using Services;
     using Services.Contracts;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
 
-    public class MessageController : Controller
+    public class MessageController : BaseController
     {
         [Inject]
         IMessageServices messageServices;

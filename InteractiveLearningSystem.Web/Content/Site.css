@@ -68,12 +68,7 @@ h1, h2{
 	background-color: lightgreen;
 }
 
-.boxsizingBorder {
- max-width: 100%;
-}
-
 #test {
-    margin-top: 25px;
     font-size: 21px;
     text-align: center;
     animation: fadein 4s;

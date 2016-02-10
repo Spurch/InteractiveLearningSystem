@@ -37,6 +37,7 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+      
             modelBuilder.Entity<School>().HasOptional(b => b.Consultant).WithMany(a => a.Consultant).HasForeignKey(b => b.ConsultantId);
             modelBuilder.Entity<School>().HasOptional(b => b.Moderator).WithMany(a => a.Moderator).HasForeignKey(b => b.ModeratorId);
 

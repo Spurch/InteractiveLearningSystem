@@ -1,16 +1,26 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
 {
-    using Data;
-    using Microsoft.AspNet.Identity;
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
+    using Microsoft.AspNet.Identity;
+    using Ninject;
+    using Services;
+    using Services.Contracts;
 
-    public class IndexController : Controller
+    public class IndexController : BaseController
     {
-        private InteractiveLearningSystemDbContext context = InteractiveLearningSystemDbContext.Create();
+        [Inject]
+        IMessageServices messageServices;
+        [Inject]
+        IRoleServices roleServices;
+
+        public IndexController(MessageServices messageServices, RoleServices roleServices)
+        {
+            this.roleServices = roleServices;
+            this.messageServices = messageServices;
+        }
+
+        //private InteractiveLearningSystemDbContext context = InteractiveLearningSystemDbContext.Create();
         // GET: Admin/Index
         public ActionResult Index()
         {
@@ -20,11 +30,18 @@
         public ActionResult InboxPartial()
         {
             var id = User.Identity.GetUserId();
-            var messageCount = (from n in context.Messages
+            var messageCount = (from n in messageServices.GetAll()
                            where n.Receiver.Id == id && n.isViewed == false
                            select n).Count();
             ViewData["NewMessages"] = messageCount;
             return PartialView("_InboxPartial");
+        }
+
+        public ActionResult UsersPartial()
+        {
+            var roles = roleServices.GetAll();
+
+            return PartialView("_UsersPartial", roles);
         }
 
         // GET: Admin/Index/Details/5
