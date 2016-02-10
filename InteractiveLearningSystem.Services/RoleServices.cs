@@ -33,6 +33,11 @@
             return roles.All();
         }
 
+        public IQueryable<IdentityRole> GetAllRolesExcluding(string name)
+        {
+            return roles.All().Where(x => x.Name != name);
+        }
+
         public IdentityRole GetById(string id)
         {
             return roles.GetById(id);

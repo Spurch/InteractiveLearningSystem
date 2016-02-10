@@ -14,6 +14,8 @@ namespace InteractiveLearningSystem.Services.Contracts
 
         IdentityRole GetByName(string name);
 
+        IQueryable<IdentityRole> GetAllRolesExcluding(string name);
+
         void Update(string id);
     }
 }

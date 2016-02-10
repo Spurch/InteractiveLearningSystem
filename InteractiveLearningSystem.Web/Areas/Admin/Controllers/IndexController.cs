@@ -13,9 +13,13 @@
         IMessageServices messageServices;
         [Inject]
         IRoleServices roleServices;
+        [Inject]
+        IUserServices userServices;
 
-        public IndexController(MessageServices messageServices, RoleServices roleServices)
+        public IndexController(MessageServices messageServices, RoleServices roleServices, 
+            UserServices userServices)
         {
+            this.userServices = userServices;
             this.roleServices = roleServices;
             this.messageServices = messageServices;
         }
@@ -37,10 +41,12 @@
             return PartialView("_InboxPartial");
         }
 
-        public ActionResult UsersPartial()
+        public ActionResult UsersPartial(string currentUser)
         {
-            var roles = roleServices.GetAll();
-
+            var roleId = userServices.GetById(currentUser).Roles.First().RoleId;
+            var roleName = roleServices.GetById(roleId).Name;
+            var roles = roleServices.GetAllRolesExcluding(roleName);
+            
             return PartialView("_UsersPartial", roles);
         }
 
