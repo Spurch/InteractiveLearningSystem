@@ -35,7 +35,18 @@
 
         public IQueryable<IdentityRole> GetAllRolesExcluding(string name)
         {
-            return roles.All().Where(x => x.Name != name);
+            if (name == "Administrator")
+            {
+                return roles.All().Where(x => x.Name != name);
+            }
+            else if (name == "Moderator")
+            {
+                return roles.All().Where(x => x.Name != "Administrator" && x.Name != "Moderator");
+            }
+            else
+            {
+                return roles.All().Where(x => x.Name != "Administrator" && x.Name != "Moderator" && x.Name != "Adviser");
+            }
         }
 
         public IdentityRole GetById(string id)
