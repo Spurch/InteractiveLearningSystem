@@ -1,21 +1,37 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
 {
     using InteractiveLearningSystem.Data;
+    using Ninject;
+    using Services;
+    using Services.Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
-    
+
     public class UserController : Controller
     {
-        private InteractiveLearningSystemDbContext context = InteractiveLearningSystemDbContext.Create();
+
+        [Inject]
+        IUserServices userServices;
+
+        [Inject]
+        IRoleServices roleServices;
+        //private InteractiveLearningSystemDbContext context = InteractiveLearningSystemDbContext.Create();
+
+        public UserController(UserServices userServices, RoleServices roleServices)
+        {
+            this.roleServices = roleServices;
+            this.userServices = userServices;
+        }
 
         // GET: Admin/User
         public ActionResult Index(string role)
         {
-            var RoleId = context.Roles.Where(x => x.Name == role).First();
-            var users = from u in context.Users
+
+            var RoleId = roleServices.GetByName(role);
+            var users = from u in userServices.GetAll()
                         where u.Roles.Any(r => r.RoleId == RoleId.Id)
                         select u;
             ViewBag.RoleName = RoleId.Name;
@@ -25,7 +41,7 @@
         // GET: Admin/User/Details/5
         public ActionResult Details(string id)
         {
-            var user = context.Users.Where(x => x.Id == id).First();
+            var user = userServices.GetById(id);
             return View(user);
         }
 

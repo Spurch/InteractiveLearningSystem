@@ -2,6 +2,9 @@
 {
     using Data;
     using Microsoft.AspNet.Identity;
+    using Ninject;
+    using Services;
+    using Services.Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -10,14 +13,22 @@
 
     public class MessageController : Controller
     {
-        private InteractiveLearningSystemDbContext context = InteractiveLearningSystemDbContext.Create();
+        [Inject]
+        IMessageServices messageServices;
+
         private static bool lastStatus;
+
+        public MessageController(MessageServices messageServices)
+        {
+            this.messageServices = messageServices;
+        }
+
         // GET: Admin/Message
         public ActionResult Index(bool status)
         {
             lastStatus = status;
             var id = User.Identity.GetUserId();
-            var messages = from n in context.Messages
+            var messages = from n in messageServices.GetAll()
                            where n.Receiver.Id == id && n.isViewed == status
                            select n;
             return View(messages);
@@ -27,10 +38,9 @@
         public ActionResult Details(int id)
         {
             ViewData["Status"] = lastStatus;
-            var message = context.Messages.Where(x => x.Id == id).First();
-            message.isViewed = true;
-            context.SaveChanges();
-            return View(message);
+            messageServices.UpdateViewedState(id, true);
+            
+            return View(messageServices.GetById(id));
         }
 
         // GET: Admin/Message/Create

@@ -2,7 +2,7 @@
 {
     using System;
     using System.Linq;
-    using Constracts;
+    using Contracts;
     using Data.Repositories;
     using Models;
 
@@ -13,6 +13,11 @@
         public UserServices(IRepository<User> users)
         {
             this.users = users;
+        }
+
+        public User GetById(string id)
+        {
+            return users.GetById(id);
         }
 
         public User Create(string name)
@@ -27,10 +32,10 @@
 
         public IQueryable<User> GetAll()
         {
-            throw new NotImplementedException();
+            return users.All();
         }
 
-        public void Update()
+        public void Update(string id)
         {
             throw new NotImplementedException();
         }

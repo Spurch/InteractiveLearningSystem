@@ -13,6 +13,8 @@ namespace InteractiveLearningSystem.Web.App_Start
     using Ninject.Extensions.Conventions;
     using Data;
     using Data.Repositories;
+    using Services.Contracts;
+    using Services;
 
     public static class NinjectWebCommon 
     {
@@ -66,6 +68,7 @@ namespace InteractiveLearningSystem.Web.App_Start
         {
             kernel.Bind(typeof(IInteractiveLearningSystemDbContext)).To(typeof(InteractiveLearningSystemDbContext));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            //kernel.Bind<IMessageServices>().To<MessageServices>();
 
             kernel.Bind(b => b.From("InteractiveLearningSystem.Services")
                               .SelectAllClasses()

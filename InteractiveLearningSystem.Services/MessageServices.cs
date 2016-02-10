@@ -3,7 +3,7 @@
     using System;
     using System.Linq;
     using Data.Repositories;
-    using InteractiveLearningSystem.Services.Constracts;
+    using InteractiveLearningSystem.Services.Contracts;
     using Models;
 
     public class MessageServices : IMessageServices
@@ -13,6 +13,11 @@
         public MessageServices(IRepository<Message> messages)
         {
             this.messages = messages;
+        }
+
+        public Message GetById(int id)
+        {
+            return messages.GetById(id);
         }
 
         public Message Create(string title, string content, string flag, string notes)

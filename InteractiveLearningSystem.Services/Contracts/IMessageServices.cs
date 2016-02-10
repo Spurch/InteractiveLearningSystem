@@ -1,15 +1,13 @@
-﻿namespace InteractiveLearningSystem.Services.Constracts
+﻿namespace InteractiveLearningSystem.Services.Contracts
 {
-    using Models;
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Models;
 
     public interface IMessageServices
     {
         IQueryable<Message> GetAll();
+
+        Message GetById(int id);
 
         Message Create(string title, string content, string flag, string notes);
 

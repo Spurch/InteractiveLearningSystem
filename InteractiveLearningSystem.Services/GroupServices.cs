@@ -1,10 +1,8 @@
 ﻿namespace InteractiveLearningSystem.Services
 {
-    using System;
     using System.Linq;
-    using Constracts;
+    using Contracts;
     using Data.Repositories;
-    using Data.Common;
     using Models;
 
     public class GroupServices : IGroupServices

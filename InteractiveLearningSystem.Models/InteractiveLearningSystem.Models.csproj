@@ -88,6 +88,7 @@
   <ItemGroup>
     <Compile Include="AccountViewModels.cs" />
     <Compile Include="Answer.cs" />
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="Log.cs" />

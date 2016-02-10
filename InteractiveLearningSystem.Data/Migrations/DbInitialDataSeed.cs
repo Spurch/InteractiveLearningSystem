@@ -54,7 +54,7 @@
                 var group = new Group()
                 {
                     Name = "group" + i,
-                    AvatarUrl = "http://www.colourboxphotography.co.uk/v/ui/1004802/p1545402_dww12.11.jpg?1389787471",
+                    AvatarUrl = DataSeedConstants.DEFAULT_GROUP_AVATAR,
                     Points = 0,
                     Experience = 0,
                     Level = 0,
