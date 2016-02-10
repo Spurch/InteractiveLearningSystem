@@ -31,25 +31,6 @@
             return View();
         }
 
-        //public ActionResult InboxPartial()
-        //{
-        //    var id = User.Identity.GetUserId();
-        //    var messageCount = (from n in messageServices.GetAll()
-        //                   where n.Receiver.Id == id && n.isViewed == false
-        //                   select n).Count();
-        //    ViewData["NewMessages"] = messageCount;
-        //    return PartialView("_InboxPartial");
-        //}
-
-        //public ActionResult UsersPartial(string currentUser)
-        //{
-        //    var roleId = userServices.GetById(currentUser).Roles.First().RoleId;
-        //    var roleName = roleServices.GetById(roleId).Name;
-        //    var roles = roleServices.GetAllRolesExcluding(roleName);
-            
-        //    return PartialView("_UsersPartial", roles);
-        //}
-
         // GET: Admin/Index/Details/5
         public ActionResult Details(int id)
         {

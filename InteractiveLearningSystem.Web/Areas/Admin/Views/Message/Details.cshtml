@@ -29,7 +29,7 @@
 		</div>
 		<div class="col-md-4">
 			<label for="sender">Sender</label>
-			<p id="sender">@Html.DisplayFor(model => model.Sender.FirstName)</p>
+			<a href="@Url.Action("Details", "User", new { id = Model.SenderId })" id="sender">@Html.DisplayFor(model => model.Sender.FirstName)</a>
 		</div>
 		<div class="col-md-4">
 			<label for="date">@Html.DisplayNameFor(model => model.DateCreated)</label>
