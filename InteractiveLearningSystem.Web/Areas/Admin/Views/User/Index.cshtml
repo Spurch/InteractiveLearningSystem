@@ -43,7 +43,7 @@
 		{
 			<tr>
 				<td>
-					<img src="@Html.DisplayFor(modelItem => item.AvatarUrl)" style="width: 3.4em; height: 3.4em;" />
+					<img src="@Url.Content(item.AvatarUrl)" style="width: 3.4em; height: 3.4em;" />
 				</td>
 				<td>
 					<a href="@Url.Action("Details", "User", new { id = item.Id })">@Html.DisplayFor(modelItem => item.UserName)</a>
@@ -51,7 +51,7 @@
 				@if (ViewBag.RoleName != "Moderator" && ViewBag.RoleName != "Adviser")
 				{
 					<td>
-						@Html.DisplayFor(modelItem => item.Group.Name)
+						<a href="@Url.Action("Details", "Group", new { id = 0})">@Html.DisplayFor(modelItem => item.Group.Name)</a>
 					</td>
 				}
 				<td>

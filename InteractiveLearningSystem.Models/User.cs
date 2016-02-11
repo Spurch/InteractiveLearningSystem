@@ -58,22 +58,29 @@
 
         [MinLength(10)]
         [MaxLength(1000)]
+        [Display(Name = "Notes")]
         public string Notes { get; set; }
 
+        [Display(Name = "Points")]
         public double Points { get; set; }
 
+        [Display(Name = "Experience")]
         public double Experience { get; set; }
 
         [Range(0,100)]
+        [Display(Name = "Level")]
         public int Level { get; set; }
 
         [ForeignKey("Group")]
         public int? GroupId { get; set; }
 
+        [Display(Name = "Clan")]
         public virtual Group Group { get; set; }
 
         public virtual ICollection<School> Moderator { get { return this.moderators; } set { this.moderators = value; } }
         public virtual ICollection<School> Consultant { get { return this.consultants; } set { this.consultants = value; } }
+
+        [Display(Name = "Clan")]
         public ICollection<Group> Groups { get { return this.groups; } set { this.groups = value; } }
   
         [Display(Name = "Sender")]

@@ -1,29 +1,32 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
 
-    public class IndexController : BaseController
+    public class GroupController : Controller
     {
-        //private InteractiveLearningSystemDbContext context = InteractiveLearningSystemDbContext.Create();
-        // GET: Admin/Index
+        // GET: Admin/Group
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Admin/Index/Details/5
+        // GET: Admin/Group/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Admin/Index/Create
+        // GET: Admin/Group/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Index/Create
+        // POST: Admin/Group/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -39,13 +42,13 @@
             }
         }
 
-        // GET: Admin/Index/Edit/5
+        // GET: Admin/Group/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Admin/Index/Edit/5
+        // POST: Admin/Group/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -61,13 +64,13 @@
             }
         }
 
-        // GET: Admin/Index/Delete/5
+        // GET: Admin/Group/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Admin/Index/Delete/5
+        // POST: Admin/Group/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
