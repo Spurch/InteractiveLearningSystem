@@ -57,15 +57,15 @@
 				<td>
 					@if (ViewBag.RoleName == "Moderator")
 					{
-						@Html.DisplayFor(modelItem => item.Moderator.First().Name)
+						<a href="@Url.Action("Details", "School", new { id = 0})">@Html.DisplayFor(modelItem => item.Moderator.First().Name)</a>	
 					}
 					else if (ViewBag.RoleName == "Adviser")
 					{
-						@Html.DisplayFor(modelItem => item.Consultant.First().Name)
+						<a href="@Url.Action("Details", "School", new { id = 0})">@Html.DisplayFor(modelItem => item.Consultant.First().Name)</a>
 					}
 					else
 					{
-						@Html.DisplayFor(modelItem => item.Group.School.Name)
+						<a href="@Url.Action("Details", "School", new { id = 0})">@Html.DisplayFor(modelItem => item.Group.School.Name)</a>
 					}
 				</td>
 				<td>
