@@ -1,4 +1,4 @@
-﻿@model IEnumerable<InteractiveLearningSystem.Models.User>
+﻿@model IEnumerable<InteractiveLearningSystem.Models.UserListDetailsAdminView>
 
 @{
 	ViewBag.Title = "Index";
@@ -51,21 +51,21 @@
 				@if (ViewBag.RoleName != "Moderator" && ViewBag.RoleName != "Adviser")
 				{
 					<td>
-						<a href="@Url.Action("Details", "Group", new { id = 0})">@Html.DisplayFor(modelItem => item.Group.Name)</a>
+						<a href="@Url.Action("Details", "Group", new { id = item.GroupId})">@Html.DisplayFor(modelItem => item.GroupName)</a>
 					</td>
 				}
 				<td>
 					@if (ViewBag.RoleName == "Moderator")
 					{
-						<a href="@Url.Action("Details", "School", new { id = 0})">@Html.DisplayFor(modelItem => item.Moderator.First().Name)</a>	
+						<a href="@Url.Action("Details", "School", new { id = item.SchoolId})">@Html.DisplayFor(modelItem => item.SchoolName)</a>	
 					}
 					else if (ViewBag.RoleName == "Adviser")
 					{
-						<a href="@Url.Action("Details", "School", new { id = 0})">@Html.DisplayFor(modelItem => item.Consultant.First().Name)</a>
+						<a href="@Url.Action("Details", "School", new { id = item.SchoolId})">@Html.DisplayFor(modelItem => item.SchoolName)</a>
 					}
 					else
 					{
-						<a href="@Url.Action("Details", "School", new { id = 0})">@Html.DisplayFor(modelItem => item.Group.School.Name)</a>
+						<a href="@Url.Action("Details", "School", new { id = item.SchoolId})">@Html.DisplayFor(modelItem => item.SchoolName)</a>
 					}
 				</td>
 				<td>

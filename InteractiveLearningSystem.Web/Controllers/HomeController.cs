@@ -53,7 +53,10 @@ namespace InteractiveLearningSystem.Web.Controllers
             var messageCount = (from n in messageServices.GetAll()
                                 where n.Receiver.Id == id && n.isViewed == false
                                 select n).Count();
+            var user = userServices.GetById(id);
+            var role = roleServices.GetById(user.Roles.First().RoleId).Name;
             ViewData["NewMessages"] = messageCount;
+            ViewData["Area"] = role;
             return PartialView("_InboxPartial");
         }
 

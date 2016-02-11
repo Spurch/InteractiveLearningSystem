@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,19 +31,7 @@
 						</a>
 						@Html.Action("UsersPartial", "Home", new { area = "", currentUser = User.Identity.GetUserId() })
 					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-							<span class="glyphicon glyphicon-envelope"></span>
-							Messages
-							<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="@Url.Action("Index", "Message", new { status=false })">Inbox (@Html.Action("InboxPartial", "Home", new { area = "" }))</a></li>
-							<li><a href="@Url.Action("Index", "Message", new { status=true })">Read</a></li>
-							<li class="divider" role="separator"></li>
-							<li><a href="#"><span class="glyphicon glyphicon-pencil"></span> New Message</a></li>
-						</ul>
-					</li>
+					@Html.Action("InboxPartial", "Home", new { area = "" })
 				</ul>
 
 				<div class="col-sm-3 col-md-3">

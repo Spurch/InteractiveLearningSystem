@@ -61,7 +61,7 @@
             {
                 if (User.IsInRole("Administrator"))
                 {
-                    return RedirectToAction("Index", "Index", new { area = "Admin" });
+                    return RedirectToAction("Index", "Index", new { area = "Administrator" });
                 }
                 if (User.IsInRole("Moderator"))
                 {
@@ -105,7 +105,7 @@
                     var roles = await UserManager.GetRolesAsync(user.Id);
                     if (roles.Contains("Administrator"))
                     {
-                        return RedirectToAction("Index", "Index", new { area = "Admin" });
+                        return RedirectToAction("Index", "Index", new { area = "Administrator" });
                     }
                     else if (roles.Contains("Moderator"))
                     {

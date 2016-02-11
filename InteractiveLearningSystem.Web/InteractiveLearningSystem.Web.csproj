@@ -233,13 +233,13 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Admin\Controllers\GroupController.cs" />
-    <Compile Include="Areas\Admin\Controllers\IndexController.cs" />
-    <Compile Include="Areas\Admin\Controllers\MessageController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SchoolController.cs" />
-    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Administrator\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Administrator\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\GroupController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\IndexController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\MessageController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\SchoolController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\UserController.cs" />
     <Compile Include="Areas\Adviser\AdviserAreaRegistration.cs" />
     <Compile Include="Areas\Adviser\Controllers\AdviserBaseController.cs" />
     <Compile Include="Areas\Adviser\Controllers\IndexController.cs" />
@@ -283,10 +283,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Administrator\Views\web.config" />
     <Content Include="Areas\Moderator\Views\web.config" />
     <Content Include="Areas\Teacher\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administrator\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Moderator\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Moderator\Views\Index\Index.cshtml" />
     <Content Include="Areas\Adviser\Views\web.config" />
@@ -294,13 +294,15 @@
     <Content Include="Areas\Adviser\Views\Index\Index.cshtml" />
     <Content Include="Areas\Teacher\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Teacher\Views\Index\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Index\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Message\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Message\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Group\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\School\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Index\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Message\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\User\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Message\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\User\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Group\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\School\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\User\Add.cshtml" />
+    <Content Include="Areas\Administrator\Views\Message\New.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -353,8 +355,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Administrator\Models\" />
+    <Folder Include="Areas\Administrator\Views\Base\" />
     <Folder Include="Areas\Adviser\Models\" />
     <Folder Include="Areas\Adviser\Views\AdviserBase\" />
     <Folder Include="Areas\Moderator\Models\" />

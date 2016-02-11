@@ -1,4 +1,4 @@
-﻿@model InteractiveLearningSystem.Models.User
+﻿@model InteractiveLearningSystem.Models.UserDetailsAdminView
 
 @{
 	ViewBag.Title = "User Details";
@@ -58,23 +58,23 @@
 		</div>
 		<div class="row">
 			<fieldset class="scheduler-border">
-				<legend class="scheduler-border">@Html.DisplayNameFor(model => model.Group)</legend>
+				<legend class="scheduler-border">@Html.DisplayNameFor(model => model.GroupName)</legend>
 				<div class="row">
 					<div class="col-md-3">
-						@Html.DisplayNameFor(model => model.Group.Name)
-						<a href="@Url.Action("Details", "Group", new { id = 0})">@Html.DisplayFor(model => model.Group.Name)</a>
+						@Html.DisplayNameFor(model => model.GroupName)
+						<a href="@Url.Action("Details", "Group", new { id = Model.GroupId})">@Html.DisplayFor(model => model.GroupName)</a>
 					</div>
 					<div class="col-md-3">
-						@Html.DisplayNameFor(model => model.Group.Level)
-						@Html.DisplayFor(model => model.Group.Level)
+						@Html.DisplayNameFor(model => model.GroupLevel)
+						@Html.DisplayFor(model => model.GroupLevel)
 					</div>
 					<div class="col-md-3">
-						@Html.DisplayNameFor(model => model.Group.Experience)
-						@Html.DisplayFor(model => model.Group.Experience)
+						@Html.DisplayNameFor(model => model.GroupExperience)
+						@Html.DisplayFor(model => model.GroupExperience)
 					</div>
 					<div class="col-md-3">
-						@Html.DisplayNameFor(model => model.Group.Points)
-						@Html.DisplayFor(model => model.Group.Points)
+						@Html.DisplayNameFor(model => model.GroupPoints)
+						@Html.DisplayFor(model => model.GroupPoints)
 					</div>
 				</div>
 			</fieldset>
@@ -82,23 +82,23 @@
 		<hr />
 		<div class="row">
 			<fieldset class="scheduler-border">
-				<legend class="scheduler-border">@Html.DisplayNameFor(model => model.Group.School)</legend>
+				<legend class="scheduler-border">@Html.DisplayNameFor(model => model.SchoolName)</legend>
 				<div class="row">
 					<div class="col-md-3">
-						@Html.DisplayNameFor(model => model.Group.School.Name)
-						<a href="@Url.Action("Details", "School", new { id = 0})">@Html.DisplayFor(model => model.Group.School.Name)</a>
+						@Html.DisplayNameFor(model => model.SchoolName)
+						<a href="@Url.Action("Details", "School", new { id = Model.SchoolId})">@Html.DisplayFor(model => model.SchoolName)</a>
 					</div>
 					<div class="col-md-3">
-						@Html.DisplayNameFor(model => model.Group.School.Level)
-						@Html.DisplayFor(model => model.Group.School.Level)
+						@Html.DisplayNameFor(model => model.SchoolLevel)
+						@Html.DisplayFor(model => model.SchoolLevel)
 					</div>
 					<div class="col-md-3">
-						@Html.DisplayNameFor(model => model.Group.School.Experience)
-						@Html.DisplayFor(model => model.Group.School.Experience)
+						@Html.DisplayNameFor(model => model.SchoolExperience)
+						@Html.DisplayFor(model => model.SchoolExperience)
 					</div>
 					<div class="col-md-3">
-						@Html.DisplayNameFor(model => model.Group.School.Points)
-						@Html.DisplayFor(model => model.Group.School.Points)
+						@Html.DisplayNameFor(model => model.SchoolPoints)
+						@Html.DisplayFor(model => model.SchoolPoints)
 					</div>
 				</div>
 			</fieldset>
