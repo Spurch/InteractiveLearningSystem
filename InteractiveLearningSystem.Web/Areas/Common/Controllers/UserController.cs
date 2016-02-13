@@ -17,7 +17,7 @@
             this.usersFilter = usersFilter;
         }
 
-        // GET: Admin/User
+        [HttpGet]
         public ActionResult Index(string role)
         {
             var currentUserId = User.Identity.GetUserId();
@@ -27,9 +27,9 @@
             int? id = 0;
 
             var RoleId = roleServices.GetByName(role);
-            var users = from u in userServices.GetAll()
+            var users = (from u in userServices.GetAll()
                         where u.Roles.Any(r => r.RoleId == RoleId.Id)
-                        select u;
+                        select u);
             
             var usersList = new List<UserListDetailsAdminView>();
 
@@ -89,7 +89,8 @@
                     var newUser = new UserListDetailsAdminView
                     {
                         Id = user.Id,
-                        AvatarUrl = user.AvatarUrl,
+                        AvatarUrl = user.AvatarUrl
+                        ,
                         UserName = user.UserName,
                         Experience = user.Experience,
                         Level = user.Level,

@@ -22,23 +22,50 @@
         public IQueryable<User> GetUsersPerUser(User user, IQueryable<User> usersList)
         {
             var userRole = userServices.GetUserRoles(user.Id).First();
-            IQueryable<User> resultList = usersList;
+            List<User> resultList = new List<User>();
             switch (userRole.Name)
             {
                 case "Administrator":
+                    resultList = usersList.ToList();
                     break;
                 case "Moderator":
-
+                    foreach (var currentUser in usersList)
+                    {
+                        if (currentUser.Group != null && currentUser.Group.SchoolId == user.Moderator.First().Id)
+                        {
+                            resultList.Add(currentUser);
+                        } else if (currentUser.Group == null && currentUser.Consultant.First().Id == user.Moderator.First().Id)
+                        {
+                            resultList.Add(currentUser);
+                        }
+                    }
                     break;
                 case "Adviser":
+                    foreach (var currentUser in usersList)
+                    {
+                        if(currentUser.Group != null && currentUser.Group.SchoolId == user.Consultant.First().Id)
+                        {
+                            resultList.Add(currentUser);
+                        }
+                    }
                     break;
                 case "Teacher":
+                    foreach (var currentUser in usersList)
+                    {
+                        if (currentUser.Group != null && currentUser.Group.SchoolId == user.Group.SchoolId)
+                        {
+                            resultList.Add(currentUser);
+                        }
+                    }
                     break;
                 case "Student":
                     break;
+                default:
+                    resultList = usersList.ToList();
+                    break;
             }
 
-            return resultList;
+            return resultList.AsQueryable();
         }
     }
 }
