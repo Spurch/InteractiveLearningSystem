@@ -11,28 +11,7 @@
 </div>
 <div class="row">
 	<div class="col-md-3">
-		<div class="row">
-			<div class="well text-center">
-				<img src="@Url.Content(@Model.AvatarUrl)" style="width: 15em; height: 15em;" />
-			</div>
-		</div>
-		<hr />
-		<div class="text-center user-name">
-			@Html.DisplayFor(model => model.UserName)
-		</div>
-		<hr />
-		<div class="row">
-			<div class="well user-details text-center">
-				<p>@Html.DisplayNameFor(model => model.Level)</p>
-				@Html.DisplayFor(model => model.Level)
-				<hr />
-				<p>@Html.DisplayNameFor(model => model.Experience)</p>
-				@Html.DisplayFor(model => model.Experience)
-				<hr />
-				<p>@Html.DisplayNameFor(model => model.Points)</p>
-				@Html.DisplayFor(model => model.Points)
-			</div>
-		</div>
+		@Html.Action("UserSnippetPartial", "UsersPartial", new { area = "Common", userId = Model.Id })
 	</div>
 	<div class="col-md-offset-1 col-md-8 well">
 		<div class="row">
@@ -62,7 +41,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						@Html.DisplayNameFor(model => model.GroupName)
-						<a href="@Url.Action("Details", "Group", new { id = Model.GroupId})">@Html.DisplayFor(model => model.GroupName)</a>
+						<a href="@Url.Action("Details", "Group", new { area = "Administrator", id = Model.GroupId})">@Html.DisplayFor(model => model.GroupName)</a>
 					</div>
 					<div class="col-md-3">
 						@Html.DisplayNameFor(model => model.GroupLevel)
@@ -86,7 +65,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						@Html.DisplayNameFor(model => model.SchoolName)
-						<a href="@Url.Action("Details", "School", new { id = Model.SchoolId})">@Html.DisplayFor(model => model.SchoolName)</a>
+						<a href="@Url.Action("Details", "School", new { area = "Administrator", id = Model.SchoolId})">@Html.DisplayFor(model => model.SchoolName)</a>
 					</div>
 					<div class="col-md-3">
 						@Html.DisplayNameFor(model => model.SchoolLevel)

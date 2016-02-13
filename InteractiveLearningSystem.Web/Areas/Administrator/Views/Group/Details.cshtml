@@ -3,6 +3,26 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+	<div class="well text-center">
+		<h2>Group Details</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		@Html.Action("UserSnippetPartial", "UsersPartial", new { area = "Common", userId = Model.Teacher.Id })
+	</div>
+	<div class="col-md-offset-1 col-md-8 well">
+		<div class="col-md-6">
+			
+		</div>
+		<div class="col-md-6">
 
-<h2>Group Details</h2>
+		</div>
+	</div>
+</div>
+<div class="row">
+
+</div>
+
 

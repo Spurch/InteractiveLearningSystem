@@ -1,5 +1,6 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Common.Controllers
 {
+    using Infrastructure.Helpers;
     using Ninject;
     using Services;
     using Services.Contracts;
@@ -18,5 +19,7 @@
         protected IRoleServices roleServices;
         [Inject]
         protected IUserServices userServices;
+        [Inject]
+        protected IUsersFilter usersFilter; 
     }
 }

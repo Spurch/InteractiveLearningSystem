@@ -1,4 +1,7 @@
-﻿using System;
+﻿using InteractiveLearningSystem.Services;
+using InteractiveLearningSystem.Services.Contracts;
+using Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +11,14 @@ namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
 {
     public class SchoolController : Controller
     {
+        [Inject]
+        ISchoolServices schoolServices;
+
+        public SchoolController(SchoolServices schoolServices)
+        {
+            this.schoolServices = schoolServices;
+        }
+
         // GET: Admin/School
         public ActionResult Index()
         {
@@ -17,7 +28,8 @@ namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
         // GET: Admin/School/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var school = schoolServices.GetById(id);
+            return View(school);
         }
 
         // GET: Admin/School/Create

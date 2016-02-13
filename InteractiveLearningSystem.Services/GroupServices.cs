@@ -9,6 +9,11 @@
     {
         private IRepository<Group> groups;
 
+        public Group GetById(int id)
+        {
+            return groups.GetById(id);
+        }
+
         public GroupServices(IRepository<Group> groups)
         {
             this.groups = groups;

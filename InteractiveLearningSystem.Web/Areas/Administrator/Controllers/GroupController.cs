@@ -1,5 +1,8 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
 {
+    using Ninject;
+    using Services;
+    using Services.Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -8,6 +11,14 @@
 
     public class GroupController : Controller
     {
+        [Inject]
+        IGroupServices groupServices;
+
+        public GroupController(GroupServices groupServices)
+        {
+            this.groupServices = groupServices;
+        }
+
         // GET: Admin/Group
         public ActionResult Index()
         {
@@ -17,7 +28,8 @@
         // GET: Admin/Group/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var group = groupServices.GetById(id);
+            return View(group);
         }
 
         // GET: Admin/Group/Create

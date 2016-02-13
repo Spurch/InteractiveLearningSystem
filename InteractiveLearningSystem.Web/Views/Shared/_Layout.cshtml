@@ -29,7 +29,7 @@
 							Manage Users
 							<span class="caret"></span>
 						</a>
-						@Html.Action("UsersPartial", "UsersPartial", new { area = "Common", currentUser = User.Identity.GetUserId() })
+						@Html.Action("UsersPartial", "UsersPartial", new { area = "Common"})
 					</li>
 					@Html.Action("InboxPartial", "InboxPartial", new { area = "Common" })
 				</ul>
@@ -63,7 +63,7 @@
 		@RenderBody()
 		<hr />
 		<footer class="text-center">
-			<p>&copy; @DateTime.Now.Year - Interactive Learning System</p>
+			<p><a href="@Url.Action("About", "Home", new { area= ""})">&copy; @DateTime.Now.Year - Interactive Learning System</a></p>
 		</footer>
 	</div>
 

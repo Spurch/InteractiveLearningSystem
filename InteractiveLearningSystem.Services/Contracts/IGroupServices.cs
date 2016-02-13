@@ -7,6 +7,8 @@
     {
         IQueryable<Group> GetAll();
 
+        Group GetById(int id);
+
         Group Create(string name, string affinity, string notes, string avatarUrl);
 
         void Update(int id, Group entry);

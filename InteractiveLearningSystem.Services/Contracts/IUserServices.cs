@@ -2,10 +2,13 @@
 {
     using System.Linq;
     using Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public interface IUserServices
     {
         IQueryable<User> GetAll();
+
+        IQueryable<IdentityRole> GetUserRoles(string id);
 
         User GetById(string id);
 

@@ -15,7 +15,7 @@ namespace InteractiveLearningSystem.Web.App_Start
     using Data.Repositories;
     using Services.Contracts;
     using Services;
-
+    using Infrastructure.Helpers;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -68,7 +68,7 @@ namespace InteractiveLearningSystem.Web.App_Start
         {
             kernel.Bind(typeof(IInteractiveLearningSystemDbContext)).To(typeof(InteractiveLearningSystemDbContext));
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
-            //kernel.Bind<IMessageServices>().To<MessageServices>();
+            kernel.Bind<IUsersFilter>().To<UsersFilter>();
 
             kernel.Bind(b => b.From("InteractiveLearningSystem.Services")
                               .SelectAllClasses()
