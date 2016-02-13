@@ -17,11 +17,15 @@
             this.usersFilter = usersFilter;
         }
 
-        [HttpGet]
         public ActionResult Index(string role)
         {
             var currentUserId = User.Identity.GetUserId();
             var currentUser = userServices.GetById(currentUserId);
+
+            if(!usersFilter.IsUserAuthorizedToViewRole(currentUser, role))
+            {
+                return View("~/Views/Shared/_Unauthorized.cshtml");
+            }
 
             string name = "";
             int? id = 0;

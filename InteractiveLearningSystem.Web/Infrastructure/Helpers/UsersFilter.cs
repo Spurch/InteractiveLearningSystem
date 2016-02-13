@@ -34,7 +34,8 @@
                         if (currentUser.Group != null && currentUser.Group.SchoolId == user.Moderator.First().Id)
                         {
                             resultList.Add(currentUser);
-                        } else if (currentUser.Group == null && currentUser.Consultant.First().Id == user.Moderator.First().Id)
+                        }
+                        else if (currentUser.Group == null && currentUser.Consultant.First().Id == user.Moderator.First().Id)
                         {
                             resultList.Add(currentUser);
                         }
@@ -43,7 +44,7 @@
                 case "Adviser":
                     foreach (var currentUser in usersList)
                     {
-                        if(currentUser.Group != null && currentUser.Group.SchoolId == user.Consultant.First().Id)
+                        if (currentUser.Group != null && currentUser.Group.SchoolId == user.Consultant.First().Id)
                         {
                             resultList.Add(currentUser);
                         }
@@ -66,6 +67,37 @@
             }
 
             return resultList.AsQueryable();
+        }
+
+        public bool IsUserAuthorizedToViewRole(User user, string role)
+        {
+            var userRole = userServices.GetUserRoles(user.Id).First();
+
+            switch (userRole.Name)
+            {
+                case "Administrator":
+                    return true;
+                case "Moderator":
+                    if (role == "Administrator" || role == "Moderator")
+                    {
+                        return false;
+                    }
+                    break;
+                case "Adviser":
+                    if (role == "Administrator" || role == "Moderator")
+                    {
+                        return false;
+                    }
+                    break;
+                case "Teacher":
+                    if (role == "Administrator" || role == "Moderator"
+                        || role == "Adviser")
+                    {
+                        return false;
+                    }
+                    break;
+            }
+            return true;
         }
     }
 }

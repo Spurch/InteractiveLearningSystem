@@ -10,5 +10,7 @@
     public interface IUsersFilter
     {
         IQueryable<User> GetUsersPerUser(User user, IQueryable<User> usersList);
+
+        bool IsUserAuthorizedToViewRole(User user, string role);
     }
 }
