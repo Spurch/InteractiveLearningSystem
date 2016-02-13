@@ -9,6 +9,7 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
     using InteractiveLearningSystem.Models;
+
     [Authorize]
     public class ManageController : Controller
     {

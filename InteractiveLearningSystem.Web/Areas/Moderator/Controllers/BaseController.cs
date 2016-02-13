@@ -4,7 +4,7 @@
     using System.Web.Mvc;
 
     [RoleAuthorize(Roles = "Moderator")]
-    public class ModeratorBaseController : Controller
+    public class BaseController : Controller
     {
     }
 }

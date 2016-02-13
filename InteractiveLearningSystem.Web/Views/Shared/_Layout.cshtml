@@ -29,9 +29,9 @@
 							Manage Users
 							<span class="caret"></span>
 						</a>
-						@Html.Action("UsersPartial", "Home", new { area = "", currentUser = User.Identity.GetUserId() })
+						@Html.Action("UsersPartial", "UsersPartial", new { area = "Common", currentUser = User.Identity.GetUserId() })
 					</li>
-					@Html.Action("InboxPartial", "Home", new { area = "" })
+					@Html.Action("InboxPartial", "InboxPartial", new { area = "Common" })
 				</ul>
 
 				<div class="col-sm-3 col-md-3">

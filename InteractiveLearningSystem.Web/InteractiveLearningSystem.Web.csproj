@@ -243,7 +243,11 @@
     <Compile Include="Areas\Adviser\AdviserAreaRegistration.cs" />
     <Compile Include="Areas\Adviser\Controllers\AdviserBaseController.cs" />
     <Compile Include="Areas\Adviser\Controllers\IndexController.cs" />
-    <Compile Include="Areas\Moderator\Controllers\ModeratorBaseController.cs" />
+    <Compile Include="Areas\Common\CommonAreaRegistration.cs" />
+    <Compile Include="Areas\Common\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Common\Controllers\InboxPartialController.cs" />
+    <Compile Include="Areas\Common\Controllers\UsersPartialController.cs" />
+    <Compile Include="Areas\Moderator\Controllers\BaseController.cs" />
     <Compile Include="Areas\Moderator\Controllers\IndexController.cs" />
     <Compile Include="Areas\Moderator\ModeratorAreaRegistration.cs" />
     <Compile Include="Areas\Teacher\Controllers\TeacherBaseController.cs" />
@@ -266,12 +270,14 @@
     <Content Include="Content\DefaultUserImages\admin.png" />
     <Content Include="Content\DefaultUserImages\adviser.png" />
     <Content Include="Content\DefaultUserImages\group.png" />
+    <Content Include="Content\DefaultUserImages\login-background.jpg" />
     <Content Include="Content\DefaultUserImages\moderator.png" />
     <Content Include="Content\DefaultUserImages\student00.png" />
     <Content Include="Content\DefaultUserImages\student01.png" />
     <Content Include="Content\DefaultUserImages\student02.png" />
     <Content Include="Content\DefaultUserImages\student03.png" />
     <Content Include="Content\DefaultUserImages\teacher.png" />
+    <Content Include="Content\DefaultUserImages\unauthorized.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -303,6 +309,9 @@
     <Content Include="Areas\Administrator\Views\School\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\User\Add.cshtml" />
     <Content Include="Areas\Administrator\Views\Message\New.cshtml" />
+    <Content Include="Areas\Common\Views\web.config" />
+    <Content Include="Areas\Common\Views\InboxPartial\_InboxPartial.cshtml" />
+    <Content Include="Areas\Common\Views\UsersPartial\_UsersPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -350,8 +359,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Unauthorized.cshtml" />
-    <Content Include="Views\Home\_InboxPartial.cshtml" />
-    <Content Include="Views\Home\_UsersPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -359,8 +366,11 @@
     <Folder Include="Areas\Administrator\Views\Base\" />
     <Folder Include="Areas\Adviser\Models\" />
     <Folder Include="Areas\Adviser\Views\AdviserBase\" />
+    <Folder Include="Areas\Common\Models\" />
+    <Folder Include="Areas\Common\Views\Base\" />
+    <Folder Include="Areas\Common\Views\Shared\" />
     <Folder Include="Areas\Moderator\Models\" />
-    <Folder Include="Areas\Moderator\Views\ModeratorBase\" />
+    <Folder Include="Areas\Moderator\Views\Base\" />
     <Folder Include="Areas\Teacher\Models\" />
     <Folder Include="Areas\Teacher\Views\TeacherBase\" />
   </ItemGroup>
