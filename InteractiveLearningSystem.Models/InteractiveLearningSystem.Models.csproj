@@ -98,6 +98,7 @@
     <Compile Include="School.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="ProblemStat.cs" />
+    <Compile Include="SchoolViewModels.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

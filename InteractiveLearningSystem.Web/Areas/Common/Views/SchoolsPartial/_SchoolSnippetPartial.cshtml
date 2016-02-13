@@ -1,0 +1,23 @@
+﻿@model InteractiveLearningSystem.Models.SchoolSnippetViewModel
+<div class="row">
+	<div class="well text-center">
+		<img src="@Url.Content(@Model.AvatarUrl)" style="width: 15em; height: 15em;" />
+	</div>
+</div>
+<hr />
+<div class="text-center user-name">
+	@Html.DisplayFor(model => model.Name)
+</div>
+<hr />
+<div class="row">
+	<div class="well user-details text-center">
+		<p>@Html.DisplayNameFor(model => model.Level)</p>
+		@Html.DisplayFor(model => model.Level)
+		<hr />
+		<p>@Html.DisplayNameFor(model => model.Experience)</p>
+		@Html.DisplayFor(model => model.Experience)
+		<hr />
+		<p>@Html.DisplayNameFor(model => model.Points)</p>
+		@Html.DisplayFor(model => model.Points)
+	</div>
+</div>

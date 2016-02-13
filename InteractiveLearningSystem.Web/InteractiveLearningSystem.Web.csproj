@@ -245,6 +245,7 @@
     <Compile Include="Areas\Common\CommonAreaRegistration.cs" />
     <Compile Include="Areas\Common\Controllers\BaseController.cs" />
     <Compile Include="Areas\Common\Controllers\InboxPartialController.cs" />
+    <Compile Include="Areas\Common\Controllers\SchoolsPartialController.cs" />
     <Compile Include="Areas\Common\Controllers\UserController.cs" />
     <Compile Include="Areas\Common\Controllers\UsersPartialController.cs" />
     <Compile Include="Areas\Moderator\Controllers\BaseController.cs" />
@@ -315,6 +316,7 @@
     <Content Include="Areas\Common\Views\User\Details.cshtml" />
     <Content Include="Areas\Common\Views\User\Index.cshtml" />
     <Content Include="Areas\Common\Views\UsersPartial\_UserSnippetPartial.cshtml" />
+    <Content Include="Areas\Common\Views\SchoolsPartial\_SchoolSnippetPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

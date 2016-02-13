@@ -20,6 +20,8 @@
         [Inject]
         protected IUserServices userServices;
         [Inject]
+        protected ISchoolServices schoolServices;
+        [Inject]
         protected IUsersFilter usersFilter; 
     }
 }
