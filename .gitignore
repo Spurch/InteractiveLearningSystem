@@ -280,3 +280,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 InteractiveLearningSystem.Web/Assets/Libraries/Kendo.Mvc.dll
+/InteractiveLearningSystem.Web/Assets/Libraries/Kendo.Mvc.xml
