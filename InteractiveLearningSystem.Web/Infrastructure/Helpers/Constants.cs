@@ -7,7 +7,7 @@
 
     public class Constants
     {
-        public static string UNAUTHORIZED = "~/Content/DefaultUserImages/unauthorized.png";
+        public static string UNAUTHORIZED = "~/Assets/DefaultUserImages/unauthorized.png";
 
     }
 }
