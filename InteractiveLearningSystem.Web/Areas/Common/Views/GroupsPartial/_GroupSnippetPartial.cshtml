@@ -1,0 +1,23 @@
+﻿@model InteractiveLearningSystem.Models.GroupSnippetViewModel
+<div class="row">
+	<fieldset class="scheduler-border">
+		<legend class="scheduler-border">@Html.DisplayFor(model => model.Name)</legend>
+		<div class="row">
+			<div class="col-md-3">
+				<img src="@Url.Content(Model.AvatarUrl)" />
+			</div>
+			<div class="col-md-3">
+				@Html.DisplayNameFor(model => model.Level)
+				@Html.DisplayFor(model => model.Level)
+			</div>
+			<div class="col-md-3">
+				@Html.DisplayNameFor(model => model.Experience)
+				@Html.DisplayFor(model => model.Experience)
+			</div>
+			<div class="col-md-3">
+				@Html.DisplayNameFor(model => model.Points)
+				@Html.DisplayFor(model => model.Points)
+			</div>
+		</div>
+	</fieldset>
+</div>

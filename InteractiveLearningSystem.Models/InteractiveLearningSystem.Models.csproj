@@ -88,8 +88,10 @@
   <ItemGroup>
     <Compile Include="AccountViewModels.cs" />
     <Compile Include="Answer.cs" />
+    <Compile Include="Common\BaseSnippetViewModel.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Group.cs" />
+    <Compile Include="GroupViewModels.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="ManageViewModels.cs" />

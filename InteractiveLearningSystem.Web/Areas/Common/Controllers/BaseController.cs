@@ -22,6 +22,8 @@
         [Inject]
         protected ISchoolServices schoolServices;
         [Inject]
-        protected IUsersFilter usersFilter; 
+        protected IUsersFilter usersFilter;
+        [Inject]
+        protected IGroupServices groupServices;
     }
 }

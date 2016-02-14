@@ -14,16 +14,12 @@
 		@Html.Action("SchoolSnippetPartial", "SchoolsPartial", new { area = "Common", schoolId = Model.SchoolId })
 	</div>
 	<div class="col-md-offset-1 col-md-8 well">
-		<div class="col-md-6">
-			
-		</div>
-		<div class="col-md-6">
-
+		<div class="col-md-12">
+			@Html.Action("GroupSnippetPartial", "GroupsPartial", new { area = "Common", groupId = Model.Id })
 		</div>
 	</div>
 </div>
 <div class="row">
-
 </div>
 
 

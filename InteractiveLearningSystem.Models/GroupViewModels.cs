@@ -8,7 +8,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class SchoolSnippetViewModel : BaseSnippetViewModel
+    public class GroupSnippetViewModel : BaseSnippetViewModel
     {
         public int Id { get; set; }
 
