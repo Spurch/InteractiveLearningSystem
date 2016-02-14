@@ -11,6 +11,7 @@
 <div class="row">
 	<div class="col-md-3">
 		@Html.Action("UserSnippetPartial", "UsersPartial", new { area = "Common", userId = Model.Teacher.Id })
+		@Html.Action("SchoolSnippetPartial", "SchoolsPartial", new { area = "Common", schoolId = Model.SchoolId })
 	</div>
 	<div class="col-md-offset-1 col-md-8 well">
 		<div class="col-md-6">

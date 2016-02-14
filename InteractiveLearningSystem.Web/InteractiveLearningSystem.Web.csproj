@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>Assets\Libraries\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -268,19 +271,21 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\DefaultUserImages\admin.png" />
+    <Content Include="Assets\DefaultUserImages\adviser.png" />
+    <Content Include="Assets\DefaultUserImages\group.png" />
+    <Content Include="Assets\DefaultUserImages\login-background.jpg" />
+    <Content Include="Assets\DefaultUserImages\moderator.png" />
+    <Content Include="Assets\DefaultUserImages\student00.png" />
+    <Content Include="Assets\DefaultUserImages\student01.png" />
+    <Content Include="Assets\DefaultUserImages\student02.png" />
+    <Content Include="Assets\DefaultUserImages\student03.png" />
+    <Content Include="Assets\DefaultUserImages\teacher.png" />
+    <Content Include="Assets\DefaultUserImages\unauthorized.png" />
+    <Content Include="Assets\Libraries\Kendo.Mvc.dll" />
+    <Content Include="Assets\Libraries\Kendo.Mvc.xml" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\DefaultUserImages\admin.png" />
-    <Content Include="Content\DefaultUserImages\adviser.png" />
-    <Content Include="Content\DefaultUserImages\group.png" />
-    <Content Include="Content\DefaultUserImages\login-background.jpg" />
-    <Content Include="Content\DefaultUserImages\moderator.png" />
-    <Content Include="Content\DefaultUserImages\student00.png" />
-    <Content Include="Content\DefaultUserImages\student01.png" />
-    <Content Include="Content\DefaultUserImages\student02.png" />
-    <Content Include="Content\DefaultUserImages\student03.png" />
-    <Content Include="Content\DefaultUserImages\teacher.png" />
-    <Content Include="Content\DefaultUserImages\unauthorized.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -378,6 +383,7 @@
     <Folder Include="Areas\Moderator\Views\Base\" />
     <Folder Include="Areas\Teacher\Models\" />
     <Folder Include="Areas\Teacher\Views\TeacherBase\" />
+    <Folder Include="Content\Kendo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
