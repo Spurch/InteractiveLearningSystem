@@ -27,7 +27,7 @@
                     Mobile = "0887089841",
                     Phone = "029973778",
                     SiteUrl = "www.school"+i+".edu",
-                    AvatarUrl = "http://static3cdn.echalk.net/www/ud00/0/08f0bb6891474a62aa9b9cbc92bd397a/Personal_Images/school.jpg",
+                    AvatarUrl = DataSeedConstants.DEFAULT_SCHOOL_AVATAR,
                     Points = 0,
                     Experience = 0,
                     Level = 0,

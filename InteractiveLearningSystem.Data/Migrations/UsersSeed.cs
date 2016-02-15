@@ -23,6 +23,7 @@
             Advisers = new List<User>();
             Teachers = new List<User>();
             Students = new List<User>();
+            var rand = new Random();
 
             List<User> currentGroup = new List<User>();
             /*
@@ -59,7 +60,7 @@
                     FirstName = "Moderator" + i,
                     LastName = "Moderatorski" + i,
                     Email = "moderator" + i + "@ils.edu",
-                    AvatarUrl = DataSeedConstants.DEFAULT_MODERATOR_AVATAR,
+                    AvatarUrl = DataSeedConstants.DEFAULT_MODERATOR_AVATAR + "0" + rand.Next(0, 2) + ".png",
                     Level = 0,
                     Experience = 0,
                     Points = 0
@@ -83,7 +84,7 @@
                     FirstName = "Daskal" + i,
                     LastName = "Shkolski" + i,
                     Email = "teacher" + i + "@ils.edu",
-                    AvatarUrl = DataSeedConstants.DEFAULT_TEACHER_AVATAR,
+                    AvatarUrl = DataSeedConstants.DEFAULT_TEACHER_AVATAR + "0" + rand.Next(0, 2) + ".png",
                     Level = 0,
                     Experience = 0,
                     Points = 0
@@ -107,7 +108,7 @@
                     FirstName = "Rezil" + i,
                     LastName = "Psiharski" + i,
                     Email = "adviser" + i + "@ils.edu",
-                    AvatarUrl = DataSeedConstants.DEFAULT_ADVISER_AVATAR,
+                    AvatarUrl = DataSeedConstants.DEFAULT_ADVISER_AVATAR + "0" + rand.Next(0, 2) + ".png",
                     Level = 0,
                     Experience = 0,
                     Points = 0
@@ -122,7 +123,7 @@
             /*
           Creating 200 students for the Interactive Learning System.
           */
-            var rand = new Random();
+           
             for (int i = 0; i < DataSeedConstants.STUDENT_COUNT; i++)
             {
                 var student = new User()

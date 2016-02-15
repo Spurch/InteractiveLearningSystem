@@ -11,10 +11,11 @@
         public static int STUDENT_COUNT = 200;
 
         public static string DEFAULT_ADMIN_AVATAR = "~/Assets/DefaultUserImages/admin.png";
-        public static string DEFAULT_MODERATOR_AVATAR = "~/Assets/DefaultUserImages/moderator.png";
-        public static string DEFAULT_ADVISER_AVATAR = "~/Assets/DefaultUserImages/adviser.png";
-        public static string DEFAULT_TEACHER_AVATAR = "~/Assets/DefaultUserImages/teacher.png";
+        public static string DEFAULT_MODERATOR_AVATAR = "~/Assets/DefaultUserImages/moderator";
+        public static string DEFAULT_ADVISER_AVATAR = "~/Assets/DefaultUserImages/adviser";
+        public static string DEFAULT_TEACHER_AVATAR = "~/Assets/DefaultUserImages/teacher";
         public static string DEFAULT_STUDENT_AVATAR = "~/Assets/DefaultUserImages/student";
         public static string DEFAULT_GROUP_AVATAR = "~/Assets/DefaultUserImages/group.png";
+        public static string DEFAULT_SCHOOL_AVATAR = "~/Assets/DefaultUserImages/school.png";
     }
 }
