@@ -24,11 +24,6 @@
 				<ul class="nav navbar-nav">
 					<li><a href="@Url.Action("Index", "Index")"><span class="glyphicon glyphicon-home"></span> System</a></li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-							<span class="glyphicon glyphicon-user"></span>
-							Manage Users
-							<span class="caret"></span>
-						</a>
 						@Html.Action("UsersPartial", "UsersPartial", new { area = "Common"})
 					</li>
 					@Html.Action("InboxPartial", "InboxPartial", new { area = "Common" })

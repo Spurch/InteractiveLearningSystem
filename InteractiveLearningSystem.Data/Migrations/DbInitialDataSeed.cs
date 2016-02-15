@@ -10,6 +10,8 @@
         public static List<School> Schools;
         public static List<Group> Groups;
         private static GameDetailsCalculator GameCalculator = new GameDetailsCalculator();
+        private static RandomGenerators RandomGenerator = new RandomGenerators();
+
         /// <summary>
         /// Method that seeds the initial amount of schools based on a given constant.
         /// </summary>
@@ -86,6 +88,31 @@
                 school.Points = GameCalculator.EvaluateSchoolPoints(school);
                 school.Experience = GameCalculator.EvaluateSchoolExperience(school);
             }
+        }
+
+        public static void SeedDbMessages(InteractiveLearningSystemDbContext context, List<User> users)
+        {
+            var flag = true;
+            var count = users.Count;
+            for (int i = 0; i < count*2; i++)
+            {
+                if(i%3 == 0)
+                {
+                    flag = false;
+                }
+                var message = new Message()
+                {
+                    Title = RandomGenerator.GenerateRandomSentence(5),
+                    Content = RandomGenerator.GenerateRandomSentence(30),
+                    DateCreated = RandomGenerator.GenerateRandomDate(),
+                    Receiver = users[RandomGenerator.GenerateRandomInteger(0, users.Count/2)],
+                    Sender = users[RandomGenerator.GenerateRandomInteger(users.Count/2+1, users.Count)],
+                    isViewed = flag,
+                    Flag = RandomGenerator.GenerateRandomSentence(3)
+                };
+                context.Messages.Add(message);
+            }
+            context.SaveChanges();
         }
 
         public static void SeedDbProblems(InteractiveLearningSystemDbContext context)

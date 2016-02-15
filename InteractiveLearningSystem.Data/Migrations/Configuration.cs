@@ -42,31 +42,11 @@ namespace InteractiveLearningSystem.Data.Migrations
                 context.SaveChanges();
             }
 
-            var msg = new Message()
-            {
-                Sender = userSeed.Teachers[1],
-                Receiver = userSeed.Admin,
-                DateCreated = DateTime.Now,
-                Content = "Test message content",
-                Flag = "test flag",
-                Title = "test title",
-                isViewed = false
-            };
-            context.Messages.Add(msg);
-            context.SaveChanges();
+            var allUsers = userSeed.Students.Concat(userSeed.Teachers)
+                                    .Concat(userSeed.Moderators)
+                                    .ToList();
 
-            msg = new Message()
-            {
-                Sender = userSeed.Teachers[1],
-                Receiver = userSeed.Admin,
-                DateCreated = DateTime.Now,
-                Content = "Test message content is viewed",
-                Flag = "test flag",
-                Title = "viewed test title",
-                isViewed = true
-            };
-            context.Messages.Add(msg);
-            context.SaveChanges();
+            DbInitialDataSeed.SeedDbMessages(context, allUsers);
         }
     }
 }

@@ -14,7 +14,7 @@
         public string Title { get; set; }
 
         [MinLength(10)]
-        [MaxLength(1000)]
+        [MaxLength(2000)]
         public string Content { get; set; }
 
         [Display(Name = "Date")]

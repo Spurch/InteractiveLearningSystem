@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    public class IndexController : AdviserBaseController
+    public class IndexController : BaseController
     {
         // GET: Adviser/Home
         public ActionResult Index()
