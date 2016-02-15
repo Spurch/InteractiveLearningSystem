@@ -9,6 +9,51 @@
 	</div>
 </div>
 <div class="row">
+	<div class="well">
+		<table class="table">
+			<tr>
+				<th>
+					Avatar
+				</th>
+				<th>
+					Name
+				</th>
+				<th>
+					Points
+				</th>
+				<th>
+					Exp
+				</th>
+				<th>
+					Level
+				</th>
+			</tr>
+
+			@foreach (var item in Model.Groups)
+			{
+				<tr>
+					<td>
+						<img src="@Url.Content(item.AvatarUrl)" style="width: 3.4em; height: 3.4em;" />
+					</td>
+					<td>
+						<a href="@Url.Action("Details", "Group", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Name)</a>
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Points)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Experience)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Level)
+					</td>
+				</tr>
+			}
+
+		</table>
+	</div>
+</div>
+<div class="row">
 	<div class="col-md-3">
 		@Html.Action("SchoolSnippetPartial", "SchoolsPartial", new { area = "Common", schoolId = Model.Id })
 	</div>
