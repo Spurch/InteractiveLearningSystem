@@ -15,6 +15,7 @@
         public List<User> Students;
         public User Admin;
         public UserGameDetailsGenerator Generator;
+        public RandomGenerators RandomGenerator;
         public Random rand;
         public double experience;
         public int level;
@@ -27,6 +28,7 @@
             Students = new List<User>();
             rand = new Random();
             Generator = new UserGameDetailsGenerator();
+            RandomGenerator = new RandomGenerators();
             experience = 0;
             level = 0;
         }
@@ -42,14 +44,15 @@
             {
                 UserName = "admin@ils.edu",
                 PasswordHash = new PasswordHasher().HashPassword("admin"),
-                FirstName = "Admin",
-                LastName = "Adminski",
+                FirstName = RandomGenerator.GenerateRandomName(),
+                LastName = RandomGenerator.GenerateRandomFamily(),
                 Email = "admin@ils.edu",
                 AvatarUrl = DataSeedConstants.DEFAULT_ADMIN_AVATAR,
                 Level = 100,
                 Experience = 999999,
                 Points = 999999,
-                Notes = "He is the one and only!!!"
+                Notes = "He is the one and only!!!",
+                PhoneNumber = RandomGenerator.GenerateRandomMobile()
             };
             context.Users.Add(admin);
             userManager.Create(admin);
@@ -68,13 +71,14 @@
                 {
                     UserName = "moderator" + i + "@ils.edu",
                     PasswordHash = new PasswordHasher().HashPassword("moderator" + i),
-                    FirstName = "Moderator" + i,
-                    LastName = "Moderatorski" + i,
+                    FirstName = RandomGenerator.GenerateRandomName(),
+                    LastName = RandomGenerator.GenerateRandomFamily(),
                     Email = "moderator" + i + "@ils.edu",
                     AvatarUrl = DataSeedConstants.DEFAULT_MODERATOR_AVATAR + "0" + rand.Next(0, 2) + ".png",
                     Experience = experience,
                     Level = level,
-                    Points = Generator.GenerateUserPoints(experience)
+                    Points = Generator.GenerateUserPoints(experience),
+                    PhoneNumber = RandomGenerator.GenerateRandomMobile()
                 };
                 context.Users.Add(moderator);
                 userManager.Create(moderator);
@@ -94,13 +98,14 @@
                 {
                     UserName = "teacher" + i + "@ils.edu",
                     PasswordHash = new PasswordHasher().HashPassword("teacher" + i),
-                    FirstName = "Daskal" + i,
-                    LastName = "Shkolski" + i,
+                    FirstName = RandomGenerator.GenerateRandomName(),
+                    LastName = RandomGenerator.GenerateRandomFamily(),
                     Email = "teacher" + i + "@ils.edu",
                     AvatarUrl = DataSeedConstants.DEFAULT_TEACHER_AVATAR + "0" + rand.Next(0, 2) + ".png",
                     Experience = experience,
                     Level = level,
-                    Points = Generator.GenerateUserPoints(experience)
+                    Points = Generator.GenerateUserPoints(experience),
+                    PhoneNumber = RandomGenerator.GenerateRandomMobile()
                 };
                 context.Users.Add(teacher);
                 userManager.Create(teacher);
@@ -120,13 +125,14 @@
                 {
                     UserName = "adviser" + i + "@ils.edu",
                     PasswordHash = new PasswordHasher().HashPassword("adviser" + i),
-                    FirstName = "Rezil" + i,
-                    LastName = "Psiharski" + i,
+                    FirstName = RandomGenerator.GenerateRandomName(),
+                    LastName = RandomGenerator.GenerateRandomFamily(),
                     Email = "adviser" + i + "@ils.edu",
                     AvatarUrl = DataSeedConstants.DEFAULT_ADVISER_AVATAR + "0" + rand.Next(0, 2) + ".png",
                     Experience = experience,
                     Level = level,
-                    Points = Generator.GenerateUserPoints(experience)
+                    Points = Generator.GenerateUserPoints(experience),
+                    PhoneNumber = RandomGenerator.GenerateRandomMobile()
                 };
                 context.Users.Add(adviser);
                 userManager.Create(adviser);
@@ -147,13 +153,14 @@
                 {
                     UserName = "student" + i,
                     PasswordHash = new PasswordHasher().HashPassword("student" + i),
-                    FirstName = "Murzel" + i,
-                    LastName = "Obitashki" + i,
+                    FirstName = RandomGenerator.GenerateRandomName(),
+                    LastName = RandomGenerator.GenerateRandomFamily(),
                     Email = "student" + i + "@ils.edu",
                     AvatarUrl = DataSeedConstants.DEFAULT_STUDENT_AVATAR +"0"+rand.Next(0,3)+".png",
                     Experience = experience,
                     Level = level,
-                    Points = Generator.GenerateUserPoints(experience)
+                    Points = Generator.GenerateUserPoints(experience),
+                    PhoneNumber = RandomGenerator.GenerateRandomMobile()
                 };
                 context.Users.Add(student);
                 userManager.Create(student);

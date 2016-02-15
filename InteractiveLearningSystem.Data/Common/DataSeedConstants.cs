@@ -3,6 +3,7 @@
     public class DataSeedConstants
     {
         public static string[] ROLES = { "Administrator", "Moderator", "Adviser", "Teacher", "Student" };
+
         public static int MODERATOR_COUNT = 10;
         public static int ADVISER_COUNT = 10;
         public static int TEACHER_COUNT = 40;
