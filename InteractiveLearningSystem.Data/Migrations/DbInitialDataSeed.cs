@@ -9,7 +9,7 @@
     {
         public static List<School> Schools;
         public static List<Group> Groups;
-
+        private static GameDetailsCalculator GameCalculator = new GameDetailsCalculator();
         /// <summary>
         /// Method that seeds the initial amount of schools based on a given constant.
         /// </summary>
@@ -66,13 +66,26 @@
                     group.Students.Add(students[k]);
                     k++;
                 }
-                
+
+                group.Level = GameCalculator.EvaluateGroupLevel(group);
+                group.Points = GameCalculator.EvaluateGroupPoints(group);
+                group.Experience = GameCalculator.EvaluateGroupExperience(group);
                 teachers[i].Group = group;
                 context.Groups.Add(group);
                 context.SaveChanges();
-                Groups.Add(group);              
+                Groups.Add(group);
             }
+            EvaluateSchoolGameDetails();
+        }
 
+        private static void EvaluateSchoolGameDetails()
+        {
+            foreach (var school in Schools)
+            {
+                school.Level = GameCalculator.EvaluateSchoolLevel(school);
+                school.Points = GameCalculator.EvaluateSchoolPoints(school);
+                school.Experience = GameCalculator.EvaluateSchoolExperience(school);
+            }
         }
 
         public static void SeedDbProblems(InteractiveLearningSystemDbContext context)

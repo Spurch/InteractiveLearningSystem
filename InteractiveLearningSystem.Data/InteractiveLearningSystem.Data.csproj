@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\DataSeedConstants.cs" />
+    <Compile Include="Common\GameDetailsCalculator.cs" />
     <Compile Include="Common\RandomGenerators.cs" />
     <Compile Include="Common\UserGameDetailsGenerator.cs" />
     <Compile Include="IInteractiveLearningSystemDbContext.cs" />

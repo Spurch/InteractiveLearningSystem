@@ -265,6 +265,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Helpers\Constants.cs" />
+    <Compile Include="Infrastructure\Helpers\GameDetailsEvaluationHelper.cs" />
     <Compile Include="Infrastructure\Helpers\IUsersFilter.cs" />
     <Compile Include="Infrastructure\Helpers\UsersFilter.cs" />
     <Compile Include="Infrastructure\Helpers\RoleAuthorizeAttribute.cs" />
