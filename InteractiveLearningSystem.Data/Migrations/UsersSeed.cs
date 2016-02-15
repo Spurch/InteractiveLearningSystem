@@ -9,22 +9,31 @@
 
     public class UsersSeed
     {
-        public static List<User> Moderators;
-        public static List<User> Advisers;
-        public static List<User> Teachers;
-        public static List<User> Students;
-        public static User Admin;
+        public List<User> Moderators;
+        public List<User> Advisers;
+        public List<User> Teachers;
+        public List<User> Students;
+        public User Admin;
+        public UserGameDetailsGenerator Generator;
+        public Random rand;
+        public double experience;
+        public int level;
 
-        public static void SeedDbUsers(InteractiveLearningSystemDbContext context)
+        public UsersSeed()
         {
-            var userManager = new UserManager<User>(new UserStore<User>(context));
-
             Moderators = new List<User>();
             Advisers = new List<User>();
             Teachers = new List<User>();
             Students = new List<User>();
-            var rand = new Random();
+            rand = new Random();
+            Generator = new UserGameDetailsGenerator();
+            experience = 0;
+            level = 0;
+        }
 
+        public void SeedDbUsers(InteractiveLearningSystemDbContext context)
+        {
+            var userManager = new UserManager<User>(new UserStore<User>(context));
             List<User> currentGroup = new List<User>();
             /*
             Creating the Interactive Learning System one and only Admin!
@@ -37,9 +46,9 @@
                 LastName = "Adminski",
                 Email = "admin@ils.edu",
                 AvatarUrl = DataSeedConstants.DEFAULT_ADMIN_AVATAR,
-                Level = 0,
-                Experience = 0,
-                Points = 0,
+                Level = 100,
+                Experience = 999999,
+                Points = 999999,
                 Notes = "He is the one and only!!!"
             };
             context.Users.Add(admin);
@@ -53,6 +62,8 @@
             */
             for (int i = 0; i < DataSeedConstants.MODERATOR_COUNT; i++)
             {
+                level = (int)Generator.GenerateUserLevel();
+                experience = Generator.GenerateUserExperience(level);
                 var moderator = new User()
                 {
                     UserName = "moderator" + i + "@ils.edu",
@@ -61,9 +72,9 @@
                     LastName = "Moderatorski" + i,
                     Email = "moderator" + i + "@ils.edu",
                     AvatarUrl = DataSeedConstants.DEFAULT_MODERATOR_AVATAR + "0" + rand.Next(0, 2) + ".png",
-                    Level = 0,
-                    Experience = 0,
-                    Points = 0
+                    Experience = experience,
+                    Level = level,
+                    Points = Generator.GenerateUserPoints(experience)
                 };
                 context.Users.Add(moderator);
                 userManager.Create(moderator);
@@ -77,6 +88,8 @@
             */
             for (int i = 0; i < DataSeedConstants.TEACHER_COUNT; i++)
             {
+                level = (int)Generator.GenerateUserLevel();
+                experience = Generator.GenerateUserExperience(level);
                 var teacher = new User()
                 {
                     UserName = "teacher" + i + "@ils.edu",
@@ -85,9 +98,9 @@
                     LastName = "Shkolski" + i,
                     Email = "teacher" + i + "@ils.edu",
                     AvatarUrl = DataSeedConstants.DEFAULT_TEACHER_AVATAR + "0" + rand.Next(0, 2) + ".png",
-                    Level = 0,
-                    Experience = 0,
-                    Points = 0
+                    Experience = experience,
+                    Level = level,
+                    Points = Generator.GenerateUserPoints(experience)
                 };
                 context.Users.Add(teacher);
                 userManager.Create(teacher);
@@ -101,6 +114,8 @@
            */
             for (int i = 0; i < DataSeedConstants.ADVISER_COUNT; i++)
             {
+                level = (int)Generator.GenerateUserLevel();
+                experience = Generator.GenerateUserExperience(level);
                 var adviser = new User()
                 {
                     UserName = "adviser" + i + "@ils.edu",
@@ -109,9 +124,9 @@
                     LastName = "Psiharski" + i,
                     Email = "adviser" + i + "@ils.edu",
                     AvatarUrl = DataSeedConstants.DEFAULT_ADVISER_AVATAR + "0" + rand.Next(0, 2) + ".png",
-                    Level = 0,
-                    Experience = 0,
-                    Points = 0
+                    Experience = experience,
+                    Level = level,
+                    Points = Generator.GenerateUserPoints(experience)
                 };
                 context.Users.Add(adviser);
                 userManager.Create(adviser);
@@ -126,6 +141,8 @@
            
             for (int i = 0; i < DataSeedConstants.STUDENT_COUNT; i++)
             {
+                level = (int)Generator.GenerateUserLevel();
+                experience = Generator.GenerateUserExperience(level);
                 var student = new User()
                 {
                     UserName = "student" + i,
@@ -134,9 +151,9 @@
                     LastName = "Obitashki" + i,
                     Email = "student" + i + "@ils.edu",
                     AvatarUrl = DataSeedConstants.DEFAULT_STUDENT_AVATAR +"0"+rand.Next(0,3)+".png",
-                    Level = 0,
-                    Experience = 0,
-                    Points = 0
+                    Experience = experience,
+                    Level = level,
+                    Points = Generator.GenerateUserPoints(experience)
                 };
                 context.Users.Add(student);
                 userManager.Create(student);

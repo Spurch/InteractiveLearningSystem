@@ -16,41 +16,36 @@ namespace InteractiveLearningSystem.Data.Migrations
 
         protected override void Seed(InteractiveLearningSystemDbContext context)
         {
-            //We'll consider a scenario where having users means that we have the whole DB seeded.
-            if (context.Users.Any())
-            {
-                return;
-            }
-
             context.Configuration.LazyLoadingEnabled = true;
 
             RolesSeed.SeedDbRoles(context);
 
-            UsersSeed.SeedDbUsers(context);
+            var userSeed = new UsersSeed();
+            userSeed.SeedDbUsers(context);
 
             DbInitialDataSeed.SeedDbSchools(context);
 
-            DbInitialDataSeed.SeedDbGroups(context, UsersSeed.Teachers, DbInitialDataSeed.Schools, UsersSeed.Students);
+            DbInitialDataSeed.SeedDbGroups(context, userSeed.Teachers, DbInitialDataSeed.Schools, userSeed.Students);
 
-            for (int i = 0; i < UsersSeed.Moderators.Count; i++)
+            for (int i = 0; i < userSeed.Moderators.Count; i++)
             {
-                UsersSeed.Moderators[i].Moderator.Add(DbInitialDataSeed.Schools[i]);
-                DbInitialDataSeed.Schools[i].Moderator = UsersSeed.Moderators[i];
+                userSeed.Moderators[i].Moderator.Add(DbInitialDataSeed.Schools[i]);
+                DbInitialDataSeed.Schools[i].Moderator = userSeed.Moderators[i];
                 context.SaveChanges();
             }
-            
 
-            for (int i = 0; i < UsersSeed.Advisers.Count; i++)
+
+            for (int i = 0; i < userSeed.Advisers.Count; i++)
             {
-                UsersSeed.Advisers[i].Consultant.Add(DbInitialDataSeed.Schools[i]);
-                DbInitialDataSeed.Schools[i].Consultant = UsersSeed.Advisers[i];
+                userSeed.Advisers[i].Consultant.Add(DbInitialDataSeed.Schools[i]);
+                DbInitialDataSeed.Schools[i].Consultant = userSeed.Advisers[i];
                 context.SaveChanges();
             }
-            
+
             var msg = new Message()
             {
-                Sender = UsersSeed.Teachers[1],
-                Receiver = UsersSeed.Admin,
+                Sender = userSeed.Teachers[1],
+                Receiver = userSeed.Admin,
                 DateCreated = DateTime.Now,
                 Content = "Test message content",
                 Flag = "test flag",
@@ -62,8 +57,8 @@ namespace InteractiveLearningSystem.Data.Migrations
 
             msg = new Message()
             {
-                Sender = UsersSeed.Teachers[1],
-                Receiver = UsersSeed.Admin,
+                Sender = userSeed.Teachers[1],
+                Receiver = userSeed.Admin,
                 DateCreated = DateTime.Now,
                 Content = "Test message content is viewed",
                 Flag = "test flag",

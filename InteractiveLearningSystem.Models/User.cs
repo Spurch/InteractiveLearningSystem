@@ -67,7 +67,7 @@
         [Display(Name = "Experience")]
         public double Experience { get; set; }
 
-        [Range(0,100)]
+        //[Range(0,100)]
         [Display(Name = "Level")]
         public int Level { get; set; }
 

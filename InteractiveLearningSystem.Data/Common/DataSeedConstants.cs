@@ -10,6 +10,13 @@
         public static int GROUP_COUNT = 40;
         public static int STUDENT_COUNT = 200;
 
+        public static double INITIAL_LEVEL_EXP = 2000;
+        public static double MAX_EXPERIENCE = 1024000;
+        public static double EXP_PER_POINT = 100;
+        public static double EXP_FACTOR = 2;
+        public static double EXP_FACTOR_MULTIPLIER = 1000;
+        public static double MAX_LEVEL = 100;
+
         public static string DEFAULT_ADMIN_AVATAR = "~/Assets/DefaultUserImages/admin.png";
         public static string DEFAULT_MODERATOR_AVATAR = "~/Assets/DefaultUserImages/moderator";
         public static string DEFAULT_ADVISER_AVATAR = "~/Assets/DefaultUserImages/adviser";
