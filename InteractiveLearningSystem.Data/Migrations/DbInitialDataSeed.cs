@@ -22,14 +22,20 @@
 
             for (int i = 0; i < DataSeedConstants.SCHOOL_COUNT; i++)
             {
+                var name = RandomGenerator.GenerateRandomSchoolName();
                 var school = new School()
                 {
-                    Name = "school"+i,
+                    Name = name,
                     Email = "school" + i + "@ils.edu",
-                    Mobile = "0887089841",
-                    Phone = "029973778",
-                    SiteUrl = "www.school"+i+".edu",
+                    Mobile = RandomGenerator.GenerateRandomMobile(),
+                    Phone = RandomGenerator.GenerateRandomPhone(),
+                    SiteUrl = "www." + name.Trim() + ".edu",
                     AvatarUrl = DataSeedConstants.DEFAULT_SCHOOL_AVATAR,
+                    Address = RandomGenerator.GenerateRandomAddress(),
+                    City = RandomGenerator.GenerateRandomCity(),
+                    isDeleted = false,
+                    Notes = RandomGenerator.GenerateRandomSentence(10),
+                    Affinity = RandomGenerator.GenerateRandomAffinity(),
                     Points = 0,
                     Experience = 0,
                     Level = 0,

@@ -85,7 +85,8 @@
                     Experience = experience,
                     Level = level,
                     Points = Generator.GenerateUserPoints(experience),
-                    PhoneNumber = RandomGenerator.GenerateRandomMobile()
+                    PhoneNumber = RandomGenerator.GenerateRandomMobile(),
+                    Notes = "Moderator"
                 };
                 context.Users.Add(moderator);
                 userManager.Create(moderator);
@@ -115,7 +116,8 @@
                     Experience = experience,
                     Level = level,
                     Points = Generator.GenerateUserPoints(experience),
-                    PhoneNumber = RandomGenerator.GenerateRandomMobile()
+                    PhoneNumber = RandomGenerator.GenerateRandomMobile(),
+                    Notes = "Teacher"
                 };
                 context.Users.Add(teacher);
                 userManager.Create(teacher);
@@ -145,7 +147,8 @@
                     Experience = experience,
                     Level = level,
                     Points = Generator.GenerateUserPoints(experience),
-                    PhoneNumber = RandomGenerator.GenerateRandomMobile()
+                    PhoneNumber = RandomGenerator.GenerateRandomMobile(),
+                    Notes = "Adviser"
                 };
                 context.Users.Add(adviser);
                 userManager.Create(adviser);

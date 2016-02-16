@@ -15,6 +15,9 @@
             "library", "maths", "biology", "literature", "read", "calculate", "evaluate",
             "external", "town", "city", "high", "highschool", "elementary", "preliminary"  };
 
+        private static string[] schoolNames = {"157 GICE Cesar Vallejo", "78 SOU Hristo Smirnenski",
+            "64 SOU Willian Gladston", "5 OU Emilyan Stanev", "147 SOU Konstantin Irechek" };
+
         private static string[] names = { "Ivan", "Petkan", "Milcho", "Niki",
             "Ivo", "Georgi", "Gosho", "Pesho", "Pantalei", "Haralampi", "Kosio",
             "Ivaylo", "Maria", "Gergana", "Ivana", "Tanq", "Vqra", "Nadejda"};
@@ -22,7 +25,14 @@
         private static string[] families = { "Nikolov", "Ivanov", "Georgiev",
             "Penev", "Nikolaev", "Dimitrov", "Haralampiev", "Petrov", "Peshev"};
 
-        private static string[] addresses = { };
+        private static string[] cities = {"Sofia", "Burgas", "Varna", "Plovdiv", "Stara Zagora",
+            "Pernik", "Veliko Turnovo", "Bankya", "Ruse", "Vidin", "Montana" };
+
+        private static string[] addresses = {"Vasil Levski 100", "Ilarion Makariopolski 15", "Suedinenie 2",
+            "Vuzrajdane 8", "Opulchenska 15", "Hristo Smirnenski 23", "Nikola Vaptsarov 11", "Maria Luiza 7" };
+
+        private static string[] affinities = {"Science", "Literature", "Mathematics", "Biology", "Computer Science",
+            "Chemistry", "Languages", "Sports" };
 
         private static string[] phones = { "925", "997", "931", "926" };
 
@@ -64,6 +74,17 @@
             return start.AddDays(rand.Next(range));
         }
 
+        public string GenerateRandomSchoolName()
+        {
+            var name = new StringBuilder();
+
+            var first = schoolNames[rand.Next(0, schoolNames.Length)];
+
+            name.Append(first);
+
+            return name.ToString();
+        }
+
         public string GenerateRandomName()
         {
             var name = new StringBuilder();
@@ -87,9 +108,19 @@
             return name.ToString();
         }
 
-        public static string GenerateRandomAddress()
+        public string GenerateRandomAddress()
         {
-            return null;
+            return addresses[rand.Next(0, addresses.Length)];
+        }
+
+        public string GenerateRandomCity()
+        {
+            return cities[rand.Next(0, cities.Length)];
+        }
+
+        public string GenerateRandomAffinity()
+        {
+            return affinities[rand.Next(0, affinities.Length)];
         }
 
         public string GenerateRandomMobile()

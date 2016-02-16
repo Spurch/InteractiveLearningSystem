@@ -25,6 +25,7 @@ namespace InteractiveLearningSystem.Data.Migrations
 
             DbInitialDataSeed.SeedDbSchools(context);
 
+
             DbInitialDataSeed.SeedDbGroups(context, userSeed.Teachers, DbInitialDataSeed.Schools, userSeed.Students);
 
             for (int i = 0; i < userSeed.Moderators.Count; i++)
@@ -42,11 +43,13 @@ namespace InteractiveLearningSystem.Data.Migrations
                 context.SaveChanges();
             }
 
-            var allUsers = userSeed.Students.Concat(userSeed.Teachers)
-                                    .Concat(userSeed.Moderators)
-                                    .ToList();
+            var temp = userSeed.Moderators;
+            temp.Add(userSeed.Admin);
 
-            DbInitialDataSeed.SeedDbMessages(context, allUsers);
+            DbInitialDataSeed.SeedDbMessages(context, userSeed.Advisers);
+            DbInitialDataSeed.SeedDbMessages(context, temp);
+            DbInitialDataSeed.SeedDbMessages(context, userSeed.Teachers);
+            DbInitialDataSeed.SeedDbMessages(context, userSeed.Students);
         }
     }
 }
