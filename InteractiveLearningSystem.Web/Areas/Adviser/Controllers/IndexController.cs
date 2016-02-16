@@ -4,7 +4,6 @@
 
     public class IndexController : BaseController
     {
-        // GET: Adviser/Home
         public ActionResult Index()
         {
             return View();

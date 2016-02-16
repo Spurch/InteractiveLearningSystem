@@ -10,5 +10,11 @@
         {
             return View();
         }
+
+        [AllowAnonymous]
+        public ActionResult PageNotFound()
+        {
+            return View();
+        }
     }
 }

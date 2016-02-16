@@ -239,6 +239,8 @@
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\RouteConstraints\AuthenticatedConstraint.cs" />
+    <Compile Include="App_Start\RouteConstraints\NotEqualConstraint.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administrator\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\BaseController.cs" />
@@ -389,13 +391,14 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Unauthorized.cshtml" />
     <Content Include="Views\Shared\_PageNotFound.cshtml" />
+    <Content Include="Views\Home\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrator\Models\" />
     <Folder Include="Areas\Administrator\Views\Base\" />
     <Folder Include="Areas\Adviser\Models\" />
-    <Folder Include="Areas\Adviser\Views\AdviserBase\" />
+    <Folder Include="Areas\Adviser\Views\Base\" />
     <Folder Include="Areas\Common\Models\" />
     <Folder Include="Areas\Common\Views\Base\" />
     <Folder Include="Areas\Common\Views\Shared\" />
