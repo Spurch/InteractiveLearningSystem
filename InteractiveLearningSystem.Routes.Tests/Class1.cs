@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InteractiveLearningSystem.Tests
+namespace InteractiveLearningSystem.Routes.Tests
 {
     public class Class1
     {
