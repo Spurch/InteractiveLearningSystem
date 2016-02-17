@@ -1,19 +1,10 @@
-﻿using InteractiveLearningSystem.Services;
-using InteractiveLearningSystem.Services.Contracts;
-using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
+﻿namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
 {
-    public class SchoolController : Controller
-    {
-        [Inject]
-        ISchoolServices schoolServices;
+    using System.Web.Mvc;
+    using InteractiveLearningSystem.Services;
 
+    public class SchoolController : BaseController
+    {
         public SchoolController(SchoolServices schoolServices)
         {
             this.schoolServices = schoolServices;

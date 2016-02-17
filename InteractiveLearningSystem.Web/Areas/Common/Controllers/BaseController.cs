@@ -1,6 +1,8 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Common.Controllers
 {
+    using AutoMapper;
     using Infrastructure.Helpers;
+    using Infrastructure.Mapping;
     using Ninject;
     using Services;
     using Services.Contracts;
@@ -25,5 +27,13 @@
         protected IUsersFilter usersFilter;
         [Inject]
         protected IGroupServices groupServices;
+
+        protected IMapper Mapper
+        {
+            get
+            {
+                return AutoMapperConfig.Configuration.CreateMapper();
+            }
+        }
     }
 }

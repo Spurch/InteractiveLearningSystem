@@ -3,15 +3,10 @@
     using System.Linq;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
-    using Ninject;
     using Services;
-    using Services.Contracts;
 
     public class MessageController : BaseController
     {
-        [Inject]
-        IMessageServices messageServices;
-
         private static bool lastStatus;
 
         public MessageController(MessageServices messageServices)

@@ -7,6 +7,10 @@
     using System.Collections.Generic;
     using Microsoft.AspNet.Identity;
     using Infrastructure.Helpers;
+    using AutoMapper;
+    using Administrator.Models;
+    using Infrastructure.Mapping;
+    using AutoMapper.QueryableExtensions;
     public class UserController : BaseController
     {
         public UserController(UserServices userServices, RoleServices roleServices, MessageServices messageServices, UsersFilter usersFilter)
@@ -22,7 +26,7 @@
             var currentUserId = User.Identity.GetUserId();
             var currentUser = userServices.GetById(currentUserId);
 
-            if(!usersFilter.IsUserAuthorizedToViewRole(currentUser, role))
+            if (!usersFilter.IsUserAuthorizedToViewRole(currentUser, role))
             {
                 return View("~/Views/Shared/_Unauthorized.cshtml");
             }
@@ -32,15 +36,16 @@
 
             var RoleId = roleServices.GetByName(role);
             var users = (from u in userServices.GetAll()
-                        where u.Roles.Any(r => r.RoleId == RoleId.Id)
-                        select u);
-            
+                         where u.Roles.Any(r => r.RoleId == RoleId.Id)
+                         select u);
+
             var usersList = new List<UserListDetailsAdminView>();
 
             var temp = usersFilter.GetUsersPerUser(currentUser, users);
-            
+
             if (role == "Moderator")
             {
+
                 foreach (var user in temp)
                 {
                     name = user.Moderator.First().Name;

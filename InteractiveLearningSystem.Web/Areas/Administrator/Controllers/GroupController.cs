@@ -1,19 +1,10 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
 {
-    using Ninject;
-    using Services;
-    using Services.Contracts;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
+    using Services;
 
-    public class GroupController : Controller
+    public class GroupController : BaseController
     {
-        [Inject]
-        IGroupServices groupServices;
-
         public GroupController(GroupServices groupServices)
         {
             this.groupServices = groupServices;

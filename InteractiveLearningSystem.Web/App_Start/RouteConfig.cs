@@ -14,25 +14,25 @@ namespace InteractiveLearningSystem.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Administrator",
-                url: "{controller}/{action}",
-                defaults: new { area = "Administrator", controller = "Index", action = "Index" },
-                constraints: new { authenticated = new AuthenticatedConstraint() }
-            );
+            //routes.MapRoute(
+            //    name: "Administrator",
+            //    url: "{controller}/{action}",
+            //    defaults: new { area = "Administrator", controller = "Index", action = "Index" },
+            //    constraints: new { authenticated = new AuthenticatedConstraint() }
+            //);
 
-            routes.MapRoute(
-                name: "Groups",
-                url: "{controller}/Group/Details/{id}",
-                defaults: new { controller = "Group", action = "Details" },
-                constraints: new { id = @"\d+" }
-            );
+            //routes.MapRoute(
+            //    name: "Groups",
+            //    url: "{controller}/Group/Details/{id}",
+            //    defaults: new { controller = "Group", action = "Details" },
+            //    constraints: new { id = @"\d+" }
+            //);
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
-                constraints: new { controller = new NotEqual("Administrator") }
+                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
+                //constraints: new { controller = new NotEqual("Administrator") }
             );
         }
     }
