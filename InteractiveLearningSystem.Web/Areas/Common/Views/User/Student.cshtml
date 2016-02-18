@@ -1,15 +1,15 @@
-﻿@model IEnumerable<InteractiveLearningSystem.Web.Areas.Administrator.Models.TeacherDetailsListView>
+﻿@model IEnumerable<InteractiveLearningSystem.Web.Areas.Administrator.Models.StudentDetailsListView>
 @using Kendo.Mvc.UI
 @{
-	ViewBag.Title = "Teachers";
+	ViewBag.Title = "Students";
 }
 <div class="well text-center">
-	<h2>Teachers List</h2>
+	<h2>Students List</h2>
 </div>
 
 @(Html.Kendo()
 	.Grid(Model)
-		.Name("TeacherGrid")
+		.Name("StudentGrid")
 		.Columns(columns =>
 		{
 			columns.Bound(col => col.AvatarUrl).ClientTemplate("<img src=#: AvatarUrl # />");
@@ -25,7 +25,7 @@
 		data
 		.Ajax()
 		.PageSize(5)
-		.Read(read => read.Action("Read", "User", new { area = "Common", role = "Teacher" }))
+		.Read(read => read.Action("Read", "User", new { area = "Common", role = "Student" }))
 		//.Create(create => create.Action("Create", controllerName))
 		//.Update(update => update.Action("Update", controllerName))
 		//.Destroy(destroy => destroy.Action("Destroy", controllerName))

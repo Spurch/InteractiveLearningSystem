@@ -2,15 +2,15 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Kendo.Mvc.UI;
+    using Kendo.Mvc.Extensions;
     using Services;
     using Models;
-    using System.Collections.Generic;
     using Microsoft.AspNet.Identity;
     using Infrastructure.Helpers;
-    using AutoMapper;
     using Administrator.Models;
     using Infrastructure.Mapping;
-    using AutoMapper.QueryableExtensions;
+
     public class UserController : BaseController
     {
         public UserController(UserServices userServices, RoleServices roleServices, MessageServices messageServices, UsersFilter usersFilter)
@@ -30,68 +30,71 @@
             {
                 return View("~/Views/Shared/_Unauthorized.cshtml");
             }
-
-            if (role == "Moderator")
+            else
             {
-                return RedirectToAction("Moderator", new { roles = role });
-            }
-            else if (role == "Adviser")
-            {
-                return RedirectToAction("Adviser", new { roles = role });
+                switch (role)
+                {
+                    case "Moderator":
+                        return RedirectToAction("Moderator");
+                    case "Adviser":
+                        return RedirectToAction("Adviser");
+                    case "Teacher":
+                        return RedirectToAction("Teacher");
+                    case "Student":
+                        return RedirectToAction("Student");
+                }
             }
 
             return View();
         }
 
-        public ActionResult Moderator(string roles)
+        public ActionResult Moderator()
         {
-            var RoleId = roleServices.GetByName(roles);
-            var users = (from u in userServices.GetAll()
-                         where u.Roles.Any(r => r.RoleId == RoleId.Id)
-                         select u);
-
-            var result = users.To<ModeratorDetailsListView>().ToList();
-            return View(result);
+            return View();
         }
 
-        public ActionResult Adviser(string roles)
+        public ActionResult Adviser()
         {
-            var RoleId = roleServices.GetByName(roles);
-            var users = (from u in userServices.GetAll()
-                         where u.Roles.Any(r => r.RoleId == RoleId.Id)
-                         select u);
-
-            //TO DO: Use the user filter here!!!
-            var temp = usersFilter.GetUsersPerUser(userServices.GetById(User.Identity.GetUserId()), users);
-
-            var result = users.To<AdviserDetailsListView>().ToList();
-            return View(result);
+            return View();
         }
 
-        public ActionResult Teacher(string roles)
+        public ActionResult Teacher()
         {
-            var RoleId = roleServices.GetByName(roles);
-            var users = (from u in userServices.GetAll()
-                         where u.Roles.Any(r => r.RoleId == RoleId.Id)
-                         select u);
-
-            var temp = usersFilter.GetUsersPerUser(userServices.GetById(User.Identity.GetUserId()), users);
-
-            var result = temp.To<AdviserDetailsListView>().ToList();
-            return View(result);
+            return View();
         }
 
-        public ActionResult Student(string roles)
+        public ActionResult Student()
         {
-            var RoleId = roleServices.GetByName(roles);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Read([DataSourceRequest]DataSourceRequest request, string role)
+        {
+            var RoleId = roleServices.GetByName(role);
             var users = (from u in userServices.GetAll()
                          where u.Roles.Any(r => r.RoleId == RoleId.Id)
                          select u);
-
-            var temp = usersFilter.GetUsersPerUser(userServices.GetById(User.Identity.GetUserId()), users);
-
-            var result = temp.To<AdviserDetailsListView>().ToList();
-            return View(result);
+            switch (role)
+            {
+                case "Moderator":
+                    var result = users.To<ModeratorDetailsListView>()
+               .ToDataSourceResult(request);
+                    return this.Json(result);
+                case "Adviser":
+                    result = users.To<AdviserDetailsListView>()
+               .ToDataSourceResult(request);
+                    return this.Json(result);
+                case "Teacher":
+                    result = users.To<TeacherDetailsListView>()
+               .ToDataSourceResult(request);
+                    return this.Json(result);
+                case "Student":
+                    result = users.To<StudentDetailsListView>()
+               .ToDataSourceResult(request);
+                    return this.Json(result);
+            }
+            return View("Index");
         }
 
         // GET: Admin/User/Details/5

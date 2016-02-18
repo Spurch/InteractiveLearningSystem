@@ -8,6 +8,9 @@
 	<title>Interactive Learning System - @ViewBag.Title</title>
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/modernizr")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/kendo")
+	@Scripts.Render("~/bundles/bootstrap")
 
 </head>
 <body>
@@ -62,8 +65,6 @@
 		</footer>
 	</div>
 
-	@Scripts.Render("~/bundles/jquery")
-	@Scripts.Render("~/bundles/bootstrap")
 	@RenderSection("scripts", required: false)
 </body>
 </html>

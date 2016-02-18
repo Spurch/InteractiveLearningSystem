@@ -1,60 +1,88 @@
 ﻿@model IEnumerable<InteractiveLearningSystem.Web.Areas.Administrator.Models.ModeratorDetailsListView>
-
+@using Kendo.Mvc.UI
 @{
-	ViewBag.Title = "Index";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Moderators";
 }
-
 <div class="well text-center">
 	<h2>Moderators List</h2>
 </div>
 
-<div class="well">
-	<table class="table">
-		<tr>
-			<th>
-				Avatar
-			</th>
-			<th>
-				Username
-			</th>
-			<th>
-				Guild
-			</th>
-			<th>
-				Points
-			</th>
-			<th>
-				Exp
-			</th>
-			<th>
-				Level
-			</th>
-		</tr>
-
-		@foreach (var item in Model)
+@(Html.Kendo()
+	.Grid(Model)
+		.Name("ModeratorGrid")
+		.Columns(columns =>
 		{
-			<tr>
-				<td>
-					<img src="@Url.Content(item.AvatarUrl)" style="width: 3.4em; height: 3.4em;" />
-				</td>
-				<td>
-					<a href="@Url.Action("Details", "User", new { id = item.Id })">@Html.DisplayFor(modelItem => item.UserName)</a>
-				</td>
-				<td>
-					<a href="@Url.Action("Details", "School", new { area = "Administrator", id = item.SchoolId})">@Html.DisplayFor(modelItem => item.SchoolName)</a>
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Points)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Experience)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Level)
-				</td>
-			</tr>
-		}
+			columns.Bound(col => col.AvatarUrl).ClientTemplate("<img src=#: AvatarUrl # />");
+			columns.Bound(col => col.UserName);
+			columns.Bound(col => col.Email);
+			columns.Bound(col => col.SchoolName);
+			columns.Bound(col => col.Experience);
+			columns.Bound(col => col.Level);
+			columns.Bound(col => col.Points);
+		})
+		.Pageable()
+		.DataSource(data =>
+		data
+		.Ajax()
+		.PageSize(5)
+		.Read(read => read.Action("Read", "User", new { area = "Common" , role = "Moderator"}))
+		//.Create(create => create.Action("Create", controllerName))
+		//.Update(update => update.Action("Update", controllerName))
+		//.Destroy(destroy => destroy.Action("Destroy", controllerName))
+		))
 
-	</table>
-</div>
+
+
+@*<div class="well text-center">
+		<h2>Moderators List</h2>
+	</div>
+
+	<div class="well">
+		<table class="table">
+			<tr>
+				<th>
+					Avatar
+				</th>
+				<th>
+					Username
+				</th>
+				<th>
+					Guild
+				</th>
+				<th>
+					Points
+				</th>
+				<th>
+					Exp
+				</th>
+				<th>
+					Level
+				</th>
+			</tr>
+
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						<img src="@Url.Content(item.AvatarUrl)" style="width: 3.4em; height: 3.4em;" />
+					</td>
+					<td>
+						<a href="@Url.Action("Details", "User", new { id = item.Id })">@Html.DisplayFor(modelItem => item.UserName)</a>
+					</td>
+					<td>
+						<a href="@Url.Action("Details", "School", new { area = "Administrator", id = item.SchoolId})">@Html.DisplayFor(modelItem => item.SchoolName)</a>
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Points)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Experience)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Level)
+					</td>
+				</tr>
+			}
+
+		</table>
+	</div>*@
