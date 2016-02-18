@@ -21,7 +21,7 @@
 <ul class="dropdown-menu">
     @foreach (var item in Model)
 		{
-		<li><a href="@Url.Action("Index", "User", new { area="Common", role=item.Name})">@string.Concat(item.Name, "s")</a></li>
+		<li><a href="@Url.Action("Index", "User", new { area=@ViewData["Role"].ToString(), role=item.Name})">@string.Concat(item.Name, "s")</a></li>
 	}
 	@if (Model.Any(x => x.Name == "Moderator" || x.Name == "Adviser"))
 	{

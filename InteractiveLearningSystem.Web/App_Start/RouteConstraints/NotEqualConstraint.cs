@@ -1,6 +1,4 @@
-﻿
-
-namespace InteractiveLearningSystem.Web.App_Start.RouteConstraints
+﻿namespace InteractiveLearningSystem.Web.App_Start.RouteConstraints
 {
     using System;
     using System.Web;

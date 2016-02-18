@@ -1,0 +1,34 @@
+﻿@model IEnumerable<InteractiveLearningSystem.Web.Areas.Administrator.Models.TeacherDetailsListView>
+@using Kendo.Mvc.UI
+@{
+	ViewBag.Title = "Teachers";
+}
+<div class="well text-center">
+	<h2>Teachers List</h2>
+</div>
+
+@(Html.Kendo()
+	.Grid(Model)
+		.Name("TeacherGrid")
+		.Columns(columns =>
+		{
+			columns.Bound(col => col.AvatarUrl).ClientTemplate("<img src=#: AvatarUrl # />");
+			columns.Bound(col => col.UserName);
+			columns.Bound(col => col.Email);
+			columns.Bound(col => col.SchoolName);
+			columns.Bound(col => col.Experience);
+			columns.Bound(col => col.Level);
+			columns.Bound(col => col.Points);
+		})
+		.Pageable()
+		.DataSource(data =>
+		data
+		.Ajax()
+		.PageSize(5)
+		.Read(read => read.Action("Read", "User", new { area = "Common", role = "Teacher" }))
+		//.Create(create => create.Action("Create", controllerName))
+		//.Update(update => update.Action("Update", controllerName))
+		//.Destroy(destroy => destroy.Action("Destroy", controllerName))
+		))
+
+

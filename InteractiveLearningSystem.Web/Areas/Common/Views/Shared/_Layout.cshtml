@@ -25,7 +25,7 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="@Url.Action("Index", "Index", new { area = "Administrator"})"><span class="glyphicon glyphicon-home"></span> System</a></li>
+					@Html.Action("HomePartial", "UsersPartial", new { area = "Common" })
 					<li class="dropdown">
 						@Html.Action("UsersPartial", "UsersPartial", new { area = "Common" })
 					</li>

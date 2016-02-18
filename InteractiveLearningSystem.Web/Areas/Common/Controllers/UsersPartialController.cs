@@ -16,6 +16,16 @@
             this.roleServices = roleServices;
         }
 
+        public ActionResult HomePartial()
+        {
+            var currentUser = User.Identity.GetUserId();
+            var roleId = userServices.GetById(currentUser).Roles.First().RoleId;
+            var roleName = roleServices.GetById(roleId).Name;
+
+            ViewData["Role"] = roleName;
+            return PartialView("_HomePartial");
+        }
+
         public ActionResult UserSnippetPartial(string userId)
         {
             var currentUser = userServices.GetById(userId);

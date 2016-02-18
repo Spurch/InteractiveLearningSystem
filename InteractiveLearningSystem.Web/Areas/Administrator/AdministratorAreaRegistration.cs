@@ -1,8 +1,8 @@
-﻿namespace InteractiveLearningSystem.Web.Areas.Admin
+﻿namespace InteractiveLearningSystem.Web.Areas.Administrator
 {
     using System.Web.Mvc;
 
-    public class AdminAreaRegistration : AreaRegistration 
+    public class AdministratorAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
@@ -17,7 +17,7 @@
             context.MapRoute(
                 "Administrator_default",
                 "Administrator/{controller}/{action}/{id}",
-                new { controller = "Index", action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional }
             );
         }
     }

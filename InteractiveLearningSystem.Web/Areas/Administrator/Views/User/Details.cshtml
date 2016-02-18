@@ -1,0 +1,100 @@
+﻿@model InteractiveLearningSystem.Models.UserDetailsAdminView
+
+@{
+	ViewBag.Title = "User Details";
+	//Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row well text-center">
+	<h2>User profile</h2>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		@Html.Action("UserSnippetPartial", "UsersPartial", new { area = "Common", userId = Model.Id })
+	</div>
+	<div class="col-md-offset-1 col-md-8 well">
+		<div class="row">
+			<fieldset class="scheduler-border">
+				<legend class="scheduler-border">Details</legend>
+				<div class="row">
+					<div class="col-md-3">
+						@Html.DisplayNameFor(model => model.FirstName)
+						<p>@Html.DisplayFor(model => model.FirstName)</p>
+					</div>
+					<div class="col-md-3">
+						@Html.DisplayNameFor(model => model.LastName)
+						<p>@Html.DisplayFor(model => model.LastName)</p>
+					</div>
+					<div class="col-md-3">
+						<a href="@Html.DisplayFor(model => model.FaceBookUrl)">@Html.DisplayNameFor(model => model.FaceBookUrl)</a>
+					</div>
+					<div class="col-md-3">
+						<a href="@Html.DisplayFor(model => model.GooglePlusUrl)">@Html.DisplayNameFor(model => model.GooglePlusUrl)</a>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div class="row">
+			<fieldset class="scheduler-border">
+				<legend class="scheduler-border">@Html.DisplayNameFor(model => model.GroupName)</legend>
+				<div class="row">
+					<div class="col-md-3">
+						@Html.DisplayNameFor(model => model.GroupName)
+						<a href="@Url.Action("Details", "Group", new { area = "Administrator", id = Model.GroupId})">@Html.DisplayFor(model => model.GroupName)</a>
+					</div>
+					<div class="col-md-3">
+						@Html.DisplayNameFor(model => model.GroupLevel)
+						@Html.DisplayFor(model => model.GroupLevel)
+					</div>
+					<div class="col-md-3">
+						@Html.DisplayNameFor(model => model.GroupExperience)
+						@Html.DisplayFor(model => model.GroupExperience)
+					</div>
+					<div class="col-md-3">
+						@Html.DisplayNameFor(model => model.GroupPoints)
+						@Html.DisplayFor(model => model.GroupPoints)
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<hr />
+		<div class="row">
+			<fieldset class="scheduler-border">
+				<legend class="scheduler-border">@Html.DisplayNameFor(model => model.SchoolName)</legend>
+				<div class="row">
+					<div class="col-md-3">
+						@Html.DisplayNameFor(model => model.SchoolName)
+						<a href="@Url.Action("Details", "School", new { area = "Administrator", id = Model.SchoolId})">@Html.DisplayFor(model => model.SchoolName)</a>
+					</div>
+					<div class="col-md-3">
+						@Html.DisplayNameFor(model => model.SchoolLevel)
+						@Html.DisplayFor(model => model.SchoolLevel)
+					</div>
+					<div class="col-md-3">
+						@Html.DisplayNameFor(model => model.SchoolExperience)
+						@Html.DisplayFor(model => model.SchoolExperience)
+					</div>
+					<div class="col-md-3">
+						@Html.DisplayNameFor(model => model.SchoolPoints)
+						@Html.DisplayFor(model => model.SchoolPoints)
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<hr />
+		<div class="row">
+			<fieldset class="scheduler-border">
+				<legend class="scheduler-border">@Html.DisplayNameFor(model => model.Notes)</legend>
+				<div class="row">
+					<div class="col-md-12">
+						@Html.DisplayFor(model => model.Notes)
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+<div class="row">
+</div>
+
