@@ -1,10 +1,6 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Administrator.Models
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web;
 
     public class BaseDetailsListView
     {
@@ -27,5 +23,9 @@
 
         [Display(Name = "Level")]
         public int Level { get; set; }
+
+        public int? GroupId { get; set; }
+
+        public string GroupName { get; set; }
     }
 }

@@ -31,90 +31,67 @@
                 return View("~/Views/Shared/_Unauthorized.cshtml");
             }
 
-            string name = "";
-            int? id = 0;
+            if (role == "Moderator")
+            {
+                return RedirectToAction("Moderator", new { roles = role });
+            }
+            else if (role == "Adviser")
+            {
+                return RedirectToAction("Adviser", new { roles = role });
+            }
 
-            var RoleId = roleServices.GetByName(role);
+            return View();
+        }
+
+        public ActionResult Moderator(string roles)
+        {
+            var RoleId = roleServices.GetByName(roles);
             var users = (from u in userServices.GetAll()
                          where u.Roles.Any(r => r.RoleId == RoleId.Id)
                          select u);
 
-            var usersList = new List<UserListDetailsAdminView>();
+            var result = users.To<ModeratorDetailsListView>().ToList();
+            return View(result);
+        }
 
-            var temp = usersFilter.GetUsersPerUser(currentUser, users);
+        public ActionResult Adviser(string roles)
+        {
+            var RoleId = roleServices.GetByName(roles);
+            var users = (from u in userServices.GetAll()
+                         where u.Roles.Any(r => r.RoleId == RoleId.Id)
+                         select u);
 
-            if (role == "Moderator")
-            {
+            //TO DO: Use the user filter here!!!
+            var temp = usersFilter.GetUsersPerUser(userServices.GetById(User.Identity.GetUserId()), users);
 
-                foreach (var user in temp)
-                {
-                    name = user.Moderator.First().Name;
-                    id = user.Moderator.First().Id;
+            var result = users.To<AdviserDetailsListView>().ToList();
+            return View(result);
+        }
 
-                    var newUser = new UserListDetailsAdminView
-                    {
-                        Id = user.Id,
-                        AvatarUrl = user.AvatarUrl,
-                        UserName = user.UserName,
-                        Experience = user.Experience,
-                        Level = user.Level,
-                        Points = user.Points,
-                        GroupName = "",
-                        SchoolName = name,
-                        SchoolId = id
-                    };
-                    usersList.Add(newUser);
-                }
-            }
-            else if (role == "Adviser")
-            {
-                foreach (var user in temp)
-                {
-                    name = user.Consultant.First().Name;
-                    id = user.Consultant.First().Id;
+        public ActionResult Teacher(string roles)
+        {
+            var RoleId = roleServices.GetByName(roles);
+            var users = (from u in userServices.GetAll()
+                         where u.Roles.Any(r => r.RoleId == RoleId.Id)
+                         select u);
 
-                    var newUser = new UserListDetailsAdminView
-                    {
-                        Id = user.Id,
-                        AvatarUrl = user.AvatarUrl,
-                        UserName = user.UserName,
-                        Experience = user.Experience,
-                        Level = user.Level,
-                        Points = user.Points,
-                        GroupName = "",
-                        SchoolName = name,
-                        SchoolId = id
-                    };
-                    usersList.Add(newUser);
-                }
-            }
-            else
-            {
-                foreach (var user in temp)
-                {
-                    name = user.Group.School.Name;
-                    id = user.Group.SchoolId;
+            var temp = usersFilter.GetUsersPerUser(userServices.GetById(User.Identity.GetUserId()), users);
 
-                    var newUser = new UserListDetailsAdminView
-                    {
-                        Id = user.Id,
-                        AvatarUrl = user.AvatarUrl
-                        ,
-                        UserName = user.UserName,
-                        Experience = user.Experience,
-                        Level = user.Level,
-                        Points = user.Points,
-                        GroupName = user.Group.Name,
-                        GroupId = user.GroupId,
-                        SchoolName = user.Group.School.Name,
-                        SchoolId = user.Group.SchoolId
-                    };
-                    usersList.Add(newUser);
-                }
-            }
+            var result = temp.To<AdviserDetailsListView>().ToList();
+            return View(result);
+        }
 
-            ViewBag.RoleName = RoleId.Name;
-            return View(usersList);
+        public ActionResult Student(string roles)
+        {
+            var RoleId = roleServices.GetByName(roles);
+            var users = (from u in userServices.GetAll()
+                         where u.Roles.Any(r => r.RoleId == RoleId.Id)
+                         select u);
+
+            var temp = usersFilter.GetUsersPerUser(userServices.GetById(User.Identity.GetUserId()), users);
+
+            var result = temp.To<AdviserDetailsListView>().ToList();
+            return View(result);
         }
 
         // GET: Admin/User/Details/5

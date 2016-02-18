@@ -1,4 +1,4 @@
-﻿@model IEnumerable<InteractiveLearningSystem.Models.UserListDetailsAdminView>
+﻿@model IEnumerable<InteractiveLearningSystem.Web.Areas.Administrator.Models.ModeratorDetailsListView>
 
 @{
 	ViewBag.Title = "Index";
@@ -6,7 +6,7 @@
 }
 
 <div class="well text-center">
-	<h2>@ViewBag.RoleName List</h2>
+	<h2>@ViewData["RoleName"].ToString() List</h2>
 </div>
 
 <div class="well">
@@ -18,7 +18,7 @@
 			<th>
 				Username
 			</th>
-			@if (ViewBag.RoleName != "Moderator" && ViewBag.RoleName != "Adviser")
+			@if (@ViewData["RoleName"].ToString() != "Moderator" && ViewBag.RoleName != "Adviser")
 			{
 				<th>
 					Clan
@@ -47,12 +47,12 @@
 				<td>
 					<a href="@Url.Action("Details", "User", new { id = item.Id })">@Html.DisplayFor(modelItem => item.UserName)</a>
 				</td>
-				@if (ViewBag.RoleName != "Moderator" && ViewBag.RoleName != "Adviser")
+				@*@if (ViewBag.RoleName != "Moderator" && ViewBag.RoleName != "Adviser")
 				{
 					<td>
 						<a href="@Url.Action("Details", "Group", new { area = "Administrator", id = item.GroupId})">@Html.DisplayFor(modelItem => item.GroupName)</a>
 					</td>
-				}
+				}*@
 				<td>
 					@if (ViewBag.RoleName == "Moderator")
 					{

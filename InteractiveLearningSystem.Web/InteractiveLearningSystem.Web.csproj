@@ -358,7 +358,9 @@
     <Content Include="Areas\Administrator\Views\Users\Index.cshtml" />
     <Content Include="Areas\Common\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Common\Views\User\Test.cshtml" />
+    <Content Include="Areas\Common\Views\User\Moderator.cshtml" />
+    <Content Include="Areas\Common\Views\User\Adviser.cshtml" />
+    <Content Include="Areas\Common\Views\User\Teacher.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -411,6 +413,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administrator\Models\Groups\" />
+    <Folder Include="Areas\Administrator\Models\Schools\" />
+    <Folder Include="Areas\Administrator\Models\Users\Advisers\" />
+    <Folder Include="Areas\Administrator\Models\Users\Moderators\" />
+    <Folder Include="Areas\Administrator\Models\Users\Students\" />
+    <Folder Include="Areas\Administrator\Models\Users\Teachers\" />
     <Folder Include="Areas\Administrator\Views\Base\" />
     <Folder Include="Areas\Adviser\Models\" />
     <Folder Include="Areas\Adviser\Views\Base\" />

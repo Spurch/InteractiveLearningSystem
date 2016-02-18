@@ -26,14 +26,14 @@
             var currentUser = userServices.GetById(currentUserId);
             var RoleId = roleServices.GetByName(role);
 
-            if (role == null || RoleId == null)
-            {
-                return Redirect("/");
-            }
-            else if (!usersFilter.IsUserAuthorizedToViewRole(currentUser, role))
-            {
-                return View("~/Views/Shared/_Unauthorized.cshtml");
-            }
+            //if (role == null || RoleId == null)
+            //{
+            //    return Redirect("/");
+            //}
+            //else if (!usersFilter.IsUserAuthorizedToViewRole(currentUser, role))
+            //{
+            //    return View("~/Views/Shared/_Unauthorized.cshtml");
+            //}
 
             ViewBag.RoleName = RoleId.Name;
             var users = (from u in userServices.GetAll()
