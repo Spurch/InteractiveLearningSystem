@@ -13,8 +13,8 @@
         [Display(Name = "Username")]
         public string UserName { get; set; }
 
-        //[Display(Name = "E-mail")]
-        //public string Email { get; set; }
+        [Display(Name = "E-mail")]
+        public string Email { get; set; }
 
         [Display(Name = "Avatar")]
         public string AvatarUrl { get; set; }
