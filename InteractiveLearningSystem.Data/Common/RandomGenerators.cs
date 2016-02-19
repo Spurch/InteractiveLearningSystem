@@ -3,6 +3,10 @@
     using System;
     using System.Text;
 
+    /// <summary>
+    /// A class that contains public method for generating different types of
+    /// random value - Integer, DateTime, context specific Strings etc.
+    /// </summary>
     public class RandomGenerators
     {
         private static string[] words = { "is", "not", "words", "world", "friend",
@@ -44,12 +48,22 @@
 
         private Random rand;
 
+        /// <summary>
+        /// An overwriten empty constructor that initializes private variables
+        /// of type Random() and DateTime that are used in the public methods.
+        /// </summary>
         public RandomGenerators()
         {
             rand = new Random();
             start = DateTime.UtcNow.AddDays(rand.Next(-200, 0));
         }
 
+        /// <summary>
+        /// Method that generates a string of random words. The number of words depends on the 
+        /// integer value provided as an input parameter.
+        /// </summary>
+        /// <param name="wordsCount">The number of random words to be returned - Integer value</param>
+        /// <returns>String of the given number of random words</returns>
         public string GenerateRandomSentence(int wordsCount)
         {
             var sentence = new StringBuilder();
@@ -63,17 +77,32 @@
             return sentence.ToString();
         }
 
+        /// <summary>
+        /// Method that generates a random integer value based on a given 
+        /// lower upper bound range.
+        /// </summary>
+        /// <param name="min">Range lower bound</param>
+        /// <param name="max">Range upper bound - exclusive</param>
+        /// <returns>A random integer value in the provided range (upper bound exclusive)</returns>
         public int GenerateRandomInteger(int min, int max)
         {
             return rand.Next(min, max);
         }
 
+        /// <summary>
+        /// Method that returns a random DateTime in range.
+        /// </summary>
+        /// <returns>A random DateTime based on the current DateTime.UtcNow and a predefined DateTime start range</returns>
         public DateTime GenerateRandomDate()
         {
             int range = (DateTime.UtcNow - start).Days;
             return start.AddDays(rand.Next(range));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GenerateRandomSchoolName()
         {
             var name = new StringBuilder();
@@ -85,6 +114,10 @@
             return name.ToString();
         }
 
+        /// <summary>
+        /// Context specific method that returns a random school name.
+        /// </summary>
+        /// <returns>School name as string</returns>
         public string GenerateRandomName()
         {
             var name = new StringBuilder();
@@ -96,6 +129,10 @@
             return name.ToString();
         }
 
+        /// <summary>
+        /// Context specific method that returns a random person family name.
+        /// </summary>
+        /// <returns>Random family name</returns>
         public string GenerateRandomFamily()
         {
             var name = new StringBuilder();
@@ -107,22 +144,38 @@
 
             return name.ToString();
         }
-
+        
+        /// <summary>
+        /// Context specific method that returns a random address.
+        /// </summary>
+        /// <returns>A random address</returns>
         public string GenerateRandomAddress()
         {
             return addresses[rand.Next(0, addresses.Length)];
         }
 
+        /// <summary>
+        /// Context specific method that returns a random city.
+        /// </summary>
+        /// <returns>A random city</returns>
         public string GenerateRandomCity()
         {
             return cities[rand.Next(0, cities.Length)];
         }
 
+        /// <summary>
+        /// Context specific method that returns a random affinity.
+        /// </summary>
+        /// <returns>A random affinity</returns>
         public string GenerateRandomAffinity()
         {
             return affinities[rand.Next(0, affinities.Length)];
         }
 
+        /// <summary>
+        /// Context specific method that returns a random mobile.
+        /// </summary>
+        /// <returns>A random mobile</returns>
         public string GenerateRandomMobile()
         {
             var mobile = new StringBuilder();
@@ -139,6 +192,10 @@
             return mobile.ToString();
         }
 
+        /// <summary>
+        /// /// Context specific method that returns a random phone.
+        /// </summary>
+        /// <returns>A random phone</returns>
         public string GenerateRandomPhone()
         {
             var phone = new StringBuilder();

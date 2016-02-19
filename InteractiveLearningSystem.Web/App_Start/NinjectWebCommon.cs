@@ -5,17 +5,14 @@ namespace InteractiveLearningSystem.Web.App_Start
 {
     using System;
     using System.Web;
-
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Extensions.Conventions;
     using Data;
     using Data.Repositories;
-    using Services.Contracts;
-    using Services;
     using Infrastructure.Helpers;
+
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();

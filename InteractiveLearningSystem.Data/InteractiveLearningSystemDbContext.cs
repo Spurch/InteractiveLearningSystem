@@ -29,6 +29,11 @@
 
         public IDbSet<ProblemStat> TaskStats { get; set; }
 
+        DbSet<TEntity> IInteractiveLearningSystemDbContext.Set<TEntity>()
+        {
+            return base.Set<TEntity>();
+        }
+
         public static InteractiveLearningSystemDbContext Create()
         {
             return new InteractiveLearningSystemDbContext();
