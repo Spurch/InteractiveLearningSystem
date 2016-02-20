@@ -1,12 +1,8 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Common.Controllers
 {
-    using Models;
-    using Services;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
+    using Models.Groups;
+    using Services;
 
     public class GroupsPartialController : BaseController
     {
@@ -24,15 +20,8 @@
         public ActionResult GroupSnippetPartial(int groupId)
         {
             var group = groupServices.GetById(groupId);
-            var groupSnippet = new GroupSnippetViewModel
-            {
-                Id = group.Id,
-                Name = group.Name,
-                AvatarUrl = group.AvatarUrl,
-                Points = group.Points,
-                Experience = group.Experience,
-                Level = group.Level,
-            };
+            var groupSnippet = Mapper.Map<GroupSnippetViewModel>(group);
+
             return PartialView("_GroupSnippetPartial", groupSnippet);
         }
     }

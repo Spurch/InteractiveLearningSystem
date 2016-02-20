@@ -1,12 +1,8 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Common.Controllers
 {
-    using Models;
-    using Services;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
+    using Models.Schools;
+    using Services;
 
     public class SchoolsPartialController : BaseController
     {
@@ -23,15 +19,8 @@
         public ActionResult SchoolSnippetPartial(int schoolId)
         {
             var school = schoolServices.GetById(schoolId);
-            var schoolSnippet = new SchoolSnippetViewModel
-            {
-                Id = school.Id,
-                Name = school.Name,
-                AvatarUrl = school.AvatarUrl,
-                Points = school.Points,
-                Experience = school.Experience,
-                Level = school.Level,
-            };
+            var schoolSnippet = Mapper.Map<SchoolSnippetViewModel>(school);
+
             return PartialView("_SchoolSnippetPartial", schoolSnippet);
         }
     }

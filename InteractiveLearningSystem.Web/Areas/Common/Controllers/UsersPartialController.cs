@@ -3,6 +3,7 @@
     using InteractiveLearningSystem.Services;
     using Microsoft.AspNet.Identity;
     using Models;
+    using Models.Users;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -29,15 +30,8 @@
         public ActionResult UserSnippetPartial(string userId)
         {
             var currentUser = userServices.GetById(userId);
-            var userSnippet = new UserSnippetViewModel
-            {
-                Id = currentUser.Id,
-                UserName = currentUser.UserName,
-                AvatarUrl = currentUser.AvatarUrl,
-                Level = currentUser.Level,
-                Experience = currentUser.Experience,
-                Points = currentUser.Points
-            };
+            var userSnippet = Mapper.Map<UserSnippetViewModel>(currentUser);
+
             return PartialView("_UserSnippetPartial", userSnippet);
         }
 
@@ -50,6 +44,12 @@
 
             ViewData["Role"] = roleName;
             return PartialView("_UsersPartial", roles);
+        }
+
+        public ActionResult RolesPartial(string role)
+        {
+            ViewData["Role"] = role;
+            return PartialView("_RolesPartial");
         }
     }
 }

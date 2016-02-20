@@ -30,6 +30,14 @@
 						@Html.Action("UsersPartial", "UsersPartial", new { area = "Common" })
 					</li>
 					@Html.Action("InboxPartial", "InboxPartial", new { area = "Common" })
+					@if (User.IsInRole("Administrator"))
+					{
+						@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Administrator" })
+					}
+					@if (User.IsInRole("Moderator"))
+					{
+						@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Moderator" })
+					}
 				</ul>
 
 				<div class="col-sm-3 col-md-3">

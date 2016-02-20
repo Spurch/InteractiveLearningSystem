@@ -10,7 +10,7 @@
     using Infrastructure.Helpers;
     using Administrator.Models;
     using Infrastructure.Mapping;
-
+    using Administrator.Models.Users;
     public class UserController : BaseController
     {
         public UserController(UserServices userServices, RoleServices roleServices, MessageServices messageServices, UsersFilter usersFilter)
@@ -97,7 +97,7 @@
             return View("Index");
         }
 
-        // GET: Admin/User/Details/5
+        //GET: Admin/User/Details/5
         public ActionResult Details(string id)
         {
             var user = userServices.GetById(id);
