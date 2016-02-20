@@ -265,6 +265,7 @@
     <Compile Include="Areas\Common\Controllers\InboxPartialController.cs" />
     <Compile Include="Areas\Common\Controllers\MessageController.cs" />
     <Compile Include="Areas\Common\Controllers\SchoolsPartialController.cs" />
+    <Compile Include="Areas\Common\Controllers\SearchPartialController.cs" />
     <Compile Include="Areas\Common\Controllers\UserController.cs" />
     <Compile Include="Areas\Common\Controllers\UsersPartialController.cs" />
     <Compile Include="Areas\Common\Models\Base\BaseSnippetViewModel.cs" />
@@ -457,6 +458,7 @@
     <Content Include="Areas\Common\Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Areas\Common\Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Areas\Common\Views\UsersPartial\_RolesPartial.cshtml" />
+    <Content Include="Areas\Common\Views\SearchPartial\_SearchPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
