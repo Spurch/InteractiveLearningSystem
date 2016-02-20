@@ -1,6 +1,8 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Common.Controllers
 {
+    using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
+    using Models.Schools;
     using Services;
     using System.Linq;
     using System.Web.Mvc;
@@ -30,7 +32,7 @@
             var result = schoolServices.GetAll()
                 .Where(x => x.Name.ToLower()
                 .Contains(text.ToLower()))
-                .Select(x => x.Name)
+                .To<SchoolAutoCompleteView>()
                 .ToArray();
 
             return this.Json(result, JsonRequestBehavior.AllowGet);
