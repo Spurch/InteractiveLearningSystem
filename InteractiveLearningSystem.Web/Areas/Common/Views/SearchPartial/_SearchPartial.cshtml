@@ -1,11 +1,23 @@
-﻿<div class="col-sm-3 col-md-3">
-	<form class="navbar-form" role="search">
-		<div class="input-group">
-			<input class="form-control" placeholder="Search" name="q" type="text">
-			<div class="input-group-btn">
-				<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-			</div>
-		</div>
-	</form>
+﻿@using Kendo.Mvc.UI
+
+<div class="col-md-offset-3 col-md-3" style="margin-top: 0.75em;">
+	@(Html.Kendo().AutoComplete()
+		  .Name("schools")
+		  .DataTextField("Name")
+		  .Filter("contains")
+		  .MinLength(3)
+		  .Placeholder("Search schools...")
+		  .DataSource(data =>
+		  {
+			  data
+			  .Read(read =>
+			  {
+				  read.Action("SchoolAutocomplete", "SearchPartial")
+				  .Data("onSchoolAutocompleteData");
+
+			  })
+			  .ServerFiltering(true);
+		  })
+	)
 </div>
 
