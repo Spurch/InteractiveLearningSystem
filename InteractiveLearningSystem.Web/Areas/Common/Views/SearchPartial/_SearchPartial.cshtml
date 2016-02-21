@@ -9,14 +9,14 @@
 		  .MinLength(3)
 		  .HtmlAttributes(new { style = "width:100%" })
 		  .Placeholder(TempData["Placeholder"].ToString())
-		  .Template("<span class=\"k - state - default\"><a href='" + @Url.Action("Details", "School", new { area = Model.First().Name }) + "/#= Id #'" + ">#= Name #</a>")
+		  .Template("<span class=\"k - state - default\"><a href='" + @Url.Action("Details", TempData["SearchFor"].ToString(), new { area = Model.First().Name }) + "/#= Id #'" + ">#= "+ TempData["ViewField"].ToString() +" #</a>")
 		  .DataSource(data =>
 		  {
 			  data
 			  .Read(read =>
 			  {
 				  if (true) {
-					  read.Action("SchoolAutocomplete", "SearchPartial")
+					  read.Action(TempData["Action"].ToString(), "SearchPartial")
 				  .Data("onAutocompleteData");
 				  }
 			  })

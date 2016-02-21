@@ -69,7 +69,7 @@
                 }
                 if (User.IsInRole("Adviser"))
                 {
-                    return RedirectToAction("Index", "Homr", new { area = "Adviser" });
+                    return RedirectToAction("Index", "Home", new { area = "Adviser" });
                 }
                 if (User.IsInRole("Teacher"))
                 {

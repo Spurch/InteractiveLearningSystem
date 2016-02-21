@@ -17,7 +17,7 @@ namespace InteractiveLearningSystem.Web.Areas.Adviser
             context.MapRoute(
                 "Adviser_default",
                 "Adviser/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

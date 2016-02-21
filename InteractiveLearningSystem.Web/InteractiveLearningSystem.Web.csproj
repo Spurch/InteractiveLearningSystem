@@ -270,9 +270,11 @@
     <Compile Include="Areas\Common\Controllers\UserController.cs" />
     <Compile Include="Areas\Common\Controllers\UsersPartialController.cs" />
     <Compile Include="Areas\Common\Models\Base\BaseSnippetViewModel.cs" />
+    <Compile Include="Areas\Common\Models\Groups\GroupAutoCompleteView.cs" />
     <Compile Include="Areas\Common\Models\Groups\GroupViewModels.cs" />
     <Compile Include="Areas\Common\Models\Schools\SchoolAutoCompleteView.cs" />
     <Compile Include="Areas\Common\Models\Schools\SchoolViewModels.cs" />
+    <Compile Include="Areas\Common\Models\Users\UserAutoCompleteView.cs" />
     <Compile Include="Areas\Common\Models\Users\UserSnippetViewModel.cs" />
     <Compile Include="Areas\Moderator\Controllers\BaseController.cs" />
     <Compile Include="Areas\Moderator\Controllers\HomeController.cs" />
