@@ -250,6 +250,7 @@
     <Compile Include="Areas\Administrator\Controllers\MessageController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SchoolController.cs" />
     <Compile Include="Areas\Administrator\Controllers\UserController.cs" />
+    <Compile Include="Areas\Administrator\Models\Users\Advisers\AdviserDetailsAdminView.cs" />
     <Compile Include="Areas\Administrator\Models\Users\Advisers\AdviserDetailsListView.cs" />
     <Compile Include="Areas\Administrator\Models\Users\BaseDetailsListView.cs" />
     <Compile Include="Areas\Administrator\Models\Users\Moderators\ModeratorDetailsAdminView.cs" />
@@ -474,6 +475,7 @@
     <Content Include="Areas\Administrator\Views\Manage\SetPassword.cshtml" />
     <Content Include="Areas\Administrator\Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Areas\Administrator\Views\User\Moderator\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\User\Adviser\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

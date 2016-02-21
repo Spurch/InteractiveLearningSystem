@@ -6,8 +6,8 @@
     using Infrastructure.Mapping;
     using InteractiveLearningSystem.Models;
     using System.ComponentModel.DataAnnotations;
-   
-    public class ModeratorDetailsAdminView : BaseDetailsListView, IMapFrom<User>, IHaveCustomMappings
+
+    public class AdviserDetailsAdminView : BaseDetailsListView, IMapFrom<User>, IHaveCustomMappings
     {
         [Display(Name = "First name")]
         public string FirstName { get; set; }
@@ -52,16 +52,16 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<User, ModeratorDetailsAdminView>()
-                .ForMember(x => x.SchoolName, opt => opt.MapFrom(x => x.Moderator.FirstOrDefault().Name));
+                .ForMember(x => x.SchoolName, opt => opt.MapFrom(x => x.Consultant.FirstOrDefault().Name));
             configuration.CreateMap<User, ModeratorDetailsAdminView>()
-                .ForMember(x => x.SchoolId, opt => opt.MapFrom(x => x.Moderator.FirstOrDefault().Id));
+                .ForMember(x => x.SchoolId, opt => opt.MapFrom(x => x.Consultant.FirstOrDefault().Id));
 
             configuration.CreateMap<User, ModeratorDetailsAdminView>()
-                .ForMember(x => x.SchoolLevel, opt => opt.MapFrom(x => x.Moderator.FirstOrDefault().Level));
+                .ForMember(x => x.SchoolLevel, opt => opt.MapFrom(x => x.Consultant.FirstOrDefault().Level));
             configuration.CreateMap<User, ModeratorDetailsAdminView>()
-                .ForMember(x => x.SchoolPoints, opt => opt.MapFrom(x => x.Moderator.FirstOrDefault().Points));
+                .ForMember(x => x.SchoolPoints, opt => opt.MapFrom(x => x.Consultant.FirstOrDefault().Points));
             configuration.CreateMap<User, ModeratorDetailsAdminView>()
-                .ForMember(x => x.SchoolExperience, opt => opt.MapFrom(x => x.Moderator.FirstOrDefault().Experience));
+                .ForMember(x => x.SchoolExperience, opt => opt.MapFrom(x => x.Consultant.FirstOrDefault().Experience));
         }
     }
 }

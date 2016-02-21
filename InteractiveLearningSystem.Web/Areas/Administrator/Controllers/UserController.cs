@@ -50,10 +50,12 @@
         public ActionResult Details(string id)
         {
             var user = userServices.GetById(id);
+
             if (user == null)
             {
                 throw new ResourceNotFoundException();
             }
+
             var role = roleServices.GetById(user.Roles.First().RoleId);
             if (role.Name == "Moderator")
             {
@@ -62,30 +64,8 @@
             }
             else if (role.Name == "Adviser")
             {
-                var school = user.Consultant.First();
-                var userView = new UserDetailsAdminView
-                {
-                    Id = user.Id,
-                    UserName = user.UserName,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Level = user.Level,
-                    Experience = user.Experience,
-                    Points = user.Points,
-                    FaceBookUrl = user.FaceBookUrl,
-                    GooglePlusUrl = user.GooglePlusUrl,
-                    AvatarUrl = user.AvatarUrl,
-                    GroupName = "",
-                    GroupLevel = 0,
-                    GroupExperience = 0,
-                    GroupPoints = 0,
-                    SchoolId = school.Id,
-                    SchoolName = school.Name,
-                    SchoolExperience = school.Experience,
-                    SchoolLevel = school.Level,
-                    SchoolPoints = school.Points
-                };
-                return View(userView);
+                var userView = Mapper.Map<AdviserDetailsAdminView>(user);
+                return View("Adviser/Details", userView);
             }
             else
             {
