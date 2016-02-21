@@ -11,6 +11,7 @@
     using Administrator.Models;
     using Infrastructure.Mapping;
     using Administrator.Models.Users;
+
     public class UserController : BaseController
     {
         public UserController(UserServices userServices, RoleServices roleServices, MessageServices messageServices, UsersFilter usersFilter)
@@ -101,6 +102,10 @@
         public ActionResult Details(string id)
         {
             var user = userServices.GetById(id);
+            if (user == null)
+            {
+                throw new ResourceNotFoundException();
+            }
             var role = roleServices.GetById(user.Roles.First().RoleId);
             if (role.Name == "Moderator")
             {

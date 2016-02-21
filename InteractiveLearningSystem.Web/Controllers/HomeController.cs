@@ -1,5 +1,6 @@
 ﻿namespace InteractiveLearningSystem.Web.Controllers
 {
+    using Infrastructure.Helpers;
     using System.Web.Mvc;
 
     [Authorize]

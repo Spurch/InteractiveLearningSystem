@@ -8,6 +8,7 @@
     using System.Web.Mvc;
 
     [Authorize]
+    [HandleResourceNotFound]
     public class BaseController : Controller
     {
         [Inject]
