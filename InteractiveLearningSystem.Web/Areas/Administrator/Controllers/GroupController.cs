@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
     using Services;
-
+    using Infrastructure.Helpers;
     public class GroupController : BaseController
     {
         public GroupController(GroupServices groupServices)
@@ -17,8 +17,12 @@
         }
 
         // GET: Admin/Group/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                throw new ResourceNotFoundException();
+            }
             var group = groupServices.GetById(id);
             return View(group);
         }

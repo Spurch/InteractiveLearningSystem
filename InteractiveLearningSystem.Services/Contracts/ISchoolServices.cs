@@ -11,7 +11,7 @@
 
         School Create();
 
-        School GetById(int id);
+        School GetById(int? id);
 
         School GetByName(string name);
 

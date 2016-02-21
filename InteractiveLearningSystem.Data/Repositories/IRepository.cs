@@ -7,7 +7,7 @@
     {
         IQueryable<T> All();
 
-        T GetById(int id);
+        T GetById(int? id);
 
         T GetById(string id);
 

@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
     using InteractiveLearningSystem.Services;
-
+    using Infrastructure.Helpers;
     public class SchoolController : BaseController
     {
         public SchoolController(SchoolServices schoolServices)
@@ -17,8 +17,12 @@
         }
 
         // GET: Admin/School/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                throw new ResourceNotFoundException();
+            }
             var school = schoolServices.GetById(id);
             return View(school);
         }

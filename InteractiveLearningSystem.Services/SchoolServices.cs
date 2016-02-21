@@ -35,7 +35,7 @@
             return schools.All().Where(x => x.Affinity == affinity);
         }
 
-        public School GetById(int id)
+        public School GetById(int? id)
         {
             return schools.GetById(id);
         }
