@@ -8,6 +8,9 @@
     {
         public int Id { get; set; }
 
+        [Display(Name = "Avatar")]
+        public string AvatarUrl { get; set; }
+
         [Display(Name = "Name")]
         public string Name { get; set; }
     }

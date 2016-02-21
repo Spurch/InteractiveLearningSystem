@@ -245,6 +245,7 @@
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\BaseController.cs" />
     <Compile Include="Areas\Administrator\Controllers\GroupController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administrator\Controllers\MessageController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SchoolController.cs" />
     <Compile Include="Areas\Administrator\Controllers\UserController.cs" />
@@ -257,7 +258,7 @@
     <Compile Include="Areas\Administrator\Models\Users\UserListDetailsAdminView.cs" />
     <Compile Include="Areas\Adviser\AdviserAreaRegistration.cs" />
     <Compile Include="Areas\Adviser\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Adviser\Controllers\IndexController.cs" />
+    <Compile Include="Areas\Adviser\Controllers\HomeController.cs" />
     <Compile Include="Areas\Adviser\Controllers\MessageController.cs" />
     <Compile Include="Areas\Common\CommonAreaRegistration.cs" />
     <Compile Include="Areas\Common\Controllers\BaseController.cs" />
@@ -274,10 +275,10 @@
     <Compile Include="Areas\Common\Models\Schools\SchoolViewModels.cs" />
     <Compile Include="Areas\Common\Models\Users\UserSnippetViewModel.cs" />
     <Compile Include="Areas\Moderator\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Moderator\Controllers\IndexController.cs" />
+    <Compile Include="Areas\Moderator\Controllers\HomeController.cs" />
     <Compile Include="Areas\Moderator\ModeratorAreaRegistration.cs" />
-    <Compile Include="Areas\Teacher\Controllers\TeacherBaseController.cs" />
-    <Compile Include="Areas\Teacher\Controllers\IndexController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\HomeController.cs" />
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -384,12 +385,10 @@
     <Content Include="Areas\Administrator\Views\web.config" />
     <Content Include="Areas\Moderator\Views\web.config" />
     <Content Include="Areas\Teacher\Views\web.config" />
-    <Content Include="Areas\Moderator\Views\Index\Index.cshtml" />
+    <Content Include="Areas\Moderator\Views\Home\Index.cshtml" />
     <Content Include="Areas\Adviser\Views\web.config" />
-    <Content Include="Areas\Adviser\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Adviser\Views\Index\Index.cshtml" />
-    <Content Include="Areas\Teacher\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Teacher\Views\Index\Index.cshtml" />
+    <Content Include="Areas\Adviser\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Teacher\Views\Home\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Message\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Message\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Group\Details.cshtml" />
@@ -409,7 +408,7 @@
     <Content Include="Areas\Common\Views\Message\New.cshtml" />
     <Content Include="Areas\Adviser\Views\Message\Details.cshtml" />
     <Content Include="Areas\Adviser\Views\Message\Index.cshtml" />
-    <Content Include="Areas\Adviser\Views\Message\New.cshtml" />
+    <Content Include="Areas\Adviser\Views\Message\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Common\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Common\Views\Shared\_Layout.cshtml" />
@@ -460,6 +459,9 @@
     <Content Include="Areas\Common\Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Areas\Common\Views\UsersPartial\_RolesPartial.cshtml" />
     <Content Include="Areas\Common\Views\SearchPartial\_SearchPartial.cshtml" />
+    <Content Include="Areas\Teacher\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Adviser\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administrator\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -521,13 +523,11 @@
     <Folder Include="Areas\Administrator\Views\Base\" />
     <Folder Include="Areas\Administrator\Views\Shared\" />
     <Folder Include="Areas\Adviser\Models\" />
-    <Folder Include="Areas\Adviser\Views\Base\" />
-    <Folder Include="Areas\Common\Views\Base\" />
+    <Folder Include="Areas\Adviser\Views\Shared\" />
     <Folder Include="Areas\Moderator\Models\" />
-    <Folder Include="Areas\Moderator\Views\Base\" />
     <Folder Include="Areas\Moderator\Views\Shared\" />
     <Folder Include="Areas\Teacher\Models\" />
-    <Folder Include="Areas\Teacher\Views\TeacherBase\" />
+    <Folder Include="Areas\Teacher\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

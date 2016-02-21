@@ -22,8 +22,23 @@
             var id = User.Identity.GetUserId();
             var user = userServices.GetById(id);
             var roles = userServices.GetUserRoles(id);
+            if (roles.Any(x => x.Name == "Administrator"))
+            {
+                TempData["Placeholder"] = "Search schools...";
+            }
+            else if (roles.Any(x => x.Name == "Moderator"))
+            {
+                TempData["Placeholder"] = "Search people...";
+            }else if (roles.Any(x => x.Name == "Teacher"))
+            {
+                TempData["Placeholder"] = "Search students...";
+            }
+            else
+            {
+                TempData["Placeholder"] = "Search groups...";
+            }
 
-            return PartialView("_SearchPartial", roles);
+                return PartialView("_SearchPartial", roles);
         }
 
         [HttpGet]

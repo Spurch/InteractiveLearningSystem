@@ -61,23 +61,23 @@
             {
                 if (User.IsInRole("Administrator"))
                 {
-                    return RedirectToAction("Index", "User", new { area = "Administrator" });
+                    return RedirectToAction("Index", "Home", new { area = "Administrator" });
                 }
                 if (User.IsInRole("Moderator"))
                 {
-                    return RedirectToAction("Index", "Index", new { area = "Moderator" });
+                    return RedirectToAction("Index", "Home", new { area = "Moderator" });
                 }
                 if (User.IsInRole("Adviser"))
                 {
-                    return RedirectToAction("Index", "Index", new { area = "Adviser" });
+                    return RedirectToAction("Index", "Homr", new { area = "Adviser" });
                 }
                 if (User.IsInRole("Teacher"))
                 {
-                    return RedirectToAction("Index", "Index", new { area = "Teacher" });
+                    return RedirectToAction("Index", "Home", new { area = "Teacher" });
                 }
                 if (User.IsInRole("Student"))
                 {
-                    return RedirectToAction("Index", "Index", new { area = "Student" });
+                    return RedirectToAction("Index", "Home", new { area = "Student" });
                 }
             }
             ViewBag.ReturnUrl = returnUrl;

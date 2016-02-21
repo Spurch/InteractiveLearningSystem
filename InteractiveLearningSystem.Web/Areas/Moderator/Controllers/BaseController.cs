@@ -6,5 +6,6 @@
     [RoleAuthorize(Roles = "Moderator")]
     public class BaseController : Controller
     {
+
     }
 }

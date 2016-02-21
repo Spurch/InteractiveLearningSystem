@@ -36,7 +36,15 @@
 					{
 						@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Moderator" })
 					}
-					<li id="search"></li>
+					@if (User.IsInRole("Adviser"))
+					{
+						@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Adviser" })
+					}
+					@if (User.IsInRole("Teacher"))
+					{
+						@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Teacher" })
+					}
+					<li id="search" style="margin-left: 5em; width:20em;"></li>
 				</ul>
 
 
@@ -98,9 +106,9 @@
 			});
 		});
 
-		function onSchoolAutocompleteData() {
+		function onAutocompleteData() {
 			return {
-				text: $("#schools").val()
+				text: $("#autoCompleteData").val()
 			};
 		};
 	</script>
