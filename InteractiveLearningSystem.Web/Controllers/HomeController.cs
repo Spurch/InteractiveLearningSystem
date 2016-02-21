@@ -16,5 +16,11 @@
         {
             return View();
         }
+
+        [AllowAnonymous]
+        public ActionResult Unauthorized()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,35 @@
+﻿@using InteractiveLearningSystem.Web.Infrastructure.Helpers
+@{
+	Layout = null;
+	ViewBag.Title = "Unauthorized";
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - Interactive Learning Systems</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+	<div class="row">
+		<div class="well text-center">
+			<h1>@Constants.UNAUTHORIZED_TITLE</h1>
+		</div>
+	</div>
+	<div class="row text-center">
+		<div class="col-md-offset-2 col-md-8">
+			<div class="well">
+				<h3>@Constants.UNAUTHORIZED_CONTENT</h3>
+			</div>
+		</div>
+	</div>
+	<div class="row text-center">
+		<div class="col-md-offset-4 col-md-4">
+			<img src="@Url.Content(Constants.UNAUTHORIZED)" style="width: 20em; height: 20em;" />
+		</div>
+	</div>
+</body>
+</html>
