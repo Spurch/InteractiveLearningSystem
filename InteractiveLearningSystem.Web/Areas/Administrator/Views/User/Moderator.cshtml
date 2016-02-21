@@ -13,7 +13,7 @@
 		.Columns(columns =>
 		{
 			columns.Bound(col => col.AvatarUrl).ClientTemplate("<img src=#: AvatarUrl # />");
-			columns.Bound(col => col.UserName).ClientTemplate("<a href='" + @Url.Action("Details", "User", new { area="Common"}) + "/#= Id #'" + ">#= UserName #</a>");
+			columns.Bound(col => col.UserName).ClientTemplate("<a href='" + @Url.Action("Details", "User", new { area="Administrator"}) + "/#= Id #'" + ">#= UserName #</a>");
 			columns.Bound(col => col.Email);
 			columns.Bound(col => col.SchoolName).ClientTemplate("<a href='" + @Url.Action("Details", "School", new { area = "Administrator" }) + "/#= SchoolId #'" + ">#= SchoolName #</a>");
 			columns.Bound(col => col.Experience);

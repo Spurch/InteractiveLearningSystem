@@ -9,7 +9,7 @@
     using Models;
     using System.Linq;
     using System.Web.Mvc;
-
+    using Models.Users;
     public class UserController : BaseController
     {
         public UserController(UserServices userServices, RoleServices roleServices, MessageServices messageServices, UsersFilter usersFilter)
@@ -45,6 +45,75 @@
             }
 
             return View();
+        }
+
+        public ActionResult Details(string id)
+        {
+            var user = userServices.GetById(id);
+            if (user == null)
+            {
+                throw new ResourceNotFoundException();
+            }
+            var role = roleServices.GetById(user.Roles.First().RoleId);
+            if (role.Name == "Moderator")
+            {
+                var userView = Mapper.Map<ModeratorDetailsAdminView>(user);
+                return View("Moderator/Details", userView);
+            }
+            else if (role.Name == "Adviser")
+            {
+                var school = user.Consultant.First();
+                var userView = new UserDetailsAdminView
+                {
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Level = user.Level,
+                    Experience = user.Experience,
+                    Points = user.Points,
+                    FaceBookUrl = user.FaceBookUrl,
+                    GooglePlusUrl = user.GooglePlusUrl,
+                    AvatarUrl = user.AvatarUrl,
+                    GroupName = "",
+                    GroupLevel = 0,
+                    GroupExperience = 0,
+                    GroupPoints = 0,
+                    SchoolId = school.Id,
+                    SchoolName = school.Name,
+                    SchoolExperience = school.Experience,
+                    SchoolLevel = school.Level,
+                    SchoolPoints = school.Points
+                };
+                return View(userView);
+            }
+            else
+            {
+                var userView = new UserDetailsAdminView
+                {
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Level = user.Level,
+                    Experience = user.Experience,
+                    Points = user.Points,
+                    FaceBookUrl = user.FaceBookUrl,
+                    GooglePlusUrl = user.GooglePlusUrl,
+                    AvatarUrl = user.AvatarUrl,
+                    GroupId = user.GroupId,
+                    GroupName = user.Group.Name,
+                    GroupLevel = user.Group.Level,
+                    GroupExperience = user.Group.Experience,
+                    GroupPoints = user.Group.Points,
+                    SchoolId = user.Group.SchoolId,
+                    SchoolName = user.Group.School.Name,
+                    SchoolExperience = user.Group.School.Experience,
+                    SchoolLevel = user.Group.School.Level,
+                    SchoolPoints = user.Group.School.Points
+                };
+                return View(userView);
+            }
         }
 
         public ActionResult Moderator()
