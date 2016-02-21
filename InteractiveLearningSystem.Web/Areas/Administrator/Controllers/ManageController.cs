@@ -1,4 +1,4 @@
-﻿namespace InteractiveLearningSystem.Web.Controllers
+﻿namespace InteractiveLearningSystem.Web.Areas.Administrator.Controllers
 {
     using System;
     using System.Linq;
@@ -9,7 +9,7 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
     using InteractiveLearningSystem.Models;
-
+    using Web.Controllers;
     [Authorize(Roles = "Administrator")]
     public class ManageController : Controller
     {

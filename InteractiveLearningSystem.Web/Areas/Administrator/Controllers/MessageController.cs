@@ -1,4 +1,4 @@
-﻿namespace InteractiveLearningSystem.Web.Areas.Admin.Controllers
+﻿namespace InteractiveLearningSystem.Web.Areas.Administrator.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;

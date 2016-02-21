@@ -1,6 +1,5 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Administrator.Controllers
 {
-    using Admin.Controllers;
     using Infrastructure.Helpers;
     using Infrastructure.Mapping;
     using Services;
