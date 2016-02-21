@@ -21,6 +21,7 @@
         [Display(Name = "Google+")]
         public string GooglePlusUrl { get; set; }
 
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Notes")]
         public string Notes { get; set; }
 

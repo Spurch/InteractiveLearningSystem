@@ -164,5 +164,12 @@
             }
             return View("Index");
         }
+
+        [HttpPost]
+        public ActionResult UpdateNotes(string id, string notes)
+        {
+            userServices.UpdateNotes(id, notes);   
+            return this.Json(notes, JsonRequestBehavior.AllowGet);
+        }
     }
 }

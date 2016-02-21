@@ -1,9 +1,11 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Administrator.Models
 {
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
     public class BaseDetailsListView
     {
+        [HiddenInput(DisplayValue = false)]
         public string Id { get; set; }
 
         [Display(Name = "Username")]

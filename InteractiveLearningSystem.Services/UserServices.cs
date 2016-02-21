@@ -87,5 +87,12 @@
 
             return rolesList.AsQueryable();
         }
+
+        public void UpdateNotes(string id, string notes)
+        {
+            var user = users.GetById(id);
+            user.Notes = notes;
+            users.SaveChanges();
+        }
     }
 }

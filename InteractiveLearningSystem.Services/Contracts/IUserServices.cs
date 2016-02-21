@@ -16,6 +16,8 @@
 
         void Update(string id);
 
+        void UpdateNotes(string id, string notes);
+
         void DeleteId(int id);
     }
 }

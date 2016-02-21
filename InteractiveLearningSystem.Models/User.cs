@@ -56,7 +56,6 @@
         [Display(Name = "Avatar")]
         public string AvatarUrl { get; set; }
 
-        [MinLength(2)]
         [MaxLength(1000)]
         [Display(Name = "Notes")]
         public string Notes { get; set; }

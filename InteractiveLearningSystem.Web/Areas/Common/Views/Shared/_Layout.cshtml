@@ -111,6 +111,25 @@
 				text: $("#autoCompleteData").val()
 			};
 		};
+
+		function updateUserNotes() {
+			var userId = $('#test').text();
+			var newNotes = $('#user-notes').val();
+			$.ajax({
+				url: '/Administrator/User/UpdateNotes',
+				type: 'POST',
+				data: {
+					id: userId,
+					notes: newNotes
+				},
+				success: function (data) {
+					$('#user-notes').text = data;
+				},
+				error: function () {
+					$('#error-message').append("Error occured while processing your query!");
+				}
+			});
+		};
 	</script>
 
 	@RenderSection("scripts", required: false)
