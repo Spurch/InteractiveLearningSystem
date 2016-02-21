@@ -14,7 +14,12 @@ namespace InteractiveLearningSystem.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-
+            routes.MapRoute(
+                name: "About",
+                url: "Home/About",
+                defaults: new { controller = "Home", action = "About"},
+                namespaces: new[] { "InteractiveLearningSystem.Web.Controllers" }
+                );
 
             routes.MapRoute(
                 name: "Default",
