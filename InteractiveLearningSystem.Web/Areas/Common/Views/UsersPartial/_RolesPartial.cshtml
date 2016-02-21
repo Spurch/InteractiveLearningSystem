@@ -1,15 +1,23 @@
 ﻿@switch (@ViewData["Role"].ToString())
 {
 	case "Administrator":
-		<li><a href="@Url.Action("Index", "Schools", new { area = @ViewData["Role"] })">Schools</a></li>
+		<a href="@Url.Action("Index", "Schools", new { area = @ViewData["Role"] })" data-toggle="tooltip" data-placement="bottom" title="Browse schools...">
+			Schools
+		</a>
 		break;
 	case "Moderator":
-		<li><a href="@Url.Action("Index", "Groups", new { area = @ViewData["Role"] })">Groups</a></li>
+		<a href="@Url.Action("Index", "Groups", new { area = @ViewData["Role"] })" data-toggle="tooltip" data-placement="bottom" title="Browse groups...">
+			Groups
+		</a>
 		break;
 	case "Adviser":
-		<li><a href="@Url.Action("Index", "Groups", new { area = @ViewData["Role"] })">Groups</a></li>
+		<a href="@Url.Action("Index", "Groups", new { area = @ViewData["Role"] })" data-toggle="tooltip" data-placement="bottom" title="Browse groups...">
+			Groups
+		</a>
 		break;
 	case "Teacher":
-		<li><a href="@Url.Action("Index", "Groups", new { area = @ViewData["Role"] })">Groups</a></li>
+		<a href="@Url.Action("Index", "Groups", new { area = @ViewData["Role"] })" data-toggle="tooltip" data-placement="bottom" title="Browse groups...">
+			Groups
+		</a>
 		break;
 }

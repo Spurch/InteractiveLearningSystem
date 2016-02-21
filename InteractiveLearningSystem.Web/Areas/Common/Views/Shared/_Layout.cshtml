@@ -25,26 +25,28 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li id="home"></li>
-					<li class="dropdown" id="users"></li>
-					<li class="dropdown" id="messages"></li>
-					@if (User.IsInRole("Administrator"))
-					{
-						@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Administrator" })
-					}
-					@if (User.IsInRole("Moderator"))
-					{
-						@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Moderator" })
-					}
-					@if (User.IsInRole("Adviser"))
-					{
-						@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Adviser" })
-					}
-					@if (User.IsInRole("Teacher"))
-					{
-						@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Teacher" })
-					}
-					<li id="search" style="margin-left: 5em; width:20em;"></li>
+					<li id="home" data-toggle="tooltip" data-placement="bottom" title="Go to Dashboard"></li>
+					<li class="dropdown" id="users" data-toggle="tooltip" data-placement="bottom" title="Manage users"></li>
+					<li class="dropdown" id="messages" data-toggle="tooltip" data-placement="bottom" title="Browse messages"></li>
+					<li>
+						@if (User.IsInRole("Administrator"))
+						{
+							@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Administrator" })
+						}
+						@if (User.IsInRole("Moderator"))
+						{
+							@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Moderator" })
+						}
+						@if (User.IsInRole("Adviser"))
+						{
+							@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Adviser" })
+						}
+						@if (User.IsInRole("Teacher"))
+						{
+							@Html.Action("RolesPartial", "UsersPartial", new { area = "Common", role = "Teacher" })
+						}
+					</li>
+					<li id="search" style="margin-left: 5em; width:20em;" data-toggle="tooltip" data-placement="bottom" title="Search the system..."></li>
 				</ul>
 
 
@@ -55,7 +57,7 @@
 						@Html.AntiForgeryToken()
 
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="javascript:document.getElementById('logoutForm').submit()">Log off <span class="glyphicon glyphicon-off"></span></a></li>
+							<li><a href="javascript:document.getElementById('logoutForm').submit()" data-toggle="tooltip" data-placement="bottom" title="Log off">Log off <span class="glyphicon glyphicon-off"></span></a></li>
 						</ul>
 					}
 				}

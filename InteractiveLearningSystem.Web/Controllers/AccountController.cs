@@ -105,19 +105,19 @@
                     var roles = await UserManager.GetRolesAsync(user.Id);
                     if (roles.Contains("Administrator"))
                     {
-                        return RedirectToAction("Index", "User", new { area = "Administrator" });
+                        return RedirectToAction("Index", "Home", new { area = "Administrator" });
                     }
                     else if (roles.Contains("Moderator"))
                     {
-                        return RedirectToAction("Index", "Index", new { area = "Moderator" });
+                        return RedirectToAction("Index", "Home", new { area = "Moderator" });
                     }
                     else if (roles.Contains("Adviser"))
                     {
-                        return RedirectToAction("Index", "Index", new { area = "Adviser" });
+                        return RedirectToAction("Index", "Home", new { area = "Adviser" });
                     }
                     else if (roles.Contains("Teacher"))
                     {
-                        return RedirectToAction("Index", "Index", new { area = "Teacher" });
+                        return RedirectToAction("Index", "Home", new { area = "Teacher" });
                     }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
