@@ -28,6 +28,7 @@
 
         public int? GroupId { get; set; }
 
+        [Display(Name = "Clan")]
         public string GroupName { get; set; }
     }
 }

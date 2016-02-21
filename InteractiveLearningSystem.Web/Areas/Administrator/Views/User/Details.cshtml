@@ -1,9 +1,7 @@
-﻿@model InteractiveLearningSystem.Models.UserDetailsAdminView
+﻿@model InteractiveLearningSystem.Web.Areas.Administrator.Models.Users.UserDetailsAdminView
 
 @{
-	ViewBag.Title = "User Details";
-	//Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Adviser Details";
 }
 
 <div class="row well text-center">
@@ -11,6 +9,7 @@
 </div>
 <div class="row">
 	<div class="col-md-3">
+		<div id="test" hidden="hidden">@Model.Id</div>
 		@Html.Action("UserSnippetPartial", "UsersPartial", new { area = "Common", userId = Model.Id })
 	</div>
 	<div class="col-md-offset-1 col-md-8 well">
@@ -87,8 +86,37 @@
 			<fieldset class="scheduler-border">
 				<legend class="scheduler-border">@Html.DisplayNameFor(model => model.Notes)</legend>
 				<div class="row">
+					<div id="error-message"></div>
 					<div class="col-md-12">
-						@Html.DisplayFor(model => model.Notes)
+						@Html.TextAreaFor(model => model.Notes, new { id = "user-notes", @class = "text-box-custom" })
+					</div>
+					<br />
+					<div class="container">
+						<!-- Trigger the modal with a button -->
+						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Save Notes</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" role="dialog">
+							<div class="modal-dialog">
+
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">User note confirmation</h4>
+									</div>
+									<div class="modal-body">
+										<p>Save notes for user?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-success" onclick="updateUserNotes()" data-dismiss="modal">Save</button>
+										<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</fieldset>

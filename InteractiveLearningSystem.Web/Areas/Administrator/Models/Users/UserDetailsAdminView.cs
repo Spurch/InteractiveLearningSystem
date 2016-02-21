@@ -6,7 +6,7 @@
     using AutoMapper;
     using System;
 
-    public class UserDetailsAdminView : BaseDetailsListView, IMapFrom<User>
+    public class UserDetailsAdminView : BaseDetailsListView, IMapFrom<User>, IHaveCustomMappings
     {
         [Display(Name = "First name")]
         public string FirstName { get; set; }
@@ -45,5 +45,31 @@
         public string SchoolName { get; set; }
 
         public int? SchoolId { get; set; }
+
+        public void CreateMappings(IMapperConfiguration configuration)
+        {
+            configuration.CreateMap<User, UserDetailsAdminView>()
+                .ForMember(x => x.SchoolName, opt => opt.MapFrom(x => x.Group.School.Name));
+            configuration.CreateMap<User, UserDetailsAdminView>()
+                .ForMember(x => x.SchoolId, opt => opt.MapFrom(x => x.Group.School.Id));
+            configuration.CreateMap<User, UserDetailsAdminView>()
+                .ForMember(x => x.GroupName, opt => opt.MapFrom(x => x.Group.Name));
+            configuration.CreateMap<User, UserDetailsAdminView>()
+                .ForMember(x => x.GroupId, opt => opt.MapFrom(x => x.Group.Id));
+
+            configuration.CreateMap<User, UserDetailsAdminView>()
+                .ForMember(x => x.SchoolLevel, opt => opt.MapFrom(x => x.Group.School.Level));
+            configuration.CreateMap<User, UserDetailsAdminView>()
+                .ForMember(x => x.SchoolPoints, opt => opt.MapFrom(x => x.Group.School.Points));
+            configuration.CreateMap<User, UserDetailsAdminView>()
+                .ForMember(x => x.SchoolExperience, opt => opt.MapFrom(x => x.Group.School.Experience));
+
+            configuration.CreateMap<User, UserDetailsAdminView>()
+                .ForMember(x => x.GroupLevel, opt => opt.MapFrom(x => x.Group.Level));
+            configuration.CreateMap<User, UserDetailsAdminView>()
+                .ForMember(x => x.GroupPoints, opt => opt.MapFrom(x => x.Group.Points));
+            configuration.CreateMap<User, UserDetailsAdminView>()
+                .ForMember(x => x.GroupExperience, opt => opt.MapFrom(x => x.Group.Experience));
+        }
     }
 }

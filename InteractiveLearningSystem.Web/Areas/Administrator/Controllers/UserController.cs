@@ -69,29 +69,7 @@
             }
             else
             {
-                var userView = new UserDetailsAdminView
-                {
-                    Id = user.Id,
-                    UserName = user.UserName,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Level = user.Level,
-                    Experience = user.Experience,
-                    Points = user.Points,
-                    FaceBookUrl = user.FaceBookUrl,
-                    GooglePlusUrl = user.GooglePlusUrl,
-                    AvatarUrl = user.AvatarUrl,
-                    GroupId = user.GroupId,
-                    GroupName = user.Group.Name,
-                    GroupLevel = user.Group.Level,
-                    GroupExperience = user.Group.Experience,
-                    GroupPoints = user.Group.Points,
-                    SchoolId = user.Group.SchoolId,
-                    SchoolName = user.Group.School.Name,
-                    SchoolExperience = user.Group.School.Experience,
-                    SchoolLevel = user.Group.School.Level,
-                    SchoolPoints = user.Group.School.Points
-                };
+                var userView = Mapper.Map<UserDetailsAdminView>(user);
                 return View(userView);
             }
         }
