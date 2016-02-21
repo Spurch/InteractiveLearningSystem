@@ -17,7 +17,7 @@
             context.MapRoute(
                 "Moderator_default",
                 "Moderator/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
