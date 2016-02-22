@@ -5,7 +5,7 @@
     using Data.Repositories;
     using InteractiveLearningSystem.Services.Contracts;
     using Models;
-
+    using System.Threading.Tasks;
     public class MessageServices : IMessageServices
     {
         private IRepository<Message> messages;
@@ -20,7 +20,7 @@
             return messages.GetById(id);
         }
 
-        public Message Create(string sender, string receiver, string title, string content, string flag, string notes)
+        public async Task<Message> Create(string sender, string receiver, string title, string content, string flag, string notes)
         {
             var message = new Message()
             {
@@ -36,7 +36,7 @@
             };
             messages.Add(message);
 
-            messages.SaveChanges();
+            await messages.SaveChangesAsync();
 
             return message;
         }

@@ -4,10 +4,12 @@
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using InteractiveLearningSystem.Models;
-
+    using System.Threading.Tasks;
     public interface IInteractiveLearningSystemDbContext : IDisposable
     {
         int SaveChanges();
+
+        Task<int> SaveChangesAsync();
 
         IDbSet<User> Users { get; set; }
 

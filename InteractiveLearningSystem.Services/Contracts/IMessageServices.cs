@@ -2,14 +2,14 @@
 {
     using System.Linq;
     using Models;
-
+    using System.Threading.Tasks;
     public interface IMessageServices
     {
         IQueryable<Message> GetAll();
 
         Message GetById(int id);
 
-        Message Create(string sender, string receiver, string title, string content, string flag, string notes);
+        Task<Message> Create(string sender, string receiver, string title, string content, string flag, string notes);
 
         void Update(int id);
 

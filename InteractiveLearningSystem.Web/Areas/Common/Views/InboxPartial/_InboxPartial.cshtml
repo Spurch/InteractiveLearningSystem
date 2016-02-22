@@ -6,6 +6,7 @@
 <ul class="dropdown-menu">
 	<li><a href="@Url.Action("Index", "Message", new { area= "Common", status=false })">Inbox(@ViewData["NewMessages"])</a></li>
 	<li><a href="@Url.Action("Index", "Message", new { area= "Common", status=true })">Read</a></li>
+	<li><a href="@Url.Action("OutboxIndex", "Message", new { area= "Common", status=true })">Outbox</a></li>
 	<li class="divider" role="separator"></li>
 	<li><a href="@Url.Action("Create", "Message", new { area= "Common"})"><span class="glyphicon glyphicon-pencil"></span> New Message</a></li>
 </ul>

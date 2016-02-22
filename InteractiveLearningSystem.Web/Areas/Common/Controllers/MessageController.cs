@@ -1,39 +1,21 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Common.Controllers
 {
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
-    using Services;
     using Models;
     using Services.Contracts;
-    using AutoMapper;
-    using Infrastructure.Mapping;
-    public class MessageController : Controller
+
+    public class MessageController : BaseController
     {
         private static bool lastStatus;
 
-        private IMessageServices messageServices;
-        private IUserServices userServices;
-
-        protected IMapper Mapper
+        public MessageController(IMessageServices messageServices, IUserServices userServices, IRoleServices roleServices)
+            : base(userServices, messageServices, roleServices)
         {
-            get
-            {
-                return AutoMapperConfig.Configuration.CreateMapper();
-            }
+
         }
-
-        public MessageController(IUserServices userServices, IMessageServices messageServices)
-        {
-            this.userServices = userServices;
-            this.messageServices = messageServices;
-        }
-
-        //public MessageController(IMessageServices messageServices, IUserServices userServices, IRoleServices roleServices)
-        //    :base(userServices, messageServices, roleServices)
-        //{
-
-        //}
 
         public ActionResult Index(bool status = false)
         {
@@ -64,7 +46,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(MessageCreateViewModel message)
+        public async Task<ActionResult> Create(MessageCreateViewModel message)
         {
             if (!ModelState.IsValid)
             {
@@ -80,7 +62,7 @@
                 return View(message);
             }
 
-            var newMessage = messageServices.Create(sender, receiver.Id, message.Title, message.Content, message.Flag, message.Notes);
+            var newMessage = await messageServices.Create(sender, receiver.Id, message.Title, message.Content, message.Flag, message.Notes);
 
             return RedirectToAction("Index", "Message", new { status = false});
         }

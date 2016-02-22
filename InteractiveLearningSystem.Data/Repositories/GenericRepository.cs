@@ -4,7 +4,7 @@
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Linq;
-
+    using System.Threading.Tasks;
     public class GenericRepository<T> : IRepository<T> where T : class
     {
         public GenericRepository(IInteractiveLearningSystemDbContext context)
@@ -39,15 +39,15 @@
 
         public virtual void Add(T entity)
         {
-            //DbEntityEntry entry = this.Context.Entry(entity);
-            //if (entry.State != EntityState.Detached)
-            //{
-            //    entry.State = EntityState.Added;
-            //}
-            //else
-            //{
+            DbEntityEntry entry = this.Context.Entry(entity);
+            if (entry.State != EntityState.Detached)
+            {
+                entry.State = EntityState.Added;
+            }
+            else
+            {
                 this.DbSet.Add(entity);
-           // }
+            }
         }
 
         public virtual void Update(T entity)
@@ -91,6 +91,12 @@
 
             entry.State = EntityState.Detached;
         }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return this.Context.SaveChangesAsync();
+        }
+
 
         public int SaveChanges()
         {
