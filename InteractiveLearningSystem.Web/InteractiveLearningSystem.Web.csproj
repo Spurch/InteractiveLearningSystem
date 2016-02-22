@@ -250,6 +250,7 @@
     <Compile Include="Areas\Administrator\Controllers\MessageController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SchoolController.cs" />
     <Compile Include="Areas\Administrator\Controllers\UserController.cs" />
+    <Compile Include="Areas\Administrator\Models\Schools\SchoolDetailsAdminListView.cs" />
     <Compile Include="Areas\Administrator\Models\Users\Advisers\AdviserDetailsAdminView.cs" />
     <Compile Include="Areas\Administrator\Models\Users\Advisers\AdviserDetailsListView.cs" />
     <Compile Include="Areas\Administrator\Models\Users\BaseDetailsListView.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="Areas\Common\Models\Base\BaseSnippetViewModel.cs" />
     <Compile Include="Areas\Common\Models\Groups\GroupAutoCompleteView.cs" />
     <Compile Include="Areas\Common\Models\Groups\GroupViewModels.cs" />
+    <Compile Include="Areas\Common\Models\MessageCreateViewModel.cs" />
     <Compile Include="Areas\Common\Models\Schools\SchoolAutoCompleteView.cs" />
     <Compile Include="Areas\Common\Models\Schools\SchoolSnippetViewModel.cs" />
     <Compile Include="Areas\Common\Models\Users\UserAutoCompleteView.cs" />
@@ -399,7 +401,6 @@
     <Content Include="Areas\Administrator\Views\Message\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Group\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\School\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Message\New.cshtml" />
     <Content Include="Areas\Common\Views\web.config" />
     <Content Include="Areas\Common\Views\InboxPartial\_InboxPartial.cshtml" />
     <Content Include="Areas\Common\Views\UsersPartial\_UsersPartial.cshtml" />
@@ -411,7 +412,7 @@
     <Content Include="Areas\Common\Views\GroupsPartial\_GroupSnippetPartial.cshtml" />
     <Content Include="Areas\Common\Views\Message\Details.cshtml" />
     <Content Include="Areas\Common\Views\Message\Index.cshtml" />
-    <Content Include="Areas\Common\Views\Message\New.cshtml" />
+    <Content Include="Areas\Common\Views\Message\Create.cshtml" />
     <Content Include="Areas\Adviser\Views\Message\Details.cshtml" />
     <Content Include="Areas\Adviser\Views\Message\Index.cshtml" />
     <Content Include="Areas\Adviser\Views\Message\Create.cshtml" />
@@ -476,6 +477,7 @@
     <Content Include="Areas\Administrator\Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Areas\Administrator\Views\User\Moderator\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\User\Adviser\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\School\SchoolGridView.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -528,7 +530,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrator\Models\Groups\" />
-    <Folder Include="Areas\Administrator\Models\Schools\" />
     <Folder Include="Areas\Administrator\Views\Base\" />
     <Folder Include="Areas\Administrator\Views\Shared\" />
     <Folder Include="Areas\Adviser\Models\" />

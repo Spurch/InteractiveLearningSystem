@@ -7,5 +7,5 @@
 	<li><a href="@Url.Action("Index", "Message", new { area= @ViewData["Area"], status=false })">Inbox(@ViewData["NewMessages"])</a></li>
 	<li><a href="@Url.Action("Index", "Message", new { area= @ViewData["Area"], status=true })">Read</a></li>
 	<li class="divider" role="separator"></li>
-	<li><a href="@Url.Action("Create", "Message", new { area= @ViewData["Area"]})"><span class="glyphicon glyphicon-pencil"></span> New Message</a></li>
+	<li><a href="@Url.Action("Create", "Message", new { area= "Common"})"><span class="glyphicon glyphicon-pencil"></span> New Message</a></li>
 </ul>

@@ -1,7 +1,7 @@
 ﻿@switch (@ViewData["Role"].ToString())
 {
 	case "Administrator":
-		<a href="@Url.Action("Index", "Schools", new { area = @ViewData["Role"] })" data-toggle="tooltip" data-placement="bottom" title="Browse schools...">
+		<a href="@Url.Action("SchoolGridView", "School", new { area = "Administrator" })" data-toggle="tooltip" data-placement="bottom" title="Browse schools...">
 			Schools
 		</a>
 		break;

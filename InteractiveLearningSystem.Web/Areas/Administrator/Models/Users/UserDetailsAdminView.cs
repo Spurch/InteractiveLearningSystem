@@ -8,6 +8,9 @@
 
     public class UserDetailsAdminView : BaseDetailsListView, IMapFrom<User>, IHaveCustomMappings
     {
+        [Display(Name = "Mobile")]
+        public string PhoneNumber { get; set; }
+
         [Display(Name = "First name")]
         public string FirstName { get; set; }
 

@@ -3,6 +3,10 @@
     using System.Web.Mvc;
     using InteractiveLearningSystem.Services;
     using Infrastructure.Helpers;
+    using Kendo.Mvc.UI;
+    using Models.Schools;
+    using Infrastructure.Mapping;
+    using Kendo.Mvc.Extensions;
     public class SchoolController : BaseController
     {
         public SchoolController(SchoolServices schoolServices)
@@ -14,6 +18,20 @@
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult SchoolGridView()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Read([DataSourceRequest]DataSourceRequest request)
+        {
+            var schools = schoolServices.GetAll();
+            var result = schools.To<SchoolDetailsAdminListView>()
+                .ToDataSourceResult(request);
+            return this.Json(result);
         }
 
         // GET: Admin/School/Details/5

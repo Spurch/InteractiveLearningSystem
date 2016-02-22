@@ -6,14 +6,15 @@
     using Ninject;
     using Services;
     using Services.Contracts;
-
+    using Models;
     public class MessageController : BaseController
     {
         private static bool lastStatus;
 
-        public MessageController(MessageServices messageServices)
+        public MessageController(MessageServices messageServices, UserServices userServices)
         {
             this.messageServices = messageServices;
+            this.userServices = userServices;
         }
 
         // GET: Admin/Message
@@ -41,18 +42,15 @@
         }
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(MessageCreateViewModel message)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                return View(message);
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View(message);
         }
 
         public ActionResult Edit(int id)

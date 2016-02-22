@@ -84,6 +84,22 @@
 		<hr />
 		<div class="row">
 			<fieldset class="scheduler-border">
+				<legend class="scheduler-border">Additional Information</legend>
+				<div class="row">
+					<div class="col-md-6">
+						@Html.DisplayNameFor(model => model.Email)
+						@Html.DisplayFor(model => model.Email)
+					</div>
+					<div class="col-md-6">
+						@Html.DisplayNameFor(model => model.PhoneNumber)
+						@Html.DisplayFor(model => model.PhoneNumber)
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<hr />
+		<div class="row">
+			<fieldset class="scheduler-border">
 				<legend class="scheduler-border">@Html.DisplayNameFor(model => model.Notes)</legend>
 				<div class="row">
 					<div id="error-message"></div>
