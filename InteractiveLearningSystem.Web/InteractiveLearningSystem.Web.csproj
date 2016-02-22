@@ -293,6 +293,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Helpers\Constants.cs" />
+    <Compile Include="Infrastructure\Helpers\EmailSimilarityChecker.cs" />
     <Compile Include="Infrastructure\Helpers\GameDetailsEvaluationHelper.cs" />
     <Compile Include="Infrastructure\Helpers\HandleResourceNotFoundAttribute.cs" />
     <Compile Include="Infrastructure\Helpers\IUsersFilter.cs" />

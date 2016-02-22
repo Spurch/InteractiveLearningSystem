@@ -1,15 +1,13 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Common.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+    using Infrastructure.Helpers;
     using Infrastructure.Mapping;
     using InteractiveLearningSystem.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
 
+    [EmailSimilarityChecker("ReceiverEmail", "SenderEmail", ErrorMessage = "Sender and Receiver email addresses cannot be the same!")]
     public class MessageCreateViewModel : IMapFrom<Message>
     {
         [MinLength(1)]
@@ -34,16 +32,19 @@
         [DataType(DataType.MultilineText)]
         public string Notes { get; set; }
 
+        [Display(Name = "Sender e-mail")]
+        [DataType(DataType.EmailAddress)]
+        [HiddenInput(DisplayValue = false)]
+        public string SenderEmail { get; set; }
+
         [Display(Name = "Sender")]
         public virtual User Sender { get; set; }
 
-        [ForeignKey("Receiver")]
         [Display(Name = "Receiver e-mail")]
         [DataType(DataType.EmailAddress)]
         public string ReceiverEmail { get; set; }
 
         [Display(Name = "Receiver")]
         public virtual User Receiver { get; set; }
-
     }
 }

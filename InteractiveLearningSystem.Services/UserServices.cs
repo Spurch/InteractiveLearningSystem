@@ -94,5 +94,10 @@
             user.Notes = notes;
             users.SaveChanges();
         }
+
+        public User GetByEmail(string email)
+        {
+            return users.All().Where(x => x.Email == email).FirstOrDefault();
+        }
     }
 }

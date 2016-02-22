@@ -7,6 +7,8 @@
     using Services;
     using Services.Contracts;
     using Models;
+    using InteractiveLearningSystem.Models;
+    using System;
     public class MessageController : BaseController
     {
         private static bool lastStatus;
@@ -23,7 +25,7 @@
             lastStatus = status;
             var id = User.Identity.GetUserId();
             var messages = from n in messageServices.GetAll()
-                           where n.Receiver.Id == id && n.isViewed == status
+                           where n.Receiver.Id == id && n.isViewed == status && n.isDeleted == false
                            select n;
             return View(messages);
         }
@@ -38,6 +40,8 @@
 
         public ActionResult Create()
         {
+            var senderEmail = userServices.GetById(User.Identity.GetUserId()).Email;
+            TempData["Sender"] = senderEmail;
             return View();
         }
 
@@ -49,7 +53,11 @@
             {
                 return View(message);
             }
+            var receiver = userServices.GetByEmail(message.ReceiverEmail);
+            var sender = userServices.GetById(User.Identity.GetUserId());
 
+            messageServices.Create(sender.Id, receiver.Id, message.Title, message.Content, message.Flag, message.Notes);
+            
             return View(message);
         }
 

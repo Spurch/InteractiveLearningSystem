@@ -20,17 +20,19 @@
             return messages.GetById(id);
         }
 
-        public Message Create(string title, string content, string flag, string notes)
+        public Message Create(string sender, string receiver, string title, string content, string flag, string notes)
         {
             var message = new Message()
             {
+                SenderId = sender,
+                ReceiverId = receiver,
                 Title = title,
                 Content = content,
                 Flag = flag,
                 Notes = notes,
                 isDeleted = false,
                 isViewed = false,
-                DateCreated = DateTime.Now
+                DateCreated = DateTime.UtcNow
             };
 
             messages.Add(message);

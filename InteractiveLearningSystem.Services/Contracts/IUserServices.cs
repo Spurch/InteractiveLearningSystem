@@ -10,6 +10,8 @@
 
         IQueryable<IdentityRole> GetUserRoles(string id);
 
+        User GetByEmail(string email);
+
         User GetById(string id);
 
         User Create(string name);

@@ -9,7 +9,7 @@
 
         Message GetById(int id);
 
-        Message Create(string title, string content, string flag, string notes);
+        Message Create(string sender, string receiver, string title, string content, string flag, string notes);
 
         void Update(int id);
 
