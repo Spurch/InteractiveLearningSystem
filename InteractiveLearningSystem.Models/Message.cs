@@ -9,11 +9,11 @@
 
         public int Id { get; set; }
 
-        [MinLength(10)]
+        [MinLength(1)]
         [MaxLength(100)]
         public string Title { get; set; }
 
-        [MinLength(10)]
+        [MinLength(1)]
         [MaxLength(2000)]
         public string Content { get; set; }
 
@@ -27,7 +27,7 @@
 
         public bool isDeleted { get; set; }
 
-        [MinLength(10)]
+        [MinLength(1)]
         [MaxLength(100)]
         [Display(Name = "Notes")]
         public string Notes { get; set; }

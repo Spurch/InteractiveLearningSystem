@@ -37,14 +37,8 @@
         [HiddenInput(DisplayValue = false)]
         public string SenderEmail { get; set; }
 
-        [Display(Name = "Sender")]
-        public virtual User Sender { get; set; }
-
         [Display(Name = "Receiver e-mail")]
         [DataType(DataType.EmailAddress)]
         public string ReceiverEmail { get; set; }
-
-        [Display(Name = "Receiver")]
-        public virtual User Receiver { get; set; }
     }
 }

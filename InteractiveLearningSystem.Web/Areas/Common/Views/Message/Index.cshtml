@@ -2,7 +2,6 @@
 
 @{
 	ViewBag.Title = "Messages";
-	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="well text-center">
@@ -38,7 +37,7 @@
 				</td>
 				<td class="pull-right">
 					<a href="@Url.Action("Respond", "Index", new { id=item.Id })" class="btn btn-success">Respond</a>
-					<a href="@Url.Action("Delete", "Index", new { id=item.Id })" class="btn btn-danger">Delete</a>
+					<a href="@Url.Action("Delete", "Message", new {area = "Common", id=item.Id })" class="btn btn-danger">Delete</a>
 				</td>
 			</tr>
 		}

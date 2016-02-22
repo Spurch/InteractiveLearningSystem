@@ -14,8 +14,8 @@
         public EmailSimilarityChecker(string originalProperty, string confirmProperty)
             : base(_defaultErrorMessage)
         {
-            OriginalProperty = originalProperty;
-            ConfirmProperty = confirmProperty;
+            OriginalProperty = originalProperty.Trim();
+            ConfirmProperty = confirmProperty.Trim();
         }
 
         public string ConfirmProperty

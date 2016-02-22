@@ -53,12 +53,19 @@
             {
                 return View(message);
             }
+
             var receiver = userServices.GetByEmail(message.ReceiverEmail);
             var sender = userServices.GetById(User.Identity.GetUserId());
 
+            if(receiver == sender)
+            {
+                ModelState.AddModelError("ReceiverEmail", "You cannot send e-mail to yourself!");
+                return View(message);
+            }
+            
             messageServices.Create(sender.Id, receiver.Id, message.Title, message.Content, message.Flag, message.Notes);
             
-            return View(message);
+            return Redirect("/");
         }
 
         public ActionResult Edit(int id)
