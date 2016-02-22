@@ -19,7 +19,7 @@
         {
             var id = User.Identity.GetUserId();
             var messageCount = (from n in messageServices.GetAll()
-                                where n.Receiver.Id == id && n.isViewed == false
+                                where n.Receiver.Id == id && n.isViewed == false && n.isDeleted == false
                                 select n).Count();
             var user = userServices.GetById(id);
             var role = roleServices.GetById(user.Roles.First().RoleId).Name;

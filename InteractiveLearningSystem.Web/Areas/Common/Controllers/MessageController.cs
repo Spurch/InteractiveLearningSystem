@@ -3,12 +3,9 @@
     using System.Linq;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
-    using Ninject;
     using Services;
-    using Services.Contracts;
     using Models;
-    using InteractiveLearningSystem.Models;
-    using System;
+
     public class MessageController : BaseController
     {
         private static bool lastStatus;
@@ -19,8 +16,7 @@
             this.userServices = userServices;
         }
 
-        // GET: Admin/Message
-        public ActionResult Index(bool status)
+        public ActionResult Index(bool status = false)
         {
             lastStatus = status;
             var id = User.Identity.GetUserId();
@@ -57,55 +53,21 @@
             var receiver = userServices.GetByEmail(message.ReceiverEmail);
             var sender = userServices.GetById(User.Identity.GetUserId());
 
-            if(receiver == sender)
+            if (receiver == sender)
             {
                 ModelState.AddModelError("ReceiverEmail", "You cannot send e-mail to yourself!");
                 return View(message);
             }
-            
+
             messageServices.Create(sender.Id, receiver.Id, message.Title, message.Content, message.Flag, message.Notes);
-            
+
             return Redirect("/");
-        }
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            messageServices.DeleteId(id);
+            return Redirect("/");
         }
     }
 }
