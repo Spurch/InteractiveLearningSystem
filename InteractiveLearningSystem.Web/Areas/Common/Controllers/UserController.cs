@@ -11,14 +11,12 @@
     using Administrator.Models;
     using Infrastructure.Mapping;
     using Administrator.Models.Users;
-
+    using Services.Contracts;
     public class UserController : BaseController
     {
-        public UserController(UserServices userServices, RoleServices roleServices, MessageServices messageServices, UsersFilter usersFilter)
+        public UserController(IUserServices userServices, IRoleServices roleServices, IMessageServices messageServices, UsersFilter usersFilter)
+            :base(userServices, messageServices, roleServices)
         {
-            this.roleServices = roleServices;
-            this.userServices = userServices;
-            this.messageServices = messageServices;
             this.usersFilter = usersFilter;
         }
 

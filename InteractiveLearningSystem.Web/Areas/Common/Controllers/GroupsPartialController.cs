@@ -3,15 +3,13 @@
     using System.Web.Mvc;
     using Models.Groups;
     using Services;
-
+    using Services.Contracts;
     public class GroupsPartialController : BaseController
     {
-        public GroupsPartialController(MessageServices messageServices, RoleServices roleServices,
-            UserServices userServices, SchoolServices schoolServices, GroupServices groupServices)
+        public GroupsPartialController(IMessageServices messageServices, IRoleServices roleServices,
+            IUserServices userServices, SchoolServices schoolServices, GroupServices groupServices)
+            :base(userServices, messageServices, roleServices)
         {
-            this.userServices = userServices;
-            this.messageServices = messageServices;
-            this.roleServices = roleServices;
             this.schoolServices = schoolServices;
             this.groupServices = groupServices;
         }

@@ -277,6 +277,7 @@
     <Compile Include="Areas\Common\Models\Groups\GroupAutoCompleteView.cs" />
     <Compile Include="Areas\Common\Models\Groups\GroupViewModels.cs" />
     <Compile Include="Areas\Common\Models\MessageCreateViewModel.cs" />
+    <Compile Include="Areas\Common\Models\MessageDetailsViewModel.cs" />
     <Compile Include="Areas\Common\Models\Schools\SchoolAutoCompleteView.cs" />
     <Compile Include="Areas\Common\Models\Schools\SchoolSnippetViewModel.cs" />
     <Compile Include="Areas\Common\Models\Users\UserAutoCompleteView.cs" />

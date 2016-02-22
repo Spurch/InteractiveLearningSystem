@@ -4,16 +4,16 @@
     using Microsoft.AspNet.Identity;
     using Models.Schools;
     using Services;
+    using Services.Contracts;
     using System.Linq;
     using System.Web.Mvc;
 
     public class SearchPartialController : BaseController
     {
-        public SearchPartialController(RoleServices roleServices,
-            UserServices userServices, SchoolServices schoolServices, GroupServices groupServices)
+        public SearchPartialController(IRoleServices roleServices,
+            IUserServices userServices, SchoolServices schoolServices, GroupServices groupServices, IMessageServices messageServices)
+            :base(userServices, messageServices, roleServices)
         {
-            this.userServices = userServices;
-            this.roleServices = roleServices;
             this.schoolServices = schoolServices;
             this.groupServices = groupServices;
         }

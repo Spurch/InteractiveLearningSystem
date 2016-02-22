@@ -1,4 +1,4 @@
-﻿@model InteractiveLearningSystem.Models.Message
+﻿@model InteractiveLearningSystem.Web.Areas.Common.Models.MessageDetailsViewModel
 
 @{
 	ViewBag.Title = "Details";
@@ -27,7 +27,7 @@
 		</div>
 		<div class="col-md-4">
 			<label for="sender">Sender</label>
-			<a href="@Url.Action("Details", "User", new { id = Model.SenderId })" id="sender">@Html.DisplayFor(model => model.Sender.FirstName)</a>
+			<a href="@Url.Action("Details", "User", new { id = Model.Sender.Id })" id="sender">@Html.DisplayFor(model => model.Sender.UserName)</a>
 		</div>
 		<div class="col-md-4">
 			<label for="date">@Html.DisplayNameFor(model => model.DateCreated)</label>
@@ -48,9 +48,12 @@
 			<label for="flags">@Html.DisplayNameFor(model => model.Flag)</label>
 			<p id="flags">@Html.DisplayFor(model => model.Flag)</p>
 		</div>
-		<div class="col-md-4">
-			<label for="flags">@Html.DisplayNameFor(model => model.Notes)</label>
-			<p id="flags">@Html.DisplayFor(model => model.Notes)</p>
-		</div>
+		@if (ViewData["User"].ToString().Equals(Model.Sender.Id))
+		{
+			<div class="col-md-4">
+				<label for="flags">@Html.DisplayNameFor(model => model.Notes)</label>
+				<p id="flags">@Html.DisplayFor(model => model.Notes)</p>
+			</div>
+		}
 	</div>
 </div>

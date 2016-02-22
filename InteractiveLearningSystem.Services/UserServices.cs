@@ -11,14 +11,14 @@
     public class UserServices : IUserServices
     {
         private IRepository<User> users;
-        private IRepository<IdentityRole> roles;
+        private IRoleServices roles;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="users"></param>
         /// <param name="roles"></param>
-        public UserServices(IRepository<User> users, IRepository<IdentityRole> roles)
+        public UserServices(IRepository<User> users, IRoleServices roles)
         {
             this.roles = roles;
             this.users = users;

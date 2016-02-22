@@ -39,15 +39,15 @@
 
         public virtual void Add(T entity)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
-            if (entry.State != EntityState.Detached)
-            {
-                entry.State = EntityState.Added;
-            }
-            else
-            {
+            //DbEntityEntry entry = this.Context.Entry(entity);
+            //if (entry.State != EntityState.Detached)
+            //{
+            //    entry.State = EntityState.Added;
+            //}
+            //else
+            //{
                 this.DbSet.Add(entity);
-            }
+           // }
         }
 
         public virtual void Update(T entity)

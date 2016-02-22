@@ -4,17 +4,16 @@
     using Microsoft.AspNet.Identity;
     using Models;
     using Models.Users;
+    using Services.Contracts;
     using System.Linq;
     using System.Web.Mvc;
 
     public class UsersPartialController : BaseController
     {
-        public UsersPartialController(MessageServices messageServices, RoleServices roleServices,
-            UserServices userServices)
+        public UsersPartialController(IMessageServices messageServices, IRoleServices roleServices,
+            IUserServices userServices)
+            :base(userServices, messageServices, roleServices)
         {
-            this.userServices = userServices;
-            this.messageServices = messageServices;
-            this.roleServices = roleServices;
         }
 
         public ActionResult HomePartial()

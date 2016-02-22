@@ -5,16 +5,35 @@
     using Microsoft.AspNet.Identity;
     using Services;
     using Models;
-
-    public class MessageController : BaseController
+    using Services.Contracts;
+    using AutoMapper;
+    using Infrastructure.Mapping;
+    public class MessageController : Controller
     {
         private static bool lastStatus;
 
-        public MessageController(MessageServices messageServices, UserServices userServices)
+        private IMessageServices messageServices;
+        private IUserServices userServices;
+
+        protected IMapper Mapper
         {
-            this.messageServices = messageServices;
-            this.userServices = userServices;
+            get
+            {
+                return AutoMapperConfig.Configuration.CreateMapper();
+            }
         }
+
+        public MessageController(IUserServices userServices, IMessageServices messageServices)
+        {
+            this.userServices = userServices;
+            this.messageServices = messageServices;
+        }
+
+        //public MessageController(IMessageServices messageServices, IUserServices userServices, IRoleServices roleServices)
+        //    :base(userServices, messageServices, roleServices)
+        //{
+
+        //}
 
         public ActionResult Index(bool status = false)
         {
@@ -28,10 +47,12 @@
 
         public ActionResult Details(int id)
         {
+            var userId = User.Identity.GetUserId();
             ViewData["Status"] = lastStatus;
+            ViewData["User"] = userId; 
             messageServices.UpdateViewedState(id, true);
-
-            return View(messageServices.GetById(id));
+            var viewResult = Mapper.Map<MessageDetailsViewModel>(messageServices.GetById(id));
+            return View(viewResult);
         }
 
         public ActionResult Create()
@@ -51,23 +72,23 @@
             }
 
             var receiver = userServices.GetByEmail(message.ReceiverEmail);
-            var sender = userServices.GetById(User.Identity.GetUserId());
+            var sender = User.Identity.GetUserId();
 
-            if (receiver == sender)
+            if (receiver.Id == sender)
             {
                 ModelState.AddModelError("ReceiverEmail", "You cannot send e-mail to yourself!");
                 return View(message);
             }
 
-            messageServices.Create(sender.Id, receiver.Id, message.Title, message.Content, message.Flag, message.Notes);
+            var newMessage = messageServices.Create(sender, receiver.Id, message.Title, message.Content, message.Flag, message.Notes);
 
-            return Redirect("/");
+            return RedirectToAction("Index", "Message", new { status = false});
         }
 
         public ActionResult Delete(int id)
         {
             messageServices.DeleteId(id);
-            return Redirect("/");
+            return RedirectToAction("Index", "Message", new { status = false });
         }
     }
 }

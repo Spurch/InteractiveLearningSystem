@@ -34,7 +34,6 @@
                 isViewed = false,
                 DateCreated = DateTime.UtcNow
             };
-
             messages.Add(message);
 
             messages.SaveChanges();
@@ -55,7 +54,8 @@
 
         public void Update(int id)
         {
-            throw new NotImplementedException();
+            var message = messages.GetById(id);
+            messages.SaveChanges();
         }
 
         public void UpdateViewedState(int id, bool state)

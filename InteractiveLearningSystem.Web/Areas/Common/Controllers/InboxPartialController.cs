@@ -4,15 +4,13 @@
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Services;
-
+    using Services.Contracts;
     public class InboxPartialController : BaseController
     {
-        public InboxPartialController(MessageServices messageServices, RoleServices roleServices,
-            UserServices userServices)
+        public InboxPartialController(IMessageServices messageServices, IRoleServices roleServices,
+            IUserServices userServices)
+            :base(userServices, messageServices, roleServices)
         {
-            this.messageServices = messageServices;
-            this.roleServices = roleServices;
-            this.userServices = userServices;
         }
 
         public ActionResult InboxPartial()

@@ -11,6 +11,13 @@
     [HandleResourceNotFound]
     public class BaseController : Controller
     {
+        public BaseController(IUserServices userServices, IMessageServices messageServices, IRoleServices roleServices)
+        {
+            this.userServices = userServices;
+            this.messageServices = messageServices;
+            this.roleServices = roleServices;
+        }
+
         [Inject]
         protected IMessageServices messageServices;
         [Inject]

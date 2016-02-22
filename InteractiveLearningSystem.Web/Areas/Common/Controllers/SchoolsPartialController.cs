@@ -3,15 +3,14 @@
     using System.Web.Mvc;
     using Models.Schools;
     using Services;
+    using Services.Contracts;
 
     public class SchoolsPartialController : BaseController
     {
-        public SchoolsPartialController(MessageServices messageServices, RoleServices roleServices,
-            UserServices userServices, SchoolServices schoolServices)
+        public SchoolsPartialController(IMessageServices messageServices, IRoleServices roleServices,
+            IUserServices userServices, SchoolServices schoolServices)
+            :base(userServices, messageServices, roleServices)
         {
-            this.userServices = userServices;
-            this.messageServices = messageServices;
-            this.roleServices = roleServices;
             this.schoolServices = schoolServices;
         }
         
