@@ -480,6 +480,7 @@
     <Content Include="Areas\Administrator\Views\User\Moderator\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\User\Adviser\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\School\SchoolGridView.cshtml" />
+    <Content Include="Areas\Common\Views\Message\OutboxIndex.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

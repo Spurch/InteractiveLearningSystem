@@ -11,8 +11,15 @@
 		</div>
 		<div class="col-md-6">
 			<p class="pull-right">
-				<a href="@Url.Action("Index", "Message",new { status = ViewData["Status"]})" class="btn btn-primary">Back</a>
-				<a href="@Url.Action("Respond", "Index", new { id= Model.Id })" class="btn btn-success">Respond</a>
+				@if (ViewData["User"].ToString().Equals(Model.Sender.Id))
+				{
+					<a href="@Url.Action("OutboxIndex", "Message")" class="btn btn-primary">Back</a>
+				}
+				else
+				{
+					<a href="@Url.Action("Index", "Message",new { status = ViewData["Status"]})" class="btn btn-primary">Back</a>
+					<a href="@Url.Action("Respond", "Index", new { id = Model.Id })" class="btn btn-success">Respond</a>
+				}
 			</p>
 		</div>
 	</div>

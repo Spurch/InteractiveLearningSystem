@@ -27,6 +27,15 @@
             return View(messages);
         }
 
+        public ActionResult OutboxIndex()
+        {
+            var id = User.Identity.GetUserId();
+            var messages = from n in messageServices.GetAll()
+                           where n.Sender.Id == id
+                           select n;
+            return View(messages);
+        }
+
         public ActionResult Details(int id)
         {
             var userId = User.Identity.GetUserId();
