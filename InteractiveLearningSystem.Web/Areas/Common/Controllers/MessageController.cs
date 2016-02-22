@@ -64,13 +64,13 @@
 
             var newMessage = await messageServices.Create(sender, receiver.Id, message.Title, message.Content, message.Flag, message.Notes);
 
-            return RedirectToAction("Index", "Message", new { status = false});
+            return RedirectToAction("Index", "Message", new { status = lastStatus });
         }
 
         public ActionResult Delete(int id)
         {
             messageServices.DeleteId(id);
-            return RedirectToAction("Index", "Message", new { status = false });
+            return RedirectToAction("Index", "Message", new { status = lastStatus });
         }
     }
 }
