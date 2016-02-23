@@ -63,7 +63,7 @@ namespace InteractiveLearningSystem.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(typeof(IInteractiveLearningSystemDbContext)).To(typeof(InteractiveLearningSystemDbContext));
+            kernel.Bind(typeof(IInteractiveLearningSystemDbContext)).To(typeof(InteractiveLearningSystemDbContext)).InRequestScope();
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             kernel.Bind<IUsersFilter>().To<UsersFilter>();
 

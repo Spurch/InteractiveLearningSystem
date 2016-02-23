@@ -109,6 +109,40 @@
 			});
 		});
 
+		function loadAdviser(mod) {
+			var id = mod;
+			$.ajax({
+				url: '/Common/UsersPartial/UserSnippetPartial',
+				type: 'GET',
+				data: {
+					userId: id
+				},
+				success: function (data) {
+					$('#adviser-tab').html(data);
+				},
+				error: function () {
+					$('#error-message').append("Error occured while processing your query!");
+				}
+			});
+		};
+
+		function loadModerator(mod) {
+			var id = mod;
+			$.ajax({
+				url: '/Common/UsersPartial/UserSnippetPartial',
+				type: 'GET',
+				data: {
+					userId: id
+				},
+				success: function (data) {
+					$('#moderator-tab').html(data);
+				},
+				error: function () {
+					$('#error-message').append("Error occured while processing your query!");
+				}
+			});
+		};
+
 		function onAutocompleteData() {
 			return {
 				text: $("#autoCompleteData").val()

@@ -251,6 +251,7 @@
     <Compile Include="Areas\Administrator\Controllers\SchoolController.cs" />
     <Compile Include="Areas\Administrator\Controllers\UserController.cs" />
     <Compile Include="Areas\Administrator\Models\Schools\SchoolDetailsAdminListView.cs" />
+    <Compile Include="Areas\Administrator\Models\Schools\SchoolDetailsAdminView.cs" />
     <Compile Include="Areas\Administrator\Models\Users\Advisers\AdviserDetailsAdminView.cs" />
     <Compile Include="Areas\Administrator\Models\Users\Advisers\AdviserDetailsListView.cs" />
     <Compile Include="Areas\Administrator\Models\Users\BaseDetailsListView.cs" />

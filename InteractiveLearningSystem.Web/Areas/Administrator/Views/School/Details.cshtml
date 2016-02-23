@@ -1,5 +1,5 @@
-﻿@model InteractiveLearningSystem.Models.School
-@{
+﻿@model InteractiveLearningSystem.Web.Areas.Administrator.Models.Schools.SchoolDetailsAdminView
+@{ 
 	ViewBag.Title = "School Details";
 }
 <div class="row">
@@ -57,12 +57,26 @@
 		@Html.Action("SchoolSnippetPartial", "SchoolsPartial", new { area = "Common", schoolId = Model.Id })
 	</div>
 	<div class="col-md-offset-1 col-md-8 well">
-		<div class="col-md-6">
+		<ul class="nav nav-tabs">
+			<li role="presentation" class="active"><a href="#details" data-toggle="tab">Details</a></li>
+			<li role="presentation"><a href="#moderator-tab" data-toggle="tab" onclick="loadModerator('@Html.Raw(HttpUtility.JavaScriptStringEncode((string)TempData["Moderator"]))')">Moderator</a></li>
+			<li role="presentation"><a href="#adviser-tab" data-toggle="tab"onclick="loadAdviser('@Html.Raw(HttpUtility.JavaScriptStringEncode((string)TempData["Adviser"]))')">Adviser</a></li>
+		</ul>
+		<div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
+			<div class="tab-pane active" id="details">
+				<p>Placeholder 1</p>
+			</div>
+			<div class="tab-pane" id="moderator-tab">
+			</div>
+			<div class="tab-pane" id="adviser-tab">
+			</div>
+		</div>
+		@*<div class="col-md-6">
 			@Html.Action("UserSnippetPartial", "UsersPartial", new { area = "Common", userId = Model.Moderator.Id })
 		</div>
 		<div class="col-md-6">
 			@Html.Action("UserSnippetPartial", "UsersPartial", new { area = "Common", userId = Model.Consultant.Id })
-		</div>
+		</div>*@
 	</div>
 </div>
 <div class="row">

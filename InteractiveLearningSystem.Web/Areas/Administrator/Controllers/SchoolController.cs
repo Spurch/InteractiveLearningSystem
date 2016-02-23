@@ -1,5 +1,6 @@
 ﻿namespace InteractiveLearningSystem.Web.Areas.Administrator.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
     using InteractiveLearningSystem.Services;
     using Infrastructure.Helpers;
@@ -41,7 +42,9 @@
             {
                 throw new ResourceNotFoundException();
             }
-            var school = schoolServices.GetById(id);
+            var school = Mapper.Map<SchoolDetailsAdminView>(schoolServices.GetById(id));
+            TempData["Moderator"] = school.Moderator.Id;
+            TempData["Adviser"] = school.Consultant.Id;
             return View(school);
         }
 

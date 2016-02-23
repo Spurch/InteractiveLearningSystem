@@ -18,7 +18,7 @@
         [MinLength(1)]
         [MaxLength(2000)]
         [Display(Name = "Content")]
-        [DataType(DataType.MultilineText)]
+        //[DataType(DataType.MultilineText)]
         public string Content { get; set; }
 
         [Display(Name = "Date")]
@@ -34,6 +34,9 @@
 
         [Display(Name = "Sender")]
         public User Sender { get; set; }
+
+        [Display(Name = "Receiver")]
+        public User Receiver { get; set; }
 
         [Display(Name = "Sender e-mail")]
         [DataType(DataType.EmailAddress)]
