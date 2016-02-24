@@ -17,7 +17,7 @@ namespace InteractiveLearningSystem.Web
             routes.MapRoute(
                 name: "About",
                 url: "Home/About",
-                defaults: new { controller = "Home", action = "About"},
+                defaults: new { controller = "Home", action = "About" },
                 namespaces: new[] { "InteractiveLearningSystem.Web.Controllers" }
                 );
 
@@ -32,6 +32,13 @@ namespace InteractiveLearningSystem.Web
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "404-PageNotFound",
+                url: "{*url}",
+                defaults: new { controller = "Home", action = "PageNotFound" },
+                namespaces: new[] { "InteractiveLearningSystem.Web.Controllers" }
             );
         }
     }

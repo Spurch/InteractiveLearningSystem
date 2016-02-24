@@ -124,6 +124,7 @@
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult UpdateNotes(string id, string notes)
         {
             userServices.UpdateNotes(id, notes);   

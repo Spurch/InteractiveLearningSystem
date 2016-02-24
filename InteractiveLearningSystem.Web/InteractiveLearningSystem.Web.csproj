@@ -44,8 +44,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.9.4.42449, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.9.4\lib\net45\AngleSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CsQuery, Version=1.3.3.249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlSanitizer, Version=3.0.0.0, Culture=neutral, PublicKeyToken=61c49a1a9e79cc28, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlSanitizer.3.1.93\lib\net45\HtmlSanitizer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Kendo.Mvc">
@@ -298,6 +310,8 @@
     <Compile Include="Infrastructure\Helpers\EmailSimilarityChecker.cs" />
     <Compile Include="Infrastructure\Helpers\GameDetailsEvaluationHelper.cs" />
     <Compile Include="Infrastructure\Helpers\HandleResourceNotFoundAttribute.cs" />
+    <Compile Include="Infrastructure\Helpers\HtmlSanitizerAdapter.cs" />
+    <Compile Include="Infrastructure\Helpers\ISanitizer.cs" />
     <Compile Include="Infrastructure\Helpers\IUsersFilter.cs" />
     <Compile Include="Infrastructure\Helpers\ResourceNotFoundException.cs" />
     <Compile Include="Infrastructure\Helpers\UsersFilter.cs" />
