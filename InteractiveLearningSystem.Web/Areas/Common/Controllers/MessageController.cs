@@ -6,7 +6,7 @@
     using Microsoft.AspNet.Identity;
     using Models;
     using Services.Contracts;
-
+    using Infrastructure.Helpers;
     public class MessageController : BaseController
     {
         private static bool lastStatus;
@@ -36,8 +36,13 @@
             return View(messages);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                throw new ResourceNotFoundException();
+            }
+
             var userId = User.Identity.GetUserId();
             ViewData["Status"] = lastStatus;
             ViewData["User"] = userId; 

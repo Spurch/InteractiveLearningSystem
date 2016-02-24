@@ -67,11 +67,18 @@
                 var userView = Mapper.Map<AdviserDetailsAdminView>(user);
                 return View("Adviser/Details", userView);
             }
-            else
+            else if (role.Name == "Student")
             {
                 var userView = Mapper.Map<UserDetailsAdminView>(user);
                 return View(userView);
             }
+            else if (role.Name == "Teacher")
+            {
+                var userView = Mapper.Map<UserDetailsAdminView>(user);
+                return View(userView);
+            }
+
+            return View();
         }
 
         public ActionResult Moderator()

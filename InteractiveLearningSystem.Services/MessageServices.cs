@@ -15,7 +15,7 @@
             this.messages = messages;
         }
 
-        public Message GetById(int id)
+        public Message GetById(int? id)
         {
             return messages.GetById(id);
         }
@@ -58,7 +58,7 @@
             messages.SaveChanges();
         }
 
-        public void UpdateViewedState(int id, bool state)
+        public void UpdateViewedState(int? id, bool state)
         {
             messages.GetById(id).isViewed = state;
             messages.SaveChanges();
