@@ -3,7 +3,7 @@
 ## Current status
   - Ongoing development.
   - Database models - currently stable with some ideas for future changes.
-    - DB Diagram [here]().
+    - DB Diagram ![alt tag](https://raw.githubusercontent.com/Spurch/InteractiveLearningSystem/master/docs/dbSchema.jpg).
   - Administration panel and functionalities under development - 70/80% ready :)
   - Some common/shared functionalities ready.
   - Database filtration based on user role&id ready.
